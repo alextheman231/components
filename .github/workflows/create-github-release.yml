@@ -11,7 +11,7 @@ permissions:
 jobs:
   create-github-release:
     if: ${{ github.repository == 'alextheman231/components' }}
-    uses: alextheman231/github-actions/.github/workflows/create-github-release.yml@40d4eac5a7058957e6fe46cafe068d92eade73d8 # v7.0.1
+    uses: alextheman231/github-actions/.github/workflows/create-github-release.yml@eb296c1a513aa2df5b108b2d39c89ba2cb0bb4ca # v8.0.1
     secrets:
       APP_ID: ${{ secrets.ALEX_UP_BOT_APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
