@@ -7,6 +7,11 @@ settings:
 overrides:
   tsdown: <0.19.0
 
+patchedDependencies:
+  eslint-plugin-react:
+    hash: 85ef9602f9497c5fc3908fb47ab767ac8f860e635b43405c0ac0ae4ef0fc9a92
+    path: patches/eslint-plugin-react.patch
+
 importers:
 
   .:
@@ -23,7 +28,7 @@ importers:
     devDependencies:
       '@alextheman/eslint-plugin':
         specifier: ^5.7.0
-        version: 5.7.0(4ead7fa8893c80d6fa6c606db40dc22e)
+        version: 5.7.0(1c1895795fd294cd44a60b957ea366ed)
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.2.14)(react@19.2.4)
@@ -3537,7 +3542,7 @@ packages:
 
 snapshots:
 
-  '@alextheman/eslint-plugin@5.7.0(4ead7fa8893c80d6fa6c606db40dc22e)':
+  '@alextheman/eslint-plugin@5.7.0(1c1895795fd294cd44a60b957ea366ed)':
     dependencies:
       '@alextheman/utility': 4.15.0
       '@eslint/compat': 2.0.2(eslint@10.0.0)
@@ -3555,7 +3560,7 @@ snapshots:
       eslint-plugin-package-json: 0.85.0(@types/estree@1.0.8)(eslint@10.0.0)(jsonc-eslint-parser@2.4.2)
       eslint-plugin-perfectionist: 5.1.0(eslint@10.0.0)(typescript@5.9.3)
       eslint-plugin-prettier: 5.5.4(eslint-config-prettier@10.1.8(eslint@10.0.0))(eslint@10.0.0)(prettier@3.8.1)
-      eslint-plugin-react: 7.37.5(eslint@10.0.0)
+      eslint-plugin-react: 7.37.5(patch_hash=85ef9602f9497c5fc3908fb47ab767ac8f860e635b43405c0ac0ae4ef0fc9a92)(eslint@10.0.0)
       eslint-plugin-react-hooks: 7.0.1(eslint@10.0.0)
       eslint-plugin-react-refresh: 0.4.26(eslint@10.0.0)
       prettier: 3.8.1
@@ -5385,7 +5390,7 @@ snapshots:
     dependencies:
       eslint: 10.0.0
 
-  eslint-plugin-react@7.37.5(eslint@10.0.0):
+  eslint-plugin-react@7.37.5(patch_hash=85ef9602f9497c5fc3908fb47ab767ac8f860e635b43405c0ac0ae4ef0fc9a92)(eslint@10.0.0):
     dependencies:
       array-includes: 3.1.9
       array.prototype.findlast: 1.2.5
