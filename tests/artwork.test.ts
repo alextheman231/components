@@ -1,14 +1,17 @@
-import { test, expect } from "@playwright/test";
-import { temporaryDirectoryTask } from "tempy";
-import { execa } from "execa";
-import getExpectedTgzName from "./helpers/getExpectedTgzName";
-import getPackageJsonContents from "tests/helpers/getPackageJsonContents";
 import { DataError, normaliseIndents } from "@alextheman/utility";
-import getPackageJsonPath from "tests/helpers/getPackageJsonPath";
+import { expect, test } from "@playwright/test";
+import { execa } from "execa";
+import { temporaryDirectoryTask } from "tempy";
+
 import { mkdir, writeFile } from "node:fs/promises";
-import componentsPackageInfo from "package.json" with { type: "json" };
 import path from "node:path";
+
 import getDependenciesFromGroup from "tests/helpers/getDependenciesFromGroup";
+import getExpectedTgzName from "tests/helpers/getExpectedTgzName";
+import getPackageJsonContents from "tests/helpers/getPackageJsonContents";
+import getPackageJsonPath from "tests/helpers/getPackageJsonPath";
+
+import componentsPackageInfo from "package.json" with { type: "json" };
 
 function packageJsonNotFoundError(packagePath: string) {
   return new DataError(

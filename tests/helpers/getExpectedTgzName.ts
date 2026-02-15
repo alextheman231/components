@@ -1,8 +1,8 @@
 import { DataError, parseZodSchema } from "@alextheman/utility";
 import { execa } from "execa";
+import z from "zod";
 
 import parseJsonFromStdout from "tests/helpers/parseJSONFromStdout";
-import z from "zod";
 
 async function getExpectedTgzName(
   packagePath: string,
