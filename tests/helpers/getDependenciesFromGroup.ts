@@ -1,4 +1,6 @@
-import { CreateEnumType, parseZodSchema } from "@alextheman/utility";
+import type { CreateEnumType } from "@alextheman/utility";
+
+import { parseZodSchema } from "@alextheman/utility";
 import z from "zod";
 
 export const DependencyGroup = {
