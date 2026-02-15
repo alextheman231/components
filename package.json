@@ -48,7 +48,8 @@
     "use-local-eslint-plugin": "pnpm run prepare-local-eslint-plugin && pnpm run lint",
     "use-local-utility": "pnpm run prepare-local-utility",
     "test": "playwright test",
-    "test-update-snapshots": "playwright test --update-snapshots"
+    "test-update-snapshots": "playwright test --update-snapshots",
+    "test-update-ci-snapshots": "docker run --rm -it -v \"$PWD\":/work -v \"$HOME/.pnpm-store\":/pnpm-store -w /work mcr.microsoft.com/playwright:v1.58.2-jammy bash -lc \"npm i -g pnpm@10.29.3 && pnpm config set store-dir /pnpm-store && pnpm install && pnpm test-update-snapshots\""
   },
   "dependencies": {
     "@alextheman/utility": "^4.15.0",

@@ -8,6 +8,7 @@ storybook-static
 
 alextheman-components-*
 .DS_Store
+.pnpm-store
 
 # Playwright
 /test-results/
