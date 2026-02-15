@@ -1,3 +1,4 @@
+export { default as Artwork } from "src/components/Artwork";
 export { default as CollapsableItem } from "src/components/CollapsableItem";
 export { default as DarkModeToggle } from "src/components/DarkModeToggle";
 export { default as DropdownMenu } from "src/components/DropdownMenu";
