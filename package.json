@@ -52,7 +52,7 @@
     "test-update-ci-snapshots": "docker run --rm -it -v \"$PWD\":/work -v \"$HOME/.pnpm-store\":/pnpm-store -w /work mcr.microsoft.com/playwright:v1.58.2-jammy bash -lc \"npm i -g pnpm@10.29.3 && pnpm config set store-dir /pnpm-store && pnpm install && pnpm test-update-snapshots\""
   },
   "dependencies": {
-    "@alextheman/utility": "^4.15.0",
+    "@alextheman/utility": "^5.1.0",
     "common-tags": "^1.8.2",
     "react-live": "^4.1.8",
     "zod": "^4.3.6"
