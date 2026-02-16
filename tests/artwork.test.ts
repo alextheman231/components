@@ -1,15 +1,14 @@
-import { DataError, normaliseIndents } from "@alextheman/utility";
+import { DataError, getDependenciesFromGroup, normaliseIndents } from "@alextheman/utility";
+import {
+  getPackageJsonContents,
+  getPackageJsonPath,
+  setupPackageEndToEnd,
+} from "@alextheman/utility/internal";
 import { expect, test } from "@playwright/test";
-import { execa } from "execa";
 import { temporaryDirectoryTask } from "tempy";
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
 import path from "node:path";
-
-import getDependenciesFromGroup from "tests/helpers/getDependenciesFromGroup";
-import getExpectedTgzName from "tests/helpers/getExpectedTgzName";
-import getPackageJsonContents from "tests/helpers/getPackageJsonContents";
-import getPackageJsonPath from "tests/helpers/getPackageJsonPath";
 
 import componentsPackageInfo from "package.json" with { type: "json" };
 
@@ -21,106 +20,96 @@ function packageJsonNotFoundError(packagePath: string) {
   );
 }
 
-test("Can access and render the exported artwork", async ({ page }) => {
-  await temporaryDirectoryTask(async (temporaryPath) => {
-    await execa`pnpm pack --pack-destination ${temporaryPath}`;
-    const tgzFileName = await getExpectedTgzName(process.cwd(), "pnpm");
-    const runCommandInTempDirectory = execa({ cwd: temporaryPath });
+test.describe("Artwork", () => {
+  test("Can access and render the exported artwork", async ({ page }) => {
+    await temporaryDirectoryTask(async (temporaryPath) => {
+      const runCommandInTempDirectory = await setupPackageEndToEnd(temporaryPath, "pnpm", "module");
 
-    await runCommandInTempDirectory`pnpm init`;
+      const {
+        react: reactVersionComponents,
+        "react-dom": reactDomVersionComponents,
+        "@mui/material": materialUiVersionComponents,
+        "@mui/icons-material": materialUiIconsVersionComponents,
+        "@emotion/styled": emotionStyledVersionComponents,
+        "@emotion/react": emotionReactVersionComponents,
+      } = getDependenciesFromGroup(componentsPackageInfo, "devDependencies"); // These are devDependencies and peerDependencies in this package, not regular dependencies.
+      await runCommandInTempDirectory`pnpm install react@${reactVersionComponents} react-dom@${reactDomVersionComponents} @mui/material@${materialUiVersionComponents} @mui/icons-material@${materialUiIconsVersionComponents} @emotion/styled@${emotionStyledVersionComponents} @emotion/react@${emotionReactVersionComponents}`;
 
-    const packageInfo = await getPackageJsonContents(temporaryPath);
+      const {
+        "@types/react": typesReactVersionComponents,
+        "@types/react-dom": typesReactDomVersionComponents,
+        esbuild: esbuildVersionComponents,
+      } = getDependenciesFromGroup(componentsPackageInfo, "devDependencies");
+      await runCommandInTempDirectory`pnpm install --save-dev @types/react@${typesReactVersionComponents} @types/react-dom@${typesReactDomVersionComponents} esbuild@${esbuildVersionComponents}`;
 
-    if (packageInfo === null) {
-      throw packageJsonNotFoundError(temporaryPath);
-    }
-    packageInfo.type = "module";
+      const tempPackageInfo = await getPackageJsonContents(temporaryPath);
+      if (tempPackageInfo === null) {
+        throw packageJsonNotFoundError(temporaryPath);
+      }
 
-    await writeFile(getPackageJsonPath(temporaryPath), JSON.stringify(packageInfo, null, 2));
+      tempPackageInfo.scripts = {
+        ...(tempPackageInfo.scripts ?? {}),
+        build: "esbuild Artwork.tsx --bundle --format=esm --jsx=automatic --outfile=index.js",
+      };
 
-    const {
-      react: reactVersionComponents,
-      "react-dom": reactDomVersionComponents,
-      "@mui/material": materialUiVersionComponents,
-      "@mui/icons-material": materialUiIconsVersionComponents,
-      "@emotion/styled": emotionStyledVersionComponents,
-      "@emotion/react": emotionReactVersionComponents,
-    } = getDependenciesFromGroup(componentsPackageInfo, "devDependencies"); // These are devDependencies and peerDependencies in this package, not regular dependencies.
-    await runCommandInTempDirectory`pnpm install file:${path.resolve(temporaryPath, tgzFileName)} react@${reactVersionComponents} react-dom@${reactDomVersionComponents} @mui/material@${materialUiVersionComponents} @mui/icons-material@${materialUiIconsVersionComponents} @emotion/styled@${emotionStyledVersionComponents} @emotion/react@${emotionReactVersionComponents}`;
+      await writeFile(getPackageJsonPath(temporaryPath), JSON.stringify(tempPackageInfo, null, 2));
 
-    const {
-      "@types/react": typesReactVersionComponents,
-      "@types/react-dom": typesReactDomVersionComponents,
-      esbuild: esbuildVersionComponents,
-    } = getDependenciesFromGroup(componentsPackageInfo, "devDependencies");
-    await runCommandInTempDirectory`pnpm install --save-dev @types/react@${typesReactVersionComponents} @types/react-dom@${typesReactDomVersionComponents} esbuild@${esbuildVersionComponents}`;
+      await writeFile(
+        path.join(temporaryPath, "Artwork.tsx"),
+        normaliseIndents`
+          import { Artwork } from "@alextheman/components";
+          import { createRoot } from "react-dom/client";
+  
+          createRoot(document.getElementById("root")!).render(
+              <div data-testid="artwork" style={{ display: "inline-block" }}>
+                <Artwork />
+              </div>
+          );
+        `,
+      );
 
-    const tempPackageInfo = await getPackageJsonContents(temporaryPath);
-    if (tempPackageInfo === null) {
-      throw packageJsonNotFoundError(temporaryPath);
-    }
+      await runCommandInTempDirectory`pnpm run build`;
 
-    // TODO: Get rid of --alias when the next utility major releases.
-    tempPackageInfo.scripts = {
-      ...(tempPackageInfo.scripts ?? {}),
-      build:
-        "esbuild Artwork.tsx --bundle --format=esm --external:node:* --alias:node:path=./patches/node-path.ts --jsx=automatic --outfile=index.js",
-    };
+      await page.setContent(
+        normaliseIndents`
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <style>
+                html, body {
+                  margin: 0;
+                  padding: 0;
+                }
+              </style>
+            </head>
+            <body>
+              <div id="root"></div>
+            </body>
+          </html>
+        `,
+        { waitUntil: "domcontentloaded" },
+      );
 
-    await writeFile(getPackageJsonPath(temporaryPath), JSON.stringify(tempPackageInfo, null, 2));
+      page.on("pageerror", (error) => {
+        throw error;
+      });
+      page.on("console", (message) => {
+        if (message.type() === "error") {
+          throw new DataError({ message }, "TEST_FAILED", message.text());
+        }
+      });
 
-    await writeFile(
-      path.join(temporaryPath, "Artwork.tsx"),
-      normaliseIndents`
-        import { Artwork } from "@alextheman/components";
-        import { createRoot } from "react-dom/client";
+      await page.addScriptTag({
+        path: path.join(temporaryPath, "index.js"),
+        type: "module",
+      });
 
-        createRoot(document.getElementById("root")!).render(
-          <Artwork />
-        );
-      `,
-    );
-
-    // TODO: Get rid of this patch when the next utility major releases.
-    const pathPatchPath = path.join(temporaryPath, "patches", "node-path.ts");
-    await mkdir(path.dirname(pathPatchPath), { recursive: true });
-    await writeFile(
-      pathPatchPath,
-      normaliseIndents`
-        const pathStub = {} as any;
-        export default pathStub;
-        export const sep = "/";
-        export const posix = pathStub;
-        export const win32 = pathStub;
-      `,
-    );
-
-    await runCommandInTempDirectory`pnpm run build`;
-
-    await page.setContent(
-      normaliseIndents`
-        <!doctype html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          </head>
-          <body>
-            <div id="root"></div>
-          </body>
-        </html>
-      `,
-      { waitUntil: "domcontentloaded" },
-    );
-
-    await page.addScriptTag({
-      path: path.join(temporaryPath, "index.js"),
-      type: "module",
+      const artwork = page.getByTestId("artwork");
+      await expect(artwork).toBeVisible();
+      await expect(artwork.getByText("An Interface For You And I")).toBeVisible();
+      await expect(artwork).toHaveScreenshot("artwork.png", { animations: "disabled" });
     });
-
-    const artwork = page.locator("#root > *").first();
-    await expect(artwork).toBeVisible();
-    await expect(artwork.getByText("An Interface For You And I")).toBeVisible();
-    await expect(artwork).toHaveScreenshot("artwork.png", { animations: "disabled" });
   });
 });
