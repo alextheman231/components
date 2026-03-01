@@ -1,5 +1,6 @@
-import { DataError, getDependenciesFromGroup, normaliseIndents } from "@alextheman/utility";
+import { DataError, normaliseIndents } from "@alextheman/utility";
 import {
+  getDependenciesFromGroup,
   getPackageJsonContents,
   getPackageJsonPath,
   setupPackageEndToEnd,
