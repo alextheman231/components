@@ -16,7 +16,7 @@ export const FileType = {
   MP4: "video/mp4",
   WAV: "audio/wav",
 } as const;
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+
 export type FileType = (typeof FileType)[keyof typeof FileType];
 
 const VisuallyHiddenInput = styled("input")({
