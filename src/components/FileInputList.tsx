@@ -12,12 +12,12 @@ import ListItemText from "@mui/material/ListItemText";
 import FileInput from "src/components/FileInput";
 
 export interface FileInputListProps extends Omit<FileInputProps, "onFileInput"> {
-  files: File[];
-  setFiles: Dispatch<SetStateAction<File[]>>;
+  files: Array<File>;
+  setFiles: Dispatch<SetStateAction<Array<File>>>;
 }
 
 function FileInputList({ files, setFiles, ...fileInputProps }: FileInputListProps) {
-  function onFileInput(newFiles: File[]) {
+  function onFileInput(newFiles: Array<File>) {
     setFiles((oldFiles) => {
       return [...oldFiles, ...newFiles];
     });

@@ -16,7 +16,7 @@ export interface NavItemBottom {
 
 export interface NavigationBottomProps {
   children: ReactNode;
-  navItems: NavItemBottom[];
+  navItems: Array<NavItemBottom>;
 }
 
 function NavigationBottom({ children, navItems }: NavigationBottomProps) {
