@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 
 interface ContainerProps {
   containerLabel: string;
-  chipLabels: string[];
+  chipLabels: Array<string>;
 }
 
 function Container({ containerLabel, chipLabels }: ContainerProps) {

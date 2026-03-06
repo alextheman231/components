@@ -45,10 +45,10 @@ const Dropzone = styled("div")<{ $dragging: boolean }>(({ theme, $dragging }) =>
 });
 
 export interface FileInputProps extends ButtonOwnProps {
-  onFileInput: (allowedFiles: File[]) => void;
+  onFileInput: (allowedFiles: Array<File>) => void;
   label?: string;
   multiple?: boolean;
-  accept?: string[];
+  accept?: Array<string>;
   useDropzone?: boolean;
 }
 

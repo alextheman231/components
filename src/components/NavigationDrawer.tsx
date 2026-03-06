@@ -129,16 +129,16 @@ const Drawer = styled(MuiDrawer, {
 
 export interface NavMenuItem {
   category: string;
-  options: {
+  options: Array<{
     label: string;
     to: string;
     icon?: ReactNode;
-  }[];
+  }>;
 }
 
 export interface NavigationDrawerProps {
   title: string;
-  navItems: NavMenuItem[];
+  navItems: Array<NavMenuItem>;
   headerElements?: ReactNode;
   children: ReactNode;
 }
