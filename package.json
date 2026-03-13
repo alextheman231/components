@@ -53,26 +53,26 @@
     "test-update-ci-snapshots": "docker run --rm -it -v \"$PWD\":/work -v \"$HOME/.pnpm-store\":/pnpm-store -w /work mcr.microsoft.com/playwright:v1.58.2-jammy bash -lc \"npm i -g pnpm@10.29.3 && pnpm config set store-dir /pnpm-store && pnpm install && pnpm test-update-snapshots\""
   },
   "dependencies": {
-    "@alextheman/utility": "^5.6.1",
+    "@alextheman/utility": "^5.6.2",
     "common-tags": "^1.8.2",
     "react-live": "^4.1.8",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^5.10.0",
+    "@alextheman/eslint-plugin": "^5.10.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
     "@playwright/test": "^1.58.2",
     "@types/common-tags": "^1.8.4",
-    "@types/node": "^25.3.5",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@typescript-eslint/types": "^8.56.1",
-    "alex-c-line": "^2.0.1",
+    "@typescript-eslint/types": "^8.57.0",
+    "alex-c-line": "^2.2.3",
     "dotenv-cli": "^11.0.0",
-    "esbuild": "^0.27.3",
+    "esbuild": "^0.27.4",
     "eslint": "^10.0.3",
     "execa": "^9.6.1",
     "globals": "^17.4.0",
@@ -84,9 +84,9 @@
     "react-router-dom": "^7.13.1",
     "styled-components": "^6.3.11",
     "tempy": "^3.2.0",
-    "tsdown": "^0.21.0",
+    "tsdown": "^0.21.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.57.0"
   },
   "peerDependencies": {
     "@emotion/react": ">=11.0.0",
