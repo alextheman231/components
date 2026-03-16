@@ -50,7 +50,9 @@
     "use-local-utility": "pnpm run prepare-local-utility",
     "test": "playwright test",
     "test-update-snapshots": "playwright test --update-snapshots",
-    "test-update-ci-snapshots": "docker run --rm -it -v \"$PWD\":/work -v \"$HOME/.pnpm-store\":/pnpm-store -w /work mcr.microsoft.com/playwright:v1.58.2-jammy bash -lc \"npm i -g pnpm@10.29.3 && pnpm config set store-dir /pnpm-store && pnpm install && pnpm test-update-snapshots\""
+    "test-update-ci-snapshots": "docker run --rm -it -v \"$PWD\":/work -v \"$HOME/.pnpm-store\":/pnpm-store -w /work mcr.microsoft.com/playwright:v1.58.2-jammy bash -lc \"npm i -g pnpm@10.29.3 && pnpm config set store-dir /pnpm-store && pnpm install && pnpm test-update-snapshots\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@alextheman/utility": "^5.6.2",
@@ -86,7 +88,10 @@
     "tempy": "^3.2.0",
     "tsdown": "^0.21.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.0"
+    "typescript-eslint": "^8.57.0",
+    "storybook": "^10.2.19",
+    "@storybook/react-vite": "^10.2.19",
+    "eslint-plugin-storybook": "^10.2.19"
   },
   "peerDependencies": {
     "@emotion/react": ">=11.0.0",
