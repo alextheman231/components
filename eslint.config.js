@@ -6,5 +6,6 @@ import alexPlugin from "@alextheman/eslint-plugin";
 export default [
   ...alexPlugin.configs["combined/typescript-react"],
   ...alexPlugin.configs["internal/components"],
+  ...alexPlugin.configs["general/package-json"],
   ...storybook.configs["flat/recommended"],
 ];
