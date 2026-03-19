@@ -67,6 +67,7 @@
     "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
     "@playwright/test": "^1.58.2",
+    "@storybook/addon-docs": "^10.3.1",
     "@storybook/react-vite": "^10.2.19",
     "@types/common-tags": "^1.8.4",
     "@types/node": "^25.5.0",

@@ -15,7 +15,10 @@ const config: StorybookConfig = {
     };
     return config;
   },
-  addons: [],
+  addons: ["@storybook/addon-docs"],
+  docs: {
+    docsMode: false,
+  },
   framework: "@storybook/react-vite",
 };
 export default config;
