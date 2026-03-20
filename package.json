@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/components",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "description": "A package containing common React components used across my projects.",
   "repository": {
     "type": "git",
