@@ -11,6 +11,14 @@ export interface InternalLinkProps extends Omit<LinkProps, "href"> {
   ref?: Ref<HTMLAnchorElement>;
 }
 
+/**
+ * A stylised link for navigating within your application.
+ *
+ * Uses the app router for client-side navigation and opens the destination in the same tab.
+ *
+ * @note
+ * This component is coupled to the routing solution used by the application and may change if the routing implementation changes.
+ */
 function InternalLink({ to, children, ref, ...linkProps }: InternalLinkProps) {
   return (
     <MUILink component={ReactDOMLink} to={to} ref={ref} {...linkProps}>
