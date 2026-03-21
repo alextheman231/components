@@ -11,6 +11,7 @@ export { default as ListItemInternalLink } from "src/components/ListItemInternal
 export { default as Loader } from "src/components/Loader";
 export { default as NavigationBottom } from "src/components/NavigationBottom";
 export { default as NavigationDrawer } from "src/components/NavigationDrawer";
+export { default as Page } from "src/components/Page";
 export { default as PopoverText } from "src/components/PopoverText";
 export { default as ReactPlayground } from "src/components/ReactPlayground";
 export { default as SkeletonRow } from "src/components/SkeletonRow";

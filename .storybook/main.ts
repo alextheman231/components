@@ -12,6 +12,7 @@ const config: StorybookConfig = {
       ...(config.resolve.alias ?? {}),
       src: path.resolve(__dirname, "..", "src"),
       stories: path.resolve(__dirname, "..", "stories"),
+      "package.json": path.resolve(__dirname, "..", "package.json"),
     };
     return config;
   },
