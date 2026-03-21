@@ -6,14 +6,20 @@ import type { ContextHookOptions } from "src/types";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export interface ScreenSizeProps {
+  /** The children that will be receiving the ScreenSizeContext. */
   children: ReactNode;
+  /** The minimum screen width in pixels required to be considered a large screen. */
   largeScreenWidth?: number;
+  /** The minimum screen height in pixels required to be considered a large screen. */
   largeScreenHeight?: number;
 }
 
 export interface ScreenSizeContextValue {
+  /** Whether the screen is a large screen or not. */
   isLargeScreen: boolean;
+  /** The current window width. */
   windowWidth: number;
+  /** The current window height. */
   windowHeight: number;
 }
 
@@ -33,6 +39,7 @@ export function useScreenSize<Strict extends boolean = true>({
   return context;
 }
 
+/** Provides context about the current screen size. */
 function ScreenSizeProvider({
   children,
   largeScreenWidth = 669,
