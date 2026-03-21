@@ -1,6 +1,5 @@
-import DarkMode from "@mui/icons-material/DarkMode";
-import LightMode from "@mui/icons-material/LightMode";
 import Tooltip from "@mui/material/Tooltip";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 import SwitchWithIcons from "src/components/SwitchWithIcons";
 import { useMode } from "src/providers";
@@ -14,8 +13,8 @@ function ModeToggle() {
   return (
     <Tooltip title={modeText}>
       <SwitchWithIcons
-        uncheckedIcon={LightMode}
-        checkedIcon={DarkMode}
+        uncheckedIcon={MdOutlineLightMode}
+        checkedIcon={MdOutlineDarkMode}
         checked={isDarkMode}
         onChange={toggleMode}
         aria-label={modeText}
