@@ -2,7 +2,7 @@ import type { StoryContext } from "@storybook/react-vite";
 import type { ReactNode } from "react";
 
 import { VersionNumber } from "@alextheman/utility";
-import { DarkModeToggle, ModeProvider, Page } from "src";
+import { ModeProvider, ModeToggle, Page } from "src";
 
 import { name as packageName, version } from "package.json" with { type: "json" };
 
@@ -17,7 +17,7 @@ function StoryWrapper({ Story, context }: StoryWrapperProps) {
       <Page
         title={`${context.title} / ${context.name}`}
         subtitle={`${packageName} • ${new VersionNumber(version)}`}
-        action={<DarkModeToggle />}
+        action={<ModeToggle />}
       >
         <Story />
       </Page>
