@@ -21,3 +21,16 @@ jobs:
     secrets:
       APP_ID: ${{ secrets.ALEX_UP_BOT_APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
+
+  publish-github-pages:
+    permissions:
+      pages: write
+      id-token: write
+    needs: create-github-release
+    if: needs.create-github-release.outputs.did_release == 'true'
+    uses: alextheman231/github-actions/.github/workflows/publish-github-pages.yml@e4a092a202ca5bac12242bbf53a046f32a08455a # v10.4.0
+    secrets:
+      APP_ID: ${{ secrets.ALEX_UP_BOT_APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
+    with:
+      path: storybook-static
