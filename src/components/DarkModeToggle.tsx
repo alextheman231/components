@@ -5,6 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 import { useMode } from "src/providers";
 
+/** A toggle to switch between dark mode and light mode. Must be used in a `ModeProvider`. */
 function DarkModeToggle() {
   const { mode, toggleMode } = useMode();
 
