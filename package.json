@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "build-storybook": "storybook build",
+    "create-feature-docs": "storybook build",
     "create-local-package": "pnpm run build && rm -f alextheman-components-*.tgz && pnpm pack",
     "create-release-note": "git pull origin main && bash -c 'alex-c-line template release-note create $@' --",
     "format": "pnpm run format-prettier && pnpm run format-eslint",
