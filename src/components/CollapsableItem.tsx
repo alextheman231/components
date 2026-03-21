@@ -41,8 +41,6 @@ export interface CollapsableItemProps {
 
 /**
  * Shows a display area that can be opened to show the children components, or hidden away.
- *
- * @param props - Props to pass to CollapsableItem
  */
 function CollapsableItem({
   isInitiallyOpen,
