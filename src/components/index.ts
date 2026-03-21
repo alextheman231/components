@@ -1,6 +1,5 @@
 export { default as Artwork } from "src/components/Artwork";
 export { default as CollapsableItem } from "src/components/CollapsableItem";
-export { default as DarkModeToggle } from "src/components/DarkModeToggle";
 export { default as DropdownMenu } from "src/components/DropdownMenu";
 export { default as ExternalLink } from "src/components/ExternalLink";
 export { default as FileInput, FileType } from "src/components/FileInput";
@@ -9,6 +8,7 @@ export { default as IconWithPopover } from "src/components/IconWithPopover";
 export { default as InternalLink } from "src/components/InternalLink";
 export { default as ListItemInternalLink } from "src/components/ListItemInternalLink";
 export { default as Loader } from "src/components/Loader";
+export { default as ModeToggle } from "src/components/ModeToggle";
 export { default as NavigationBottom } from "src/components/NavigationBottom";
 export { default as NavigationDrawer } from "src/components/NavigationDrawer";
 export { default as Page } from "src/components/Page";
