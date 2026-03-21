@@ -4,7 +4,9 @@ export default defineConfig({
   entry: ["src/index.ts"],
   format: ["esm", "cjs"],
   dts: true,
-  external: ["react"],
+  deps: {
+    neverBundle: ["react"],
+  },
   clean: true,
   minify: true,
   sourcemap: true,
