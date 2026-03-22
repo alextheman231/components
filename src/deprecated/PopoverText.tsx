@@ -6,6 +6,9 @@ export interface PopoverTextProps extends TypographyProps {
   text: string;
 }
 
+/**
+ * @deprecated This component has been deprecated alongside `IconWithPopover`.
+ */
 function PopoverText({ text, sx, ...typographyProps }: PopoverTextProps) {
   return (
     <>

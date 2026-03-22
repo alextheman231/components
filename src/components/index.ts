@@ -11,7 +11,6 @@ export { default as ModeToggle } from "src/components/ModeToggle";
 export { default as NavigationBottom } from "src/components/NavigationBottom";
 export { default as NavigationDrawer } from "src/components/NavigationDrawer";
 export { default as Page } from "src/components/Page";
-export { default as PopoverText } from "src/components/PopoverText";
 export { default as ReactPlayground } from "src/components/ReactPlayground";
 export { default as SkeletonRow } from "src/components/SkeletonRow";
 export { default as SubmitButton } from "src/components/SubmitButton";
@@ -27,7 +26,6 @@ export type { ListItemInternalLinkProps } from "src/components/ListItemInternalL
 export type { LoaderProps } from "src/components/Loader";
 export type { NavigationBottomProps, NavItemBottom } from "src/components/NavigationBottom";
 export type { NavigationDrawerProps, NavMenuItem } from "src/components/NavigationDrawer";
-export type { PopoverTextProps } from "src/components/PopoverText";
 export type { ReactPlaygroundProps } from "src/components/ReactPlayground";
 export type { SkeletonRowProps } from "src/components/SkeletonRow";
 export type { SubmitButtonProps } from "src/components/SubmitButton";
