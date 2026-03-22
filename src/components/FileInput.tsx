@@ -3,7 +3,7 @@ import type { ButtonOwnProps } from "@mui/material/Button";
 
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { MdCloudUpload } from "react-icons/md";
 
 export const FileType = {
@@ -67,6 +67,7 @@ function FileInput({
   ...buttonProps
 }: FileInputProps) {
   const [isDragging, setIsDragging] = useState<boolean>(false);
+  const id = useId();
 
   const fileInputButton = (
     <Button
@@ -76,7 +77,7 @@ function FileInput({
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          document.getElementById("file-input")?.click();
+          document.getElementById(id)?.click();
         }
       }}
       {...buttonProps}
@@ -84,7 +85,7 @@ function FileInput({
     >
       {label}
       <VisuallyHiddenInput
-        id="file-input"
+        id={id}
         type="file"
         onChange={(event) => {
           const input = event.target;
