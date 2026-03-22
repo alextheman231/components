@@ -9,6 +9,9 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    backgrounds: {
+      options: {},
+    },
   },
   decorators: [
     (Story, context) => {
