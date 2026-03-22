@@ -2,12 +2,12 @@ import type { Dispatch, SetStateAction } from "react";
 
 import type { FileInputProps } from "src/components/FileInput";
 
-import DeleteIcon from "@mui/icons-material/Delete";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import { MdDelete } from "react-icons/md";
 
 import FileInput from "src/components/FileInput";
 
@@ -48,7 +48,7 @@ function FileInputList({ files, setFiles, ...fileInputProps }: FileInputListProp
                     });
                   }}
                 >
-                  <DeleteIcon />
+                  <MdDelete />
                 </IconButton>
               }
             >

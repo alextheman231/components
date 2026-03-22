@@ -2,12 +2,11 @@ import type { CollapseProps } from "@mui/material/Collapse";
 import type { SxProps } from "@mui/material/styles";
 import type { ElementType, ReactNode } from "react";
 
-import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Collapse from "@mui/material/Collapse";
 import { useEffect, useState } from "react";
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 export interface CollapsableItemProps {
   /** Whether the item should initially be open or not. */
@@ -51,8 +50,8 @@ function CollapsableItem({
   buttonContents,
   buttonComponent: ButtonComponent = ButtonBase,
   collapseProps,
-  openIcon = <ArrowDropUp />,
-  closedIcon = <ArrowDropDown />,
+  openIcon = <MdArrowDropUp />,
+  closedIcon = <MdArrowDropDown />,
   useDefaultStyling = ButtonComponent === ButtonBase ? true : false,
 }: CollapsableItemProps) {
   const [isItemOpen, setIsItemOpen] = useState<boolean>(!!isInitiallyOpen);

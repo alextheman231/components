@@ -4,11 +4,10 @@ import type { ElementType, MouseEvent as ReactMouseEvent, ReactNode } from "reac
 
 import type { ContextHookOptions } from "src/types";
 
-import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 import MUIButton from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import { createContext, useContext, useMemo, useState } from "react";
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 export interface DropdownMenuContextValue {
   closeMenu: () => void;
@@ -41,8 +40,8 @@ function DropdownMenu2({
   children,
   button: Button = MUIButton,
   buttonProps,
-  openIcon = <ArrowDropUp />,
-  closedIcon = <ArrowDropDown />,
+  openIcon = <MdArrowDropUp />,
+  closedIcon = <MdArrowDropDown />,
 }: DropdownMenu2Props) {
   const [anchorElement, setAnchorElement] = useState<HTMLElement | null>(null);
 
