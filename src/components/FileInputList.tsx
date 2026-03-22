@@ -16,26 +16,26 @@ export interface FileInputListProps extends Omit<FileInputProps, "onFileInput"> 
   setFiles: Dispatch<SetStateAction<Array<File>>>;
 }
 
-function FileInputList({ files, setFiles, ...fileInputProps }: FileInputListProps) {
+function FileInputList({
+  files,
+  setFiles,
+  multiple = true,
+  ...fileInputProps
+}: FileInputListProps) {
   function onFileInput(newFiles: Array<File>) {
     setFiles((oldFiles) => {
       return [...oldFiles, ...newFiles];
     });
   }
 
-  const newFileInputProps = { ...fileInputProps, onFileInput };
-  if (newFileInputProps?.multiple === undefined) {
-    newFileInputProps.multiple = true;
-  }
-
   return (
     <Box>
-      <FileInput {...newFileInputProps} />
+      <FileInput {...fileInputProps} multiple={multiple} onFileInput={onFileInput} />
       <List>
         {files.map((file) => {
           return (
             <ListItem
-              key={file.name}
+              key={`${file.name}-${file.lastModified}`}
               secondaryAction={
                 <IconButton
                   aria-label="Delete"
