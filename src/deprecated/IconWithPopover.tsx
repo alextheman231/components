@@ -5,9 +5,10 @@ import type { ElementType, MouseEvent as ReactMouseEvent, ReactNode } from "reac
 import Box from "@mui/material/Box";
 import Popover from "@mui/material/Popover";
 import { useId, useState } from "react";
+import { MdVisibility } from "react-icons/md";
 
 export interface IconWithPopoverProps {
-  icon:
+  icon?:
     | (OverridableComponent<SvgIconTypeMap<unknown, "svg">> & {
         muiName: string;
       })
@@ -18,8 +19,18 @@ export interface IconWithPopoverProps {
   children: ReactNode;
 }
 
+/**
+ * @deprecated This component is not well-designed for accessibility purposes. Please use the `Tooltip` component from `@mui/material` instead.
+ *
+ * @example
+ * ```tsx
+ * <Tooltip title="Text to display on hover">
+ *   <MdVisibility />
+ * </Tooltip>
+ * ```
+ */
 function IconWithPopover({
-  icon: Icon,
+  icon: Icon = MdVisibility,
   onOpen,
   onClose,
   iconProps,
@@ -54,6 +65,15 @@ function IconWithPopover({
       />
       <Popover
         id={popoverId}
+        disablePortal
+        disableScrollLock
+        slotProps={{
+          root: {
+            disableEnforceFocus: true,
+            disableAutoFocus: true,
+            disableRestoreFocus: true,
+          },
+        }}
         sx={{ pointerEvents: "none" }}
         open={isPopoverOpen}
         anchorEl={anchorElement}
