@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const config: StorybookConfig = {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   viteFinal: async (config) => {
+    // Allow absolute paths to resolve correctly
     config.resolve = config.resolve ?? {};
     config.resolve.alias = {
       ...(config.resolve.alias ?? {}),
@@ -14,6 +15,17 @@ const config: StorybookConfig = {
       stories: path.resolve(__dirname, "..", "stories"),
       "package.json": path.resolve(__dirname, "..", "package.json"),
     };
+
+    // Ignore "use client" warnings (not relevant to us as we don't use server components)
+    config.build ??= {};
+    config.build.rollupOptions ??= {};
+    config.build.rollupOptions.onwarn = (warning, warn) => {
+      if (warning.message?.includes('"use client"')) {
+        return;
+      }
+      warn(warning);
+    };
+
     return config;
   },
   addons: ["@storybook/addon-docs", "@storybook/addon-vitest"],
