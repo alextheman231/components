@@ -12,6 +12,11 @@ const preview: Preview = {
     backgrounds: {
       options: {},
     },
+    docs: {
+      source: {
+        code: "",
+      },
+    },
   },
   decorators: [
     (Story, context) => {

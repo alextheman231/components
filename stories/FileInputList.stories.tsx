@@ -42,6 +42,7 @@ export const Multiple: Story = {
   args: {
     useDropzone: true,
   },
+  tags: ["!autodocs"],
   play: async ({ canvas, userEvent }) => {
     const input = canvas.getByLabelText("File input button");
     await userEvent.upload(input, [
