@@ -13,15 +13,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
-  render: (props) => {
-    return <CollapsableItem {...props} />;
-  },
-  parameters: {
-    docs: {
-      source: {
-        type: "code",
-      },
-    },
+  render: ({ children, ...props }) => {
+    return <CollapsableItem {...props}>{children}</CollapsableItem>;
   },
   args: {
     children: (

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { ExternalLink } from "src";
-import ExternalLinkMain from "stories/ExternalLink/demos/ExternalLinkMain";
 
 const meta: Meta<typeof ExternalLink> = {
   component: ExternalLink,
@@ -11,8 +10,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
-  render: (props) => {
-    return <ExternalLinkMain {...props} />;
+  render: ({ href, children, ...props }) => {
+    return (
+      <ExternalLink href={href} {...props}>
+        {children}
+      </ExternalLink>
+    );
   },
   args: {
     href: "https://www.youtube.com/watch?v=mH-Sg-8EnxM",
