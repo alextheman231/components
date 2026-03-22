@@ -16,6 +16,13 @@ export const Main: Story = {
   render: (props) => {
     return <CollapsableItem {...props} />;
   },
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     children: (
       <Card variant="outlined">
