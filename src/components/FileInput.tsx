@@ -45,13 +45,19 @@ const Dropzone = styled("div")<{ $dragging: boolean }>(({ theme, $dragging }) =>
 });
 
 export interface FileInputProps extends ButtonOwnProps {
+  /** A function to run when a file has been uploaded. */
   onFileInput: (allowedFiles: Array<File>) => void;
+  /** The label to display on the input button (defaults to "Upload files") */
   label?: string;
+  /** Whether to accept multiple files or not. */
   multiple?: boolean;
+  /** An array of file types to accept. */
   accept?: Array<string>;
+  /** Enable the dropzone, allowing users to drag and drop files. */
   useDropzone?: boolean;
 }
 
+/** Handles file inputs. */
 function FileInput({
   onFileInput,
   label = "Upload files",
@@ -66,7 +72,7 @@ function FileInput({
     <Button
       variant="contained"
       component="label"
-      aria-label="File upload button"
+      aria-label="File input button"
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
