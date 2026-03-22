@@ -2,12 +2,11 @@
 import type { ButtonOwnProps } from "@mui/material/Button";
 import type { ElementType, MouseEvent as ReactMouseEvent, ReactNode } from "react";
 
-import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 import Box from "@mui/material/Box";
 import MUIButton from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import { useEffect, useMemo, useState } from "react";
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 export interface DropdownMenuProps {
   children: ReactNode | ((closeMenu: () => void) => ReactNode);
@@ -30,8 +29,8 @@ function DropdownMenu({
   button: Button = MUIButton,
   buttonChildren = "Menu",
   buttonProps: incomingButtonProps,
-  isOpenIcon = <ArrowDropUp />,
-  isClosedIcon = <ArrowDropDown />,
+  isOpenIcon = <MdArrowDropUp />,
+  isClosedIcon = <MdArrowDropDown />,
   onOpen,
   onClose,
 }: DropdownMenuProps) {

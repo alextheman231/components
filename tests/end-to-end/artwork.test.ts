@@ -30,11 +30,10 @@ test.describe("Artwork", () => {
         react: reactVersionComponents,
         "react-dom": reactDomVersionComponents,
         "@mui/material": materialUiVersionComponents,
-        "@mui/icons-material": materialUiIconsVersionComponents,
         "@emotion/styled": emotionStyledVersionComponents,
         "@emotion/react": emotionReactVersionComponents,
       } = getDependenciesFromGroup(componentsPackageInfo, "devDependencies"); // These are devDependencies and peerDependencies in this package, not regular dependencies.
-      await runCommandInTempDirectory`pnpm install react@${reactVersionComponents} react-dom@${reactDomVersionComponents} @mui/material@${materialUiVersionComponents} @mui/icons-material@${materialUiIconsVersionComponents} @emotion/styled@${emotionStyledVersionComponents} @emotion/react@${emotionReactVersionComponents}`;
+      await runCommandInTempDirectory`pnpm install react@${reactVersionComponents} react-dom@${reactDomVersionComponents} @mui/material@${materialUiVersionComponents} @emotion/styled@${emotionStyledVersionComponents} @emotion/react@${emotionReactVersionComponents}`;
 
       const {
         "@types/react": typesReactVersionComponents,

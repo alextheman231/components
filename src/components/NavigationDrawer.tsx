@@ -3,9 +3,6 @@ import type { CSSObject, Theme } from "@mui/material/styles";
 import type { ReactNode } from "react";
 
 import { truncate } from "@alextheman/utility";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import MenuIcon from "@mui/icons-material/Menu";
 import MuiAppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -21,6 +18,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Fragment, useState } from "react";
+import { MdChevronLeft, MdChevronRight, MdMenu } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -173,7 +171,7 @@ function NavigationDrawer({ title, navItems, children, headerElements }: Navigat
               open && { display: "none" },
             ]}
           >
-            <MenuIcon />
+            <MdMenu />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             {title}
@@ -184,7 +182,7 @@ function NavigationDrawer({ title, navItems, children, headerElements }: Navigat
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === "rtl" ? <MdChevronRight /> : <MdChevronLeft />}
           </IconButton>
         </DrawerHeader>
         <Divider />

@@ -1,10 +1,10 @@
 import type { CreateEnumType } from "@alextheman/utility";
 import type { ButtonOwnProps } from "@mui/material/Button";
 
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import { MdCloudUpload } from "react-icons/md";
 
 export const FileType = {
   PDF: "application/pdf",
@@ -74,7 +74,7 @@ function FileInput({
         }
       }}
       {...buttonProps}
-      startIcon={buttonProps.startIcon ?? <CloudUploadIcon />}
+      startIcon={buttonProps.startIcon ?? <MdCloudUpload />}
     >
       {label}
       <VisuallyHiddenInput
