@@ -12,10 +12,13 @@ import { MdDelete } from "react-icons/md";
 import FileInput from "src/components/FileInput";
 
 export interface FileInputListProps extends Omit<FileInputProps, "onFileInput"> {
+  /** The array of files (must be a React state). */
   files: Array<File>;
+  /** The state setter for the array of files. */
   setFiles: Dispatch<SetStateAction<Array<File>>>;
 }
 
+/** Renders the `FileInput` component with a list of uploaded files underneath it. */
 function FileInputList({
   files,
   setFiles,
