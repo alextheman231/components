@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Attach to Browser",
+            "request": "attach",
+            "type": "editor-browser",
+            "urlFilter": "http://localhost:6006/*"
+        },
+        {
+            "name": "Launch Browser",
+            "request": "launch",
+            "type": "editor-browser",
+            "url": "http://localhost:6006",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
