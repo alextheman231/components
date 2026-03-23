@@ -10,6 +10,7 @@ export interface ListItemInternalLinkProps extends Omit<ListItemButtonProps, "hr
   to: string;
 }
 
+/** @deprecated Probably not that worth centralising here - can be easily recreated per use case. */
 function ListItemInternalLink({ children, ...listItemButtonProps }: ListItemInternalLinkProps) {
   return (
     <ListItemButton component={InternalLink} {...listItemButtonProps}>
