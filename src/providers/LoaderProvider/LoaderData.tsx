@@ -18,12 +18,6 @@ export interface LoaderDataProps<T> {
  * The component responsible for showing the data provided by LoaderProvider.
  *
  * @template DataType - The type of data being loaded.
- *
- * @param props - Props to pass to LoaderData.
- * @param props.children - The elements to show after data has been loaded.
- * This is best provided as a function with a data argument that guarantees the data will not be undefined by the time you receive it here.
- * @param props.dataParser - A parser for the data.
- * @param props.loadingComponent - The component to show when the data is being fetched.
  */
 function LoaderData<DataType>({
   children,
