@@ -16,15 +16,6 @@ export type LoaderProps<DataType> = Omit<LoaderProviderProps<DataType>, "childre
  * This may be used over LoaderProvider if you don't require as much control over the placement of the error message and data display.
  *
  * @template DataType - The type of data being loaded.
- *
- * @param props - Props to pass to Loader.
- * @param props.children - The elements to show after data has been loaded.
- * @param props.errorComponent - The component to show if an error has been thrown. Note that this may not be provided unless the error prop has also been provided.
- * @param props.undefinedComponent - The component to show if no error was thrown but the data is undefined.
- * @param props.nullComponent - The component to show if no error was thrown but the data is null.
- * @param props.nullableComponent - The component to show if no error was thrown but the data is nullable (undefined or null).
- * @param props.loadingComponent - The component to show when the data is being fetched.
- * @param props.logError - An option to log the error to the console.
  */
 function Loader<DataType>({
   children,

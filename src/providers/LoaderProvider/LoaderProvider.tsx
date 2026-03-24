@@ -56,14 +56,6 @@ export function useLoader<DataType, Strict extends boolean = true>({
  * This may be used over Loader if you require more control over the placement of the error message and data display.
  *
  * @template DataType - The type of data being loaded.
- *
- * @param props - Props to pass to LoaderProvider.
- * @param props.children - The components that may receive access to the LoaderContext value.
- * @param props.loadingComponent - The component to show when the data is being fetched.
- * @param props.isLoading - The current loading status (true if loading, false if not)
- * @param props.error - The error given if the request gave an error.
- * @param props.errorComponent - The component to show if an error has been thrown. Note that this may not be provided unless the error prop has also been provided.
- * @param props.logError - An option to log the error to the console. Note that this may not be provided unless the error prop has also been provided.
  */
 function LoaderProvider<DataType>({
   children,

@@ -31,13 +31,6 @@ export type LoaderErrorProps = LoaderErrorPropsWithUndefinedOrNull | LoaderError
 
 /**
  * The component responsible for showing any errors provided by LoaderProvider.
- *
- * @param props - The props to be passed to LoaderError.
- * @param props.children - The component to show if an error has been thrown.
- * @param props.undefinedComponent - The component to show if no error was thrown but the data is undefined.
- * @param props.nullComponent - The component to show if no error was thrown but the data is null.
- * @param props.nullableComponent - The component to show if no error was thrown but the data is nullable (undefined or null).
- * @param props.logError - An option to log the error to the console.
  */
 function LoaderError({
   children,
