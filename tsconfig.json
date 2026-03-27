@@ -5,7 +5,13 @@
     "lib": ["ES2024", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "paths": {
+      "src": ["./src"],
+      "src/*": ["./src/*"],
+      "tests/*": ["./tests/*"],
+      "stories/*": ["./stories/*"],
+      "package.json": ["./package.json"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
