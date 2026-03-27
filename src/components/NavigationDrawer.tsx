@@ -125,22 +125,34 @@ const Drawer = styled(MuiDrawer, {
   };
 });
 
+export interface NavMenuItemOptions {
+  /** The label to display on the nav item option. */
+  label: string;
+  /** Where in your app the nav item option should navigate to. */
+  to: string;
+  /** An icon to display alongside the nav item option. */
+  icon?: ReactNode;
+}
+
 export interface NavMenuItem {
+  /** The category to display all the nav item options under. */
   category: string;
-  options: Array<{
-    label: string;
-    to: string;
-    icon?: ReactNode;
-  }>;
+  /** An array of nav options to display under the chosen category. */
+  options: Array<NavMenuItemOptions>;
 }
 
 export interface NavigationDrawerProps {
+  /** The title to display at the top of the wrapper. */
   title: string;
+  /** An array of nav items to show. */
   navItems: Array<NavMenuItem>;
+  /** Any extra elements to add to the header. */
   headerElements?: ReactNode;
+  /** Children to display within the wrapper. */
   children: ReactNode;
 }
 
+/** Renders a collapsable drawer to help with navigation. Best used as the main means of navigation on desktop apps. */
 function NavigationDrawer({ title, navItems, children, headerElements }: NavigationDrawerProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
