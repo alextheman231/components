@@ -10,16 +10,20 @@ import Snackbar from "@mui/material/Snackbar";
 import { createContext, useContext, useState } from "react";
 
 export interface SnackbarProviderProps {
+  /** The children that will have access to the snackbar context. */
   children: ReactNode;
+  /** The amount of seconds to wait before hiding the snackbar. */
   autoHideDuration?: number;
 }
 
 export interface SnackbarContextValue {
+  /** A function that adds the snackbar to the page. */
   addSnackbar: (message: string, severity?: AlertColor, duration?: number) => void;
 }
 
 const SnackbarContext = createContext<SnackbarContextValue | undefined>(undefined);
 
+/** Access the snackbar context directly. */
 export function useSnackbar<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, SnackbarContextValue> {
@@ -30,6 +34,7 @@ export function useSnackbar<Strict extends boolean = true>({
   return context as OptionalOnCondition<Strict, SnackbarContextValue>;
 }
 
+/** Controls the display of the snackbars on the page. */
 function SnackbarProvider({ children, autoHideDuration = 5000 }: SnackbarProviderProps) {
   const [open, setOpen] = useState<boolean>(false);
   const [autoHideDurationState, setAutoHideDurationState] = useState<number>(autoHideDuration);

@@ -18,6 +18,7 @@ const ModeContext = createContext<ModeContextValue>({
   mode: "dark",
 });
 
+/** Access the mode context directly. */
 export function useMode<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ModeContextValue> {
@@ -29,10 +30,13 @@ export function useMode<Strict extends boolean = true>({
 }
 
 export interface ModeProviderProps {
+  /** The children that will have access to the current mode. */
   children: ReactNode;
+  /** The initial mode. */
   mode?: PaletteMode;
 }
 
+/** Provides information about the current theme mode to its children components. */
 function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) {
   const [mode, setMode] = useState<PaletteMode>(modeProp);
 

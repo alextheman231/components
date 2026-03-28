@@ -41,6 +41,7 @@ export type LoaderProviderProps<T> = LoaderContextValue<T> & { children: ReactNo
 
 const LoaderContext = createContext<LoaderContextValue<unknown> | undefined>(undefined);
 
+/** Access the Loader context directly. */
 export function useLoader<DataType, Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, LoaderContextValue<DataType>> {
