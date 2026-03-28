@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import z from "zod";
 
-import useAppForm from "src/v7/hooks/useAppForm";
+import createFormHook from "src/v7/hooks/createFormHook";
 
 const meta: Meta = {
   title: "Form Hooks",
@@ -25,6 +25,8 @@ export const Form: Story = {
   render: () => {
     const [submitted, setSubmitted] = useState<boolean>(false);
     const [data, setData] = useState<DemoType | null>(null);
+
+    const { useAppForm } = createFormHook();
 
     const form = useAppForm({
       defaultValues: { firstName: "", surname: "" },
