@@ -4,24 +4,34 @@ import type { ElementType, MouseEvent as ReactMouseEvent, ReactNode } from "reac
 
 import type { ContextHookOptions } from "src/types";
 
+import { DataError } from "@alextheman/utility";
 import MUIButton from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import { createContext, useContext, useMemo, useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 export interface DropdownMenuContextValue {
+  /** A function responsible for closing the dropdown menu. */
   closeMenu: () => void;
+  /** Represents whether or not the dropdown is open. */
   isDropdownOpen: boolean;
 }
 
 const DropdownMenuContext = createContext<DropdownMenuContextValue | undefined>(undefined);
 
+/**
+  Access the DropdownMenu context directly.
+ */
 export function useDropdownMenu<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, DropdownMenuContextValue> {
   const context = useContext(DropdownMenuContext);
   if (strict && !context) {
-    throw new Error("DROPDOWN_MENU_NOT_FOUND");
+    throw new DataError(
+      { strict, context },
+      "DROPDOWN_MENU_NOT_FOUND",
+      "Could not find the DropdownMenu context. Please double-check that it is present.",
+    );
   }
   return context as OptionalOnCondition<Strict, DropdownMenuContextValue>;
 }
@@ -36,6 +46,7 @@ export interface DropdownMenu2Props {
   closedIcon?: ReactNode;
 }
 
+/** Renders a dropdown menu consisting of `DropdownMenuItem` components imported from this package. */
 function DropdownMenu2({
   children,
   button: Button = MUIButton,

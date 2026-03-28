@@ -7,9 +7,13 @@ import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 
 export interface SwitchWithIconsProps extends Omit<SwitchProps, "icon" | "checkedIcon"> {
+  /** The icon to show when the switch is in a checked state. */
   checkedIcon: ComponentType<{ style?: CSSProperties }>;
+  /** Additional styling to apply to the icon that shows when checked. */
   checkedIconStyles?: CommonProps["style"];
+  /** The icon to show when the switch is in an unchecked state. */
   uncheckedIcon: ComponentType<{ style?: CSSProperties }>;
+  /** Additional styling to apply to the icon that shows when unchecked. */
   uncheckedIconStyles?: CommonProps["style"];
 }
 
@@ -31,6 +35,7 @@ const StyledSwitch = styled(Switch)(() => {
   };
 });
 
+/** Renders a switch with your provided icons. */
 function SwitchWithIcons({
   checkedIcon: CheckedIcon,
   checkedIconStyles,
