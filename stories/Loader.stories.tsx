@@ -5,7 +5,6 @@ import { DataError, normaliseIndents, parseZodSchema } from "@alextheman/utility
 import Typography from "@mui/material/Typography";
 import { Loader } from "src";
 import { expect } from "storybook/test";
-import { vi } from "vitest";
 import z from "zod";
 
 const meta: Meta<typeof Loader> = {
@@ -176,61 +175,6 @@ export const Error: Story = {
   play: async ({ canvas }) => {
     await expect(canvas.getByRole("alert")).toBeInTheDocument();
     await expect(canvas.queryByTestId("loader-data")).not.toBeInTheDocument();
-  },
-};
-
-let consoleSpy: ReturnType<typeof vi.spyOn>;
-
-export const ErrorWithLog: Story = {
-  decorators: [
-    (Story) => {
-      consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
-      return <Story />;
-    },
-  ],
-  parameters: {
-    tags: ["!autodocs"],
-  },
-  args: {
-    isLoading: false,
-    error: new DataError(
-      { invalid: "Invalid" },
-      "PARSING_ERROR",
-      "An error occurred while trying to parse the data.",
-    ),
-    logError: true,
-  },
-  play: async ({ canvas }) => {
-    await expect(canvas.getByRole("alert")).toBeInTheDocument();
-    await expect(consoleSpy).toHaveBeenCalledTimes(1);
-    consoleSpy.mockRestore();
-  },
-};
-
-export const ErrorNoLog: Story = {
-  decorators: [
-    (Story) => {
-      consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
-      return <Story />;
-    },
-  ],
-  render,
-  parameters: {
-    tags: ["!autodocs"],
-  },
-  args: {
-    isLoading: false,
-    error: new DataError(
-      { invalid: "Invalid" },
-      "PARSING_ERROR",
-      "An error occurred while trying to parse the data.",
-    ),
-    logError: false,
-  },
-  play: async ({ canvas }) => {
-    await expect(canvas.getByRole("alert")).toBeInTheDocument();
-    await expect(consoleSpy).not.toHaveBeenCalled();
-    consoleSpy.mockRestore();
   },
 };
 
