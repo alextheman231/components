@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
-import { wait } from "@alextheman/utility";
+import { DataError, wait } from "@alextheman/utility";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { createContext, useContext, useState } from "react";
@@ -29,7 +29,11 @@ export function useSnackbar<Strict extends boolean = true>({
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, SnackbarContextValue> {
   const context = useContext(SnackbarContext);
   if (strict && !context) {
-    throw new Error("SNACKBAR_PROVIDER_NOT_FOUND");
+    throw new DataError(
+      { strict, context },
+      "SNACKBAR_PROVIDER_NOT_FOUND",
+      "Could not find the SnackbarProvider context. Please double-check that it is present.",
+    );
   }
   return context as OptionalOnCondition<Strict, SnackbarContextValue>;
 }

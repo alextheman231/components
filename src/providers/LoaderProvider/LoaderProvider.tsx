@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
+import { DataError } from "@alextheman/utility";
 import CircularProgress from "@mui/material/CircularProgress";
 import { createContext, useContext } from "react";
 
@@ -47,7 +48,11 @@ export function useLoader<DataType, Strict extends boolean = true>({
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, LoaderContextValue<DataType>> {
   const context = useContext(LoaderContext);
   if (strict && !context) {
-    throw new Error("LOADER_PROVIDER_NOT_FOUND");
+    throw new DataError(
+      { strict, context },
+      "LOADER_PROVIDER_NOT_FOUND",
+      "Could not find the LoaderProvider context. Please double-check that it is present.",
+    );
   }
   return context as OptionalOnCondition<Strict, LoaderContextValue<DataType>>;
 }
