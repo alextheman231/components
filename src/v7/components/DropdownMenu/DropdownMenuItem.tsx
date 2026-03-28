@@ -1,3 +1,4 @@
+import type Button from "@mui/material/Button";
 import type { MenuItemOwnProps } from "@mui/material/MenuItem";
 import type {
   ComponentProps,
@@ -7,14 +8,13 @@ import type {
   ReactNode,
 } from "react";
 
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
 import { useDropdownMenu } from "src/v7/components/DropdownMenu/DropdownMenu";
 
 export type DropdownMenuItemProps<RootComponent extends ElementType = typeof Button> = {
   /**
-   * An optional component to provide to override the current component (defaults to a Material UI Button).
+   * An optional component to provide to override the current component.
    *
    * Note that the provided component must:
    * - accept a `to` prop.
@@ -40,11 +40,10 @@ function DropdownMenuItem<RootComponent extends ElementType>({
   ...menuItemProps
 }: DropdownMenuItemProps<RootComponent>) {
   const { closeMenu } = useDropdownMenu();
-  const itemComponent = component ?? Button;
 
   return (
     <MenuItem
-      component={itemComponent}
+      component={component}
       ref={ref}
       {...menuItemProps}
       onClick={(event) => {
