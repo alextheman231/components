@@ -10,16 +10,28 @@ import type {
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-import { useDropdownMenu } from "src/providers/DropdownMenu2/DropdownMenu2";
+import { useDropdownMenu } from "src/v7/components/DropdownMenu/DropdownMenu";
 
 export type DropdownMenuItemProps<RootComponent extends ElementType = typeof Button> = {
+  /**
+   * An optional component to provide to override the current component (defaults to a Material UI Button).
+   *
+   * Note that the provided component must:
+   * - accept a `to` prop.
+   * - correctly handle the forwarded `ref`.
+   * - render a valid anchor element (or equivalent) for proper accessibility.
+   */
   component?: RootComponent;
+  /** The children to be rendered within the menu item. */
   children?: ReactNode;
+  /** The ref to forward to allow it to be used with polymorphic components */
   ref?: ComponentPropsWithRef<RootComponent>["ref"];
+  /** A function to execute after clicking the item. */
   onClick?: ComponentProps<RootComponent>["onClick"];
 } & Omit<ComponentPropsWithoutRef<RootComponent>, "children" | "ref"> &
   MenuItemOwnProps;
 
+/** Represents a menu item to be used inside the `DropdownMenu`. It must be used as children of the `DropdownMenu` component. */
 function DropdownMenuItem<RootComponent extends ElementType>({
   component,
   children,
