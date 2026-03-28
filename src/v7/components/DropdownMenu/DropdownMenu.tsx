@@ -36,24 +36,29 @@ export function useDropdownMenu<Strict extends boolean = true>({
   return context as OptionalOnCondition<Strict, DropdownMenuContextValue>;
 }
 
-export interface DropdownMenu2Props {
+export interface DropdownMenuProps {
+  /** The children to render inside of the dropdown. */
   children: ReactNode;
+  /** The button component to be used as the dropdown toggle (defaults to a Material UI Button) */
   button?: ElementType;
+  /** Props to pass to the Button. */
   buttonProps?: Omit<ButtonOwnProps, "endIcon"> & {
     onClick?: (event: ReactMouseEvent<HTMLElement>) => void;
   };
+  /** The icon to display on the button when it is open. */
   openIcon?: ReactNode;
+  /** The icon to display on the button when it is closed. */
   closedIcon?: ReactNode;
 }
 
 /** Renders a dropdown menu consisting of `DropdownMenuItem` components imported from this package. */
-function DropdownMenu2({
+function DropdownMenu({
   children,
   button: Button = MUIButton,
   buttonProps,
   openIcon = <MdArrowDropUp />,
   closedIcon = <MdArrowDropDown />,
-}: DropdownMenu2Props) {
+}: DropdownMenuProps) {
   const [anchorElement, setAnchorElement] = useState<HTMLElement | null>(null);
 
   const isDropdownOpen = useMemo(() => {
@@ -88,4 +93,4 @@ function DropdownMenu2({
   );
 }
 
-export default DropdownMenu2;
+export default DropdownMenu;
