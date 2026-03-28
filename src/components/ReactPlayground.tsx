@@ -9,9 +9,11 @@ import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
 import { useMode } from "src/providers";
 
 export interface ReactPlaygroundProps extends ComponentProps<typeof LiveProvider> {
+  /** Extra styling to apply to the preview. Must be compatible with the Material UI `sx` prop. */
   previewStyles?: SxProps<Theme>;
 }
 
+/** Renders a playground to help demonstrate your React code in an interactive setting. */
 function ReactPlayground({ code, previewStyles, ...liveProviderProps }: ReactPlaygroundProps) {
   const { mode } = useMode();
   const defaultPreviewStyles: SxProps<Theme> = {
