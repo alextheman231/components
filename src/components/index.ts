@@ -1,6 +1,5 @@
 export { default as Artwork } from "src/components/Artwork";
 export { default as CollapsableItem } from "src/components/CollapsableItem";
-export { default as DropdownMenu } from "src/components/DropdownMenu";
 export { default as ExternalLink } from "src/components/ExternalLink";
 export { default as FileInput, FileType } from "src/components/FileInput";
 export { default as FileInputList } from "src/components/FileInputList";
@@ -16,7 +15,6 @@ export { default as SubmitButton } from "src/components/SubmitButton";
 export { default as SwitchWithIcons } from "src/components/SwitchWithIcons";
 
 export type { CollapsableItemProps } from "src/components/CollapsableItem";
-export type { DropdownMenuProps } from "src/components/DropdownMenu";
 export type { ExternalLinkProps } from "src/components/ExternalLink";
 export type { FileInputProps } from "src/components/FileInput";
 export type { FileInputListProps } from "src/components/FileInputList";
@@ -28,3 +26,4 @@ export type { ReactPlaygroundProps } from "src/components/ReactPlayground";
 export type { SkeletonRowProps } from "src/components/SkeletonRow";
 export type { SubmitButtonProps } from "src/components/SubmitButton";
 export type { SwitchWithIconsProps } from "src/components/SwitchWithIcons";
+export type { DropdownMenuProps } from "src/deprecated/DropdownMenu";

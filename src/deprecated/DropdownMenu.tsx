@@ -1,4 +1,3 @@
-/* eslint-disable */
 import type { ButtonOwnProps } from "@mui/material/Button";
 import type { ElementType, MouseEvent as ReactMouseEvent, ReactNode } from "react";
 

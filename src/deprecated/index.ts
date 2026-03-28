@@ -1,4 +1,7 @@
 export { default as DarkModeToggle } from "src/deprecated/DarkModeToggle";
+export { default as DropdownMenu } from "src/deprecated/DropdownMenu";
+export { default as DropdownMenuExternalLink } from "src/deprecated/DropdownMenuExternalLink";
+export { default as DropdownMenuInternalLink } from "src/deprecated/DropdownMenuInternalLink";
 export { default as IconWithPopover } from "src/deprecated/IconWithPopover";
 export { default as ListItemInternalLink } from "src/deprecated/ListItemInternalLink";
 export { default as PopoverText } from "src/deprecated/PopoverText";

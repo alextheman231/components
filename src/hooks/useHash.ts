@@ -2,13 +2,24 @@ import type { Dispatch, SetStateAction } from "react";
 
 import { useCallback, useEffect, useState } from "react";
 
-function useHash<S extends string>(initialHash: S | undefined): [S, Dispatch<SetStateAction<S>>] {
-  const [hash, setHash] = useState<S>(() => {
-    const hash: S = window.location.hash.replace("#", "") as S;
+/**
+ * Stores changes to the window hash as React state.
+ *
+ * @template StateType - The type of the hash state.
+ *
+ * @param initialHash - The initial value of the hash.
+ *
+ * @returns A tuple containing the hash state, and a updater function to set the hash state.
+ */
+function useHash<StateType extends string>(
+  initialHash: StateType | undefined,
+): [StateType, Dispatch<SetStateAction<StateType>>] {
+  const [hash, setHash] = useState<StateType>(() => {
+    const hash: StateType = window.location.hash.replace("#", "") as StateType;
     return !initialHash ? hash : hash === "" ? initialHash : hash;
   });
   const hashChangeHandler = useCallback(() => {
-    const hash: S = window.location.hash.replace("#", "") as S;
+    const hash: StateType = window.location.hash.replace("#", "") as StateType;
     setHash(!initialHash ? hash : hash === "" ? initialHash : hash);
   }, [setHash, initialHash]);
 
@@ -20,7 +31,7 @@ function useHash<S extends string>(initialHash: S | undefined): [S, Dispatch<Set
   }, [hashChangeHandler]);
 
   const updateHash = useCallback(
-    (newHash: S | ((previousState: S) => S)) => {
+    (newHash: StateType | ((previousState: StateType) => StateType)) => {
       const resolvedHash = typeof newHash === "function" ? newHash(hash) : newHash;
       if (resolvedHash !== hash) {
         window.location.hash = resolvedHash;

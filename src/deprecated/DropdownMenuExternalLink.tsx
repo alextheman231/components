@@ -3,29 +3,30 @@ import type { ComponentProps, MouseEventHandler, ReactNode, Ref } from "react";
 
 import MenuItem from "@mui/material/MenuItem";
 
-import { InternalLink } from "src/components";
+import { ExternalLink } from "src/components";
 import { useDropdownMenu } from "src/providers/DropdownMenu2/DropdownMenu2";
 
-export interface DropdownMenuInternalLinkProps extends MenuItemOwnProps {
+export interface DropdownMenuExternalLinkProps extends MenuItemOwnProps {
   ref?: Ref<HTMLAnchorElement>;
-  to: ComponentProps<typeof InternalLink>["to"];
+  href: ComponentProps<typeof ExternalLink>["href"];
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   children: ReactNode;
 }
 
-function DropdownMenuInternalLink({
-  to,
+/** @deprecated Please use `<DropdownMenuItem component={ExternalLink} />` instead. */
+function DropdownMenuExternalLink({
   ref,
+  href,
   children,
   onClick,
   ...menuItemProps
-}: DropdownMenuInternalLinkProps) {
+}: DropdownMenuExternalLinkProps) {
   const { closeMenu } = useDropdownMenu();
 
   return (
     <MenuItem
-      component={InternalLink}
-      to={to}
+      component={ExternalLink}
+      href={href}
       ref={ref}
       {...menuItemProps}
       onClick={(event) => {
@@ -42,4 +43,4 @@ function DropdownMenuInternalLink({
   );
 }
 
-export default DropdownMenuInternalLink;
+export default DropdownMenuExternalLink;
