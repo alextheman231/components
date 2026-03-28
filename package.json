@@ -45,7 +45,7 @@
     "prepare-local-eslint-plugin": "dotenv -e .env -- sh -c 'ESLINT_PLUGIN_PATH=${LOCAL_ESLINT_PLUGIN_PATH:-../eslint-plugin}; pnpm --prefix \"$ESLINT_PLUGIN_PATH\" run build && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev file:\"$ESLINT_PLUGIN_PATH\"'",
     "prepare-local-utility": "dotenv -e .env -- sh -c 'UTILITY_PATH=${LOCAL_UTILITY_PATH:-../utility}; pnpm --prefix \"$UTILITY_PATH\" run build && pnpm uninstall @alextheman/utility && pnpm install file:\"$UTILITY_PATH\"'",
     "storybook": "storybook dev -p 6006",
-    "test": "vitest run --project=storybook",
+    "test": "vitest run",
     "test-end-to-end": "playwright test",
     "test-update-ci-snapshots": "docker run --rm -it -v \"$PWD\":/work -v \"$HOME/.pnpm-store\":/pnpm-store -w /work mcr.microsoft.com/playwright:v1.58.2-jammy bash -lc \"npm i -g pnpm@10.29.3 && pnpm config set store-dir /pnpm-store && pnpm install && pnpm test-update-snapshots\"",
     "test-update-snapshots": "playwright test --update-snapshots",
