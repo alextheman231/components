@@ -29,6 +29,7 @@ const ScreenSizeContext = createContext<ScreenSizeContextValue>({
   isLargeScreen: false,
 });
 
+/** Access the screen size context directly. */
 export function useScreenSize<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ScreenSizeContextValue> {
