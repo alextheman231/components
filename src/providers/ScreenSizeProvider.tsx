@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
+import { DataError } from "@alextheman/utility";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export interface ScreenSizeProps {
@@ -35,7 +36,11 @@ export function useScreenSize<Strict extends boolean = true>({
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ScreenSizeContextValue> {
   const context = useContext(ScreenSizeContext);
   if (strict && !context) {
-    throw new Error("SCREEN_SIZE_PROVIDER_NOT_FOUND");
+    throw new DataError(
+      { strict, context },
+      "SCREEN_SIZE_PROVIDER_NOT_FOUND",
+      "Could not find the ScreenSizeProvider context. Please double-check that it is present.",
+    );
   }
   return context;
 }

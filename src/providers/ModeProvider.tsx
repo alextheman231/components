@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
+import { DataError } from "@alextheman/utility";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { createContext, useContext, useMemo, useState } from "react";
@@ -24,7 +25,11 @@ export function useMode<Strict extends boolean = true>({
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ModeContextValue> {
   const context = useContext(ModeContext);
   if (strict && !context) {
-    throw new Error("MODE_PROVIDER_NOT_FOUND");
+    throw new DataError(
+      { strict, context },
+      "MODE_PROVIDER_NOT_FOUND",
+      "Could not find the ModeProvider context. Please double-check that it is present.",
+    );
   }
   return context;
 }
