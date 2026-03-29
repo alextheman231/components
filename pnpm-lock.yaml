@@ -81,8 +81,8 @@ importers:
         specifier: ^4.1.2
         version: 4.1.2(@vitest/browser@4.1.2(vite@7.3.1(@types/node@25.5.0)(yaml@2.8.3))(vitest@4.1.2))(vitest@4.1.2)
       alex-c-line:
-        specifier: ^2.3.0
-        version: 2.3.0(@types/node@25.5.0)
+        specifier: ^2.4.0
+        version: 2.4.0(@types/node@25.5.0)
       dotenv-cli:
         specifier: ^11.0.0
         version: 11.0.0
@@ -1567,8 +1567,8 @@ packages:
   ajv@6.14.0:
     resolution: {integrity: sha512-IWrosm/yrn43eiKqkfkHis7QioDleaXQHdDVPKg0FSwwd/DuvyX79TZnFOnYpB7dcsFAMmtFztZuXPDvSePkFw==}
 
-  alex-c-line@2.3.0:
-    resolution: {integrity: sha512-dH/v2aOERPjGpqvdlY7jES+SIOQuge2ylawdkUqaiNV7qIHMAMsJRR5bw/YdYO7wxP3Y/YF1yXmAfC3k5Db6dg==}
+  alex-c-line@2.4.0:
+    resolution: {integrity: sha512-DxE0p19bJus479KqU7gxCPRFmGgPrFCZNep3w8Wj+zleekc2gSfHvcJAeeH/b8/9QRSzPlG/cWpw7UCmKid6wA==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -5376,7 +5376,7 @@ snapshots:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
-  alex-c-line@2.3.0(@types/node@25.5.0):
+  alex-c-line@2.4.0(@types/node@25.5.0):
     dependencies:
       '@alextheman/utility': 5.7.0
       '@inquirer/prompts': 8.3.2(@types/node@25.5.0)
