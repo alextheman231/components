@@ -13,7 +13,7 @@ export interface SubmitButtonProps extends Omit<ButtonProps, "type"> {
 /**
  * A Submit Button for use with `react-hook-form`.
  *
- * Note that this is planned to eventually be deprecated and replaced with a newer version of `SubmitButton` that is instead compatible with `@tanstack/react-form`.
+ * @deprecated This component is not compatible with `@tanstack/react-form`. Please use `SubmitButton` from the `@alextheman/components/v7` entrypoint instead. This component will be replaced when v7 officially comes out.
  */
 function SubmitButton({ disableClean, label, ...buttonProps }: SubmitButtonProps) {
   const {

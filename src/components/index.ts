@@ -9,7 +9,6 @@ export { default as NavigationBottom } from "src/components/NavigationBottom";
 export { default as Page } from "src/components/Page";
 export { default as ReactPlayground } from "src/components/ReactPlayground";
 export { default as SkeletonRow } from "src/components/SkeletonRow";
-export { default as SubmitButton } from "src/components/SubmitButton";
 export { default as SwitchWithIcons } from "src/components/SwitchWithIcons";
 
 export type { CollapsableItemProps } from "src/components/CollapsableItem";
@@ -20,6 +19,5 @@ export type { LoaderProps } from "src/components/Loader";
 export type { NavigationBottomProps, NavItemBottom } from "src/components/NavigationBottom";
 export type { ReactPlaygroundProps } from "src/components/ReactPlayground";
 export type { SkeletonRowProps } from "src/components/SkeletonRow";
-export type { SubmitButtonProps } from "src/components/SubmitButton";
 export type { SwitchWithIconsProps } from "src/components/SwitchWithIcons";
 export type { DropdownMenuProps } from "src/deprecated/DropdownMenu";
