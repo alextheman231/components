@@ -29,6 +29,8 @@ export interface InternalLinkProps extends Omit<LinkProps, "href" | "component">
  * Uses the app router for client-side navigation and opens the destination in the same tab.
  *
  * Defaults to a React Router implementation but can be overridden via the `component` prop.
+ *
+ * @deprecated This component is not compatible with the rest of the Wouter setup for use in v7. Please use `InternalLink` from `@alextheman/components/v7` instead. This component will be replaced when v7 officially comes out.
  */
 function InternalLink({
   to,
