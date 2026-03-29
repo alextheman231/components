@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { DropdownMenuItem, ExternalLink, InternalLink } from "src";
+import { DropdownMenuItem, ExternalLink } from "src";
 import { fn } from "storybook/test";
+import { Route } from "wouter";
 
-import { DropdownMenu } from "src/v7";
+import { DropdownMenu, InternalLink, MemoryRouter, Switch } from "src/v7";
 
 const meta: Meta = {
   title: "DropdownMenu",
@@ -25,25 +25,24 @@ export const Main: Story = {
   ],
   render: ({ to, href, onClick }) => {
     return (
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <DropdownMenu buttonProps={{ children: "Menu" }}>
-              <DropdownMenuItem component={InternalLink} to={to}>
-                Item that internally navigates
-              </DropdownMenuItem>
-              <DropdownMenuItem component={ExternalLink} href={href}>
-                Item that externally navigates
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={onClick}>
-                Item that runs an onClick function
-              </DropdownMenuItem>
-            </DropdownMenu>
-          }
-        />
-        <Route path="/test" element={<InternalLink to="/">Return to DropdownMenu</InternalLink>} />
-      </Routes>
+      <Switch>
+        <Route path="/">
+          <DropdownMenu buttonProps={{ children: "Menu" }}>
+            <DropdownMenuItem component={InternalLink} to={to}>
+              Item that internally navigates
+            </DropdownMenuItem>
+            <DropdownMenuItem component={ExternalLink} href={href}>
+              Item that externally navigates
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={onClick}>
+              Item that runs an onClick function
+            </DropdownMenuItem>
+          </DropdownMenu>
+        </Route>
+        <Route path="/test">
+          <InternalLink to="/">Return to DropdownMenu</InternalLink>
+        </Route>
+      </Switch>
     );
   },
   args: {
