@@ -6,9 +6,8 @@ import MainRouteLinks from "stories/Routing/helpers/MainRouteLinks";
 import NestedRouter from "stories/Routing/helpers/NestedRouter";
 import ValidRouteContents from "stories/Routing/helpers/ValidRouteContents";
 import { Route } from "wouter";
-import { memoryLocation } from "wouter/memory-location";
 
-import { InternalLink, Router, Switch } from "src/v7";
+import { InternalLink, MemoryRouter, Switch } from "src/v7";
 
 const meta: Meta = {
   title: "Routing with Wouter (v7)",
@@ -19,10 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch>
           <Route path="/">
             <MainRouteLinks showValid showNestedValid showInvalid showNestedInvalid />
@@ -34,17 +31,15 @@ export const Main: Story = {
             <NestedRouter />
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
 };
 
 export const Valid: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch>
           <Route path="/">
             <MainRouteLinks showValid />
@@ -53,7 +48,7 @@ export const Valid: Story = {
             <ValidRouteContents />
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
   play: async ({ userEvent, canvas }) => {
@@ -67,10 +62,8 @@ export const Valid: Story = {
 
 export const Invalid: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch>
           <Route path="/">
             <MainRouteLinks showInvalid />
@@ -79,7 +72,7 @@ export const Invalid: Story = {
             <ValidRouteContents />
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
   play: async ({ userEvent, canvas }) => {
@@ -93,10 +86,8 @@ export const Invalid: Story = {
 
 export const ValidNested: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch>
           <Route path="/">
             <MainRouteLinks showValid showNestedValid />
@@ -108,7 +99,7 @@ export const ValidNested: Story = {
             <NestedRouter />
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
   play: async ({ userEvent, canvas }) => {
@@ -122,10 +113,8 @@ export const ValidNested: Story = {
 
 export const InvalidNested: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch>
           <Route path="/">
             <MainRouteLinks showNestedValid showNestedInvalid />
@@ -137,7 +126,7 @@ export const InvalidNested: Story = {
             <NestedRouter />
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
   play: async ({ userEvent, canvas }) => {
@@ -151,10 +140,8 @@ export const InvalidNested: Story = {
 
 export const NestedLink: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch>
           <Route path="/">
             <InternalLink to="/users">Go to users page</InternalLink>
@@ -168,7 +155,7 @@ export const NestedLink: Story = {
             </Switch>
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
   play: async ({ userEvent, canvas }) => {
@@ -180,10 +167,8 @@ export const NestedLink: Story = {
 
 export const CustomFallback: Story = {
   render: () => {
-    const { hook } = memoryLocation({ path: "/" });
-
     return (
-      <Router hook={hook}>
+      <MemoryRouter>
         <Switch
           fallback={
             <>
@@ -209,7 +194,7 @@ export const CustomFallback: Story = {
             />
           </Route>
         </Switch>
-      </Router>
+      </MemoryRouter>
     );
   },
   play: async ({ userEvent, canvas }) => {
