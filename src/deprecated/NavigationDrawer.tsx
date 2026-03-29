@@ -152,7 +152,11 @@ export interface NavigationDrawerProps {
   children: ReactNode;
 }
 
-/** Renders a collapsable drawer to help with navigation. Best used as the main means of navigation on desktop apps. */
+/**
+ * Renders a collapsable drawer to help with navigation. Best used as the main means of navigation on desktop apps.
+ *
+ * @deprecated This component is not compatible with the rest of the Wouter setup for use in v7. Please use `NavigationDrawer` from `@alextheman/components/v7` instead. This component will be replaced when v7 officially comes out.
+ */
 function NavigationDrawer({ title, navItems, children, headerElements }: NavigationDrawerProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);

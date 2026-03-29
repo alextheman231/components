@@ -3,8 +3,8 @@ import type { ComponentProps, MouseEventHandler, ReactNode, Ref } from "react";
 
 import MenuItem from "@mui/material/MenuItem";
 
-import { InternalLink } from "src/components";
 import { useDropdownMenu } from "src/deprecated/DropdownMenu2/DropdownMenu2";
+import InternalLink from "src/deprecated/InternalLink";
 
 export interface DropdownMenuInternalLinkProps extends MenuItemOwnProps {
   ref?: Ref<HTMLAnchorElement>;

@@ -144,7 +144,7 @@ export const InvalidNested: Story = {
     const validNestedLink = canvas.getByRole("link", { name: "Go to an invalid nested route" });
     await userEvent.click(validNestedLink);
     await canvas.findByText("Page Not Found");
-    await userEvent.click(await canvas.findByRole("link", { name: "here" }));
+    await userEvent.click(canvas.getByRole("link", { name: "here" }));
     await canvas.findByText("Please choose a link");
   },
 };
