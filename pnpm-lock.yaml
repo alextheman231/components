@@ -14,8 +14,8 @@ importers:
   .:
     dependencies:
       '@alextheman/utility':
-        specifier: ^5.7.0
-        version: 5.7.0
+        specifier: ^5.8.0
+        version: 5.8.0
       common-tags:
         specifier: ^1.8.2
         version: 1.8.2
@@ -143,6 +143,9 @@ importers:
       vitest:
         specifier: ^4.1.2
         version: 4.1.2(@types/node@25.5.0)(@vitest/browser-playwright@4.1.2)(vite@7.3.1(@types/node@25.5.0)(yaml@2.8.3))
+      wouter:
+        specifier: ^3.9.0
+        version: 3.9.0(react@19.2.4)
 
 packages:
 
@@ -173,8 +176,8 @@ packages:
       vite-tsconfig-paths: '>=5.1.4'
       vitest: '>=4.0.13'
 
-  '@alextheman/utility@5.7.0':
-    resolution: {integrity: sha512-KL4t67+LPjTAUIKG9be5+BYpxxmjGY5SLdxXZ/0AFW4tvtpH7F+WCWq1SwCHNByyyR1+07pQh072GZWhiyMIEA==}
+  '@alextheman/utility@5.8.0':
+    resolution: {integrity: sha512-uU2URao/Xme3dDaDwbg/s0eA/ftmJ4LUBZtVqMXSOFROrsUJEQvjphm2Futfs671OIb2KZolSdzCgvZW9Iv8iw==}
     engines: {node: '>=22.3.0'}
 
   '@altano/repository-tools@2.0.3':
@@ -2914,6 +2917,9 @@ packages:
     resolution: {integrity: sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  mitt@3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+
   mkdirp-classic@0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}
 
@@ -3267,6 +3273,10 @@ packages:
   regexp.prototype.flags@1.5.4:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
+
+  regexparam@3.0.0:
+    resolution: {integrity: sha512-RSYAtP31mvYLkAHrOlh25pCNQ5hWnT106VukGaaFfuJrZFkGRX5GhUAdPqpSDXxOhA2c4akmRuplv1mRqnBn6Q==}
+    engines: {node: '>=8'}
 
   reserved-identifiers@1.2.0:
     resolution: {integrity: sha512-yE7KUfFvaBFzGPs5H3Ops1RevfUEsDc5Iz65rOwWg4lE8HJSYtle77uul3+573457oHvBKuHYDl/xqUkKpEEdw==}
@@ -3962,6 +3972,11 @@ packages:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
 
+  wouter@3.9.0:
+    resolution: {integrity: sha512-sF/od/PIgqEQBQcrN7a2x3MX6MQE6nW0ygCfy9hQuUkuB28wEZuu/6M5GyqkrrEu9M6jxdkgE12yDFsQMKos4Q==}
+    peerDependencies:
+      react: '>=16.8.0'
+
   wrap-ansi@9.0.2:
     resolution: {integrity: sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==}
     engines: {node: '>=18'}
@@ -4032,7 +4047,7 @@ snapshots:
 
   '@alextheman/eslint-plugin@5.10.4(80b85eb40a55b122f023e5cf99e101d9)':
     dependencies:
-      '@alextheman/utility': 5.7.0
+      '@alextheman/utility': 5.8.0
       '@eslint/compat': 2.0.3(eslint@10.1.0)
       '@eslint/js': 9.39.2
       '@typescript-eslint/types': 8.57.2
@@ -4063,7 +4078,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@alextheman/utility@5.7.0':
+  '@alextheman/utility@5.8.0':
     dependencies:
       dotenv: 17.3.1
       execa: 9.6.1
@@ -5375,7 +5390,7 @@ snapshots:
 
   alex-c-line@2.4.0(@types/node@25.5.0):
     dependencies:
-      '@alextheman/utility': 5.7.0
+      '@alextheman/utility': 5.8.0
       '@inquirer/prompts': 8.3.2(@types/node@25.5.0)
       axios: 1.14.0
       boxen: 8.0.1
@@ -6863,6 +6878,8 @@ snapshots:
 
   minipass@7.1.3: {}
 
+  mitt@3.0.1: {}
+
   mkdirp-classic@0.5.3: {}
 
   mrmime@2.0.1: {}
@@ -7238,6 +7255,8 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       set-function-name: 2.0.2
+
+  regexparam@3.0.0: {}
 
   reserved-identifiers@1.2.0: {}
 
@@ -8036,6 +8055,13 @@ snapshots:
       string-width: 7.2.0
 
   word-wrap@1.2.5: {}
+
+  wouter@3.9.0(react@19.2.4):
+    dependencies:
+      mitt: 3.0.1
+      react: 19.2.4
+      regexparam: 3.0.0
+      use-sync-external-store: 1.6.0(react@19.2.4)
 
   wrap-ansi@9.0.2:
     dependencies:

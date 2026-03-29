@@ -56,7 +56,7 @@
     "use-local-utility": "pnpm run prepare-local-utility"
   },
   "dependencies": {
-    "@alextheman/utility": "^5.7.0",
+    "@alextheman/utility": "^5.8.0",
     "common-tags": "^1.8.2",
     "react-icons": "^5.6.0",
     "react-live": "^4.1.8",
@@ -100,7 +100,8 @@
     "tsdown": "^0.21.6",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.57.2",
-    "vitest": "^4.1.2"
+    "vitest": "^4.1.2",
+    "wouter": "^3.9.0"
   },
   "peerDependencies": {
     "@emotion/react": ">=11.0.0",
@@ -110,7 +111,8 @@
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0",
     "react-hook-form": ">=7.66.0",
-    "react-router-dom": ">=7.0.0"
+    "react-router-dom": ">=7.0.0",
+    "wouter": "^3.9.0"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
   "engines": {
