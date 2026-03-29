@@ -1,5 +1,6 @@
 export { default as ErrorPage } from "src/v7/components/routing/ErrorPage";
 export { default as InternalLink } from "src/v7/components/routing/InternalLink";
+export { default as MemoryRouter } from "src/v7/components/routing/MemoryRouter";
 export { default as Router } from "src/v7/components/routing/Router";
 export { default as Switch } from "src/v7/components/routing/Switch";
 
