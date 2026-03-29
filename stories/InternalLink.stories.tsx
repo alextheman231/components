@@ -4,9 +4,10 @@ import type { InternalLinkProps } from "src";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import { useRef } from "react";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { InternalLink } from "src";
 import { expect } from "storybook/test";
+import { Route, Switch } from "wouter";
+
+import { InternalLink, MemoryRouter } from "src/v7";
 
 const meta: Meta<typeof InternalLink> = {
   component: InternalLink,
@@ -19,26 +20,20 @@ export const Main: Story = {
   render: ({ to, children, ...props }) => {
     return (
       <MemoryRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <InternalLink to={to} {...props}>
-                {children}
-              </InternalLink>
-            }
-          />
-          <Route path="/test" element={<InternalLink to="/">Return to root route</InternalLink>} />
-          <Route
-            path="/patch-it-up"
-            element={
-              <>
-                You have chosen to face the workflow of the damned! Enter if you dare, or
-                <InternalLink to="/">return to safety</InternalLink>
-              </>
-            }
-          />
-        </Routes>
+        <Switch>
+          <Route path="/">
+            <InternalLink to={to} {...props}>
+              {children}
+            </InternalLink>
+          </Route>
+          <Route path="/test">
+            <InternalLink to="/">Return to root route</InternalLink>
+          </Route>
+          <Route path="/patch-it-up">
+            You have chosen to face the workflow of the damned! Enter if you dare, or
+            <InternalLink to="/">return to safety</InternalLink>
+          </Route>
+        </Switch>
       </MemoryRouter>
     );
   },
@@ -131,19 +126,18 @@ export const MaterialUIComponentPropIntegration: Story = {
   render: () => {
     return (
       <MemoryRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <List>
-                <ListItemButton component={InternalLink} to="/test">
-                  Navigate
-                </ListItemButton>
-              </List>
-            }
-          />
-          <Route path="/test" element={<InternalLink to="/">Return to root route</InternalLink>} />
-        </Routes>
+        <Switch>
+          <Route path="/">
+            <List>
+              <ListItemButton component={InternalLink} to="/test">
+                Navigate
+              </ListItemButton>
+            </List>
+          </Route>
+          <Route path="/test">
+            <InternalLink to="/">Return to root route</InternalLink>
+          </Route>
+        </Switch>
       </MemoryRouter>
     );
   },
