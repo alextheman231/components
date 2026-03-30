@@ -9,6 +9,7 @@ export default [
   {
     rules: {
       "jsdoc/require-jsdoc": "off",
+      "n/no-unsupported-features/node-builtins": "off",
     },
   },
 ];

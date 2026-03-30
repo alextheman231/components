@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import { UUID_PATTERN } from "@alextheman/utility";
+import Stack from "@mui/material/Stack";
 import NESTED_ROUTE from "stories/Routing/helpers/constants/NESTED_ROUTE";
 import VALID_ROUTE from "stories/Routing/helpers/constants/VALID_ROUTE";
 import MainRouteLinks from "stories/Routing/helpers/MainRouteLinks";
 import NestedRouter from "stories/Routing/helpers/NestedRouter";
 import ValidRouteContents from "stories/Routing/helpers/ValidRouteContents";
+import { expect } from "storybook/test";
 import { Route } from "wouter";
 
 import { InternalLink, MemoryRouter, Switch } from "src/v7";
@@ -171,10 +174,10 @@ export const CustomFallback: Story = {
       <MemoryRouter>
         <Switch
           fallback={
-            <>
+            <Stack spacing={1}>
               Not a valid route
               <InternalLink to="/">Back to main demonstration</InternalLink>
-            </>
+            </Stack>
           }
         >
           <Route path="/">
@@ -186,10 +189,10 @@ export const CustomFallback: Story = {
           <Route path={NESTED_ROUTE} nest>
             <NestedRouter
               fallback={
-                <>
+                <Stack spacing={1}>
                   Not a valid nested route
                   <InternalLink to="/">Back to main demonstration</InternalLink>
-                </>
+                </Stack>
               }
             />
           </Route>
@@ -210,6 +213,51 @@ export const CustomFallback: Story = {
     await userEvent.click(invalidNestedLink);
     await canvas.findByText("Not a valid nested route");
     await userEvent.click(canvas.getByRole("link", { name: "Back to main demonstration" }));
+    await canvas.findByText("Please choose a link");
+  },
+};
+
+export const ParametricRoute: Story = {
+  render: ({ userUUID }) => {
+    return (
+      <MemoryRouter>
+        <Switch>
+          <Route path="/">
+            <Stack spacing={1}>
+              Please choose a link
+              <InternalLink to={`/users/${userUUID}`}>View user details</InternalLink>
+              <InternalLink to="/users/hello">Fake link to user details</InternalLink>
+            </Stack>
+          </Route>
+          <Route<{ userId: string }> path={RegExp(`^/users/(?<userId>${UUID_PATTERN})`)}>
+            {({ userId }) => {
+              return (
+                <Stack spacing={1}>
+                  This is the page for user with ID {userId}
+                  <InternalLink to="/">Back to main demonstration</InternalLink>
+                </Stack>
+              );
+            }}
+          </Route>
+        </Switch>
+      </MemoryRouter>
+    );
+  },
+  args: {
+    userUUID: crypto.randomUUID(),
+  },
+  play: async ({ userEvent, canvas, context }) => {
+    const validLink = canvas.getByRole("link", { name: "View user details" });
+    await userEvent.click(validLink);
+    await canvas.findByText(`This is the page for user with ID ${context.args.userUUID}`);
+    await userEvent.click(canvas.getByRole("link", { name: "Back to main demonstration" }));
+    await canvas.findByText("Please choose a link");
+
+    const invalidLink = canvas.getByRole("link", { name: "Fake link to user details" });
+    await userEvent.click(invalidLink);
+    await canvas.findByText("Page Not Found");
+    expect(canvas.queryByText(`This is the page for user with ID`)).not.toBeInTheDocument();
+    await userEvent.click(canvas.getByRole("link", { name: "here" }));
     await canvas.findByText("Please choose a link");
   },
 };
