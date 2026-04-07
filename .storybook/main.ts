@@ -28,7 +28,7 @@ const config: StorybookConfig = {
 
     return config;
   },
-  addons: ["@storybook/addon-docs", "@storybook/addon-vitest"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-vitest", "@storybook/addon-a11y"],
   docs: {
     docsMode: false,
   },
