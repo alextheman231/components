@@ -13,7 +13,6 @@ jobs:
     uses: alextheman231/github-actions/.github/workflows/commit-version-change.yml@ec0a721b5d0c0f9fd8b86437636f9bcbc64218ef # v11.0.1
     with:
       version-type: major
-      create-feature-docs: false
     secrets:
       APP_ID: ${{ secrets.ALEX_UP_BOT_APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
@@ -26,7 +25,6 @@ jobs:
     uses: alextheman231/github-actions/.github/workflows/commit-version-change.yml@ec0a721b5d0c0f9fd8b86437636f9bcbc64218ef # v11.0.1
     with:
       version-type: minor
-      create-feature-docs: false
     secrets:
       APP_ID: ${{ secrets.ALEX_UP_BOT_APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
@@ -39,7 +37,6 @@ jobs:
     uses: alextheman231/github-actions/.github/workflows/commit-version-change.yml@ec0a721b5d0c0f9fd8b86437636f9bcbc64218ef # v11.0.1
     with:
       version-type: patch
-      create-feature-docs: false
     secrets:
       APP_ID: ${{ secrets.ALEX_UP_BOT_APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
