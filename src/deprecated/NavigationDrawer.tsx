@@ -206,7 +206,7 @@ function NavigationDrawer({ title, navItems, children, headerElements }: Navigat
           return (
             <Fragment key={item.category}>
               <List>
-                <Typography variant={open ? "h5" : "h6"} paddingLeft={open ? 2 : 1}>
+                <Typography variant={open ? "h5" : "h6"} sx={{ paddingLeft: open ? 2 : 1 }}>
                   {open ? item.category : truncate(item.category, 4)}
                 </Typography>
                 {item.options.map((option) => {
