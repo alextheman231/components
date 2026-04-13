@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { DropdownMenuItem, ExternalLink } from "src";
-import { fn } from "storybook/test";
+import { fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
 import { DropdownMenu, InternalLink, MemoryRouter, Switch } from "src/v7";
@@ -60,5 +60,14 @@ export const Main: Story = {
     onClick: {
       description: "The function to run after clicking the DropdownMenuItem with onClick.",
     },
+  },
+  play: async ({ userEvent, canvas }) => {
+    const button = canvas.getByRole("button", { name: "Menu" });
+    await userEvent.click(button);
+    const internalLinkItem = await screen.findByRole("menuitem", {
+      name: "Item that internally navigates",
+    });
+    await userEvent.click(internalLinkItem);
+    await canvas.findByRole("link", { name: "Return to DropdownMenu" });
   },
 };
