@@ -57,12 +57,13 @@ function DropdownMenuTrigger<RootComponent extends ElementType>({
       variant={variant}
       {...buttonProps}
       onClick={(event: MouseEvent<HTMLElement>) => {
-        if (!event.defaultPrevented) {
-          setAnchorElement(event.currentTarget);
-        }
         if (onClick) {
           onClick(event);
         }
+        if (event.defaultPrevented) {
+          return;
+        }
+        setAnchorElement(event.currentTarget);
       }}
     />
   );
