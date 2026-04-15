@@ -104,7 +104,7 @@ export const Provider: Story = {
   },
 };
 
-export const DefaultPrevention: Story = {
+export const ItemDefaultPrevention: Story = {
   render: () => {
     const [count, setCount] = useState<number>(0);
     return (
@@ -139,5 +139,31 @@ export const DefaultPrevention: Story = {
 
     await userEvent.click(item);
     await canvas.findByText("The persistent DropdownMenu item has been clicked 2 times");
+  },
+};
+
+export const TriggerDefaultPrevention: Story = {
+  render: () => {
+    return (
+      <DropdownMenuProvider>
+        <DropdownMenuTrigger
+          onClick={(event) => {
+            event.preventDefault();
+          }}
+        >
+          Unopenable Dropdown Menu
+        </DropdownMenuTrigger>
+        <DropdownMenu>
+          <DropdownMenuItem>Unreachable Dropdown Menu Item</DropdownMenuItem>
+        </DropdownMenu>
+      </DropdownMenuProvider>
+    );
+  },
+  play: async ({ userEvent, canvas }) => {
+    const button = canvas.getByRole("button", { name: "Unopenable Dropdown Menu" });
+    await userEvent.click(button);
+    await expect(
+      screen.queryByRole("menuitem", { name: "Unreachable Dropdown Menu Item" }),
+    ).not.toBeInTheDocument();
   },
 };
