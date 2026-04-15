@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import { useState } from "react";
 import { DropdownMenuItem, ExternalLink } from "src";
-import { fn, screen } from "storybook/test";
+import { expect, fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
-import { DropdownMenuProvider, InternalLink, MemoryRouter, Switch } from "src/v7";
+import {
+  DropdownMenu,
+  DropdownMenuProvider,
+  DropdownMenuTrigger,
+  InternalLink,
+  MemoryRouter,
+  Switch,
+} from "src/v7";
 import DropdownMenuWrapper from "src/v7/components/DropdownMenu/DropdownMenuWrapper";
 
 const meta: Meta = {
@@ -70,5 +78,51 @@ export const Main: Story = {
     });
     await userEvent.click(internalLinkItem);
     await canvas.findByRole("link", { name: "Return to DropdownMenu" });
+  },
+};
+
+export const Provider: Story = {
+  render: ({ onClick }) => {
+    return (
+      <DropdownMenuProvider>
+        <DropdownMenuTrigger>Toggle Dropdown Menu</DropdownMenuTrigger>
+        <DropdownMenu>
+          <DropdownMenuItem onClick={onClick}>An item in the dropdown</DropdownMenuItem>
+        </DropdownMenu>
+      </DropdownMenuProvider>
+    );
+  },
+  args: {
+    onClick: fn(),
+  },
+  play: async ({ args, userEvent, canvas }) => {
+    const button = canvas.getByRole("button", { name: "Toggle Dropdown Menu" });
+    await userEvent.click(button);
+    const item = await screen.findByRole("menuitem", { name: "An item in the dropdown" });
+    await userEvent.click(item);
+    await expect(args.onClick).toHaveBeenCalledOnce();
+  },
+};
+
+export const DefaultPrevention: Story = {
+  render: () => {
+    const [count, setCount] = useState<number>(0);
+    return (
+      <>
+        <DropdownMenuWrapper>
+          <DropdownMenuItem
+            onClick={(event) => {
+              event.preventDefault();
+              setCount((previous) => {
+                return previous + 1;
+              });
+            }}
+          >
+            An item in the dropdown
+          </DropdownMenuItem>
+        </DropdownMenuWrapper>
+        The persistant DropdownMenu item has been clicked {count} time{count === 1 ? "" : "s"}
+      </>
+    );
   },
 };
