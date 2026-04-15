@@ -4,10 +4,11 @@ import { DropdownMenuItem, ExternalLink } from "src";
 import { fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
-import { DropdownMenu, InternalLink, MemoryRouter, Switch } from "src/v7";
+import { DropdownMenuProvider, InternalLink, MemoryRouter, Switch } from "src/v7";
+import DropdownMenuWrapper from "src/v7/components/DropdownMenu/DropdownMenuWrapper";
 
 const meta: Meta = {
-  title: "DropdownMenu",
+  component: DropdownMenuProvider,
 };
 
 export default meta;
@@ -27,7 +28,7 @@ export const Main: Story = {
     return (
       <Switch>
         <Route path="/">
-          <DropdownMenu buttonProps={{ children: "Menu" }}>
+          <DropdownMenuWrapper>
             <DropdownMenuItem component={InternalLink} to={to}>
               Item that internally navigates
             </DropdownMenuItem>
@@ -37,7 +38,7 @@ export const Main: Story = {
             <DropdownMenuItem onClick={onClick}>
               Item that runs an onClick function
             </DropdownMenuItem>
-          </DropdownMenu>
+          </DropdownMenuWrapper>
         </Route>
         <Route path="/test">
           <InternalLink to="/">Return to DropdownMenu</InternalLink>
