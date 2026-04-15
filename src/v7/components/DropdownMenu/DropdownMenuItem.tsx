@@ -32,7 +32,7 @@ export type DropdownMenuItemProps<RootComponent extends ElementType = typeof But
   MenuItemOwnProps;
 
 /** Represents a menu item to be used inside the `DropdownMenu`. It must be used as children of the `DropdownMenu` component. */
-function DropdownMenuItem<RootComponent extends ElementType>({
+function DropdownMenuItem<RootComponent extends ElementType = typeof Button>({
   component,
   children,
   ref,
