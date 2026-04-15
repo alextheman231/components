@@ -121,8 +121,23 @@ export const DefaultPrevention: Story = {
             An item in the dropdown
           </DropdownMenuItem>
         </DropdownMenuWrapper>
-        The persistant DropdownMenu item has been clicked {count} time{count === 1 ? "" : "s"}
+        The persistent DropdownMenu item has been clicked {count} time{count === 1 ? "" : "s"}
       </>
     );
+  },
+  play: async ({ userEvent, canvas }) => {
+    expect(
+      canvas.getByText("The persistent DropdownMenu item has been clicked 0 times"),
+    ).toBeInTheDocument();
+
+    const button = canvas.getByRole("button", { name: "Menu" });
+    await userEvent.click(button);
+
+    const item = await screen.findByRole("menuitem", { name: "An item in the dropdown" });
+    await userEvent.click(item);
+    await canvas.findByText("The persistent DropdownMenu item has been clicked 1 time");
+
+    await userEvent.click(item);
+    await canvas.findByText("The persistent DropdownMenu item has been clicked 2 times");
   },
 };

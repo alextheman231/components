@@ -47,12 +47,13 @@ function DropdownMenuItem<RootComponent extends ElementType = typeof Button>({
       ref={ref}
       {...menuItemProps}
       onClick={(event) => {
-        if (!event.defaultPrevented) {
-          closeMenu();
-        }
         if (onClick) {
           onClick(event);
         }
+        if (event.defaultPrevented) {
+          return;
+        }
+        closeMenu();
       }}
     >
       {children}
