@@ -1,14 +1,30 @@
-import { defineConfig } from "tsdown";
+import type { UserConfig } from "tsdown";
 
-export default defineConfig({
-  entry: ["src/index.ts"],
-  format: ["esm", "cjs"],
-  dts: true,
-  deps: {
-    neverBundle: ["react"],
+const config: Array<UserConfig> = [
+  {
+    entry: ["src/index.ts"],
+    format: ["esm", "cjs"],
+    dts: true,
+    deps: {
+      neverBundle: ["react"],
+    },
+    clean: true,
+    minify: true,
+    sourcemap: true,
+    fixedExtension: false,
   },
-  clean: true,
-  minify: true,
-  sourcemap: true,
-  fixedExtension: false,
-});
+  {
+    entry: ["src/v7/index.ts"],
+    format: ["esm", "cjs"],
+    dts: true,
+    deps: {
+      neverBundle: ["react"],
+    },
+    clean: true,
+    minify: true,
+    sourcemap: true,
+    fixedExtension: false,
+  },
+];
+
+export default config;
