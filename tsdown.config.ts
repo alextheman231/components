@@ -16,6 +16,7 @@ const config: Array<UserConfig> = [
   {
     entry: ["src/v7/index.ts"],
     format: ["esm", "cjs"],
+    outDir: "dist/v7",
     dts: true,
     deps: {
       neverBundle: ["react"],
