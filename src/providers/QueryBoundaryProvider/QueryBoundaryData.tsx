@@ -38,12 +38,12 @@ function QueryBoundaryData<DataType>({
   }
 
   if (error) {
-    return <></>;
+    return null;
   }
 
   // No need to also check for isLoading === true here, since this was covered earlier
   if (data === null || data === undefined) {
-    return <></>;
+    return null;
   }
 
   if (dataParser) {

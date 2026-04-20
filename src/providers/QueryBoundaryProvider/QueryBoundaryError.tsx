@@ -108,7 +108,7 @@ function QueryBoundaryError({
     return <Alert severity="error">Failed to load data. Please try again later.</Alert>;
   }
 
-  return <></>;
+  return null;
 }
 
 export default QueryBoundaryError;
