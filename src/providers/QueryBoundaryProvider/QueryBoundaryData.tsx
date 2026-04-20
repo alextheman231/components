@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 
 import { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
 
-export interface QueryBoundaryDataProps<T> {
+export interface QueryBoundaryDataProps<DataType> {
   /**
    * The elements to show after data has been loaded.
    * This is best provided as a function with a data argument that guarantees the data will not be undefined by the time you receive it here.
    */
-  children: ReactNode | ((data: NonNullable<T>) => ReactNode);
+  children: ReactNode | ((data: NonNullable<DataType>) => ReactNode);
   /** A parser for the data. */
-  dataParser?: (data: unknown) => NonNullable<T>;
+  dataParser?: (data: unknown) => NonNullable<DataType>;
   /** The component to show when the data is being fetched. */
   loadingComponent?: ReactNode;
 }
