@@ -8,7 +8,7 @@ export type QueryBoundaryMapProps<ItemType> = Omit<
   QueryBoundaryProviderProps<Array<ItemType>>,
   "children" | "logError"
 > &
-  Omit<QueryBoundaryErrorProps, "errorComponent" | "children"> &
+  Omit<QueryBoundaryErrorProps, "children"> &
   QueryBoundaryDataMapProps<ItemType>;
 
 /**
