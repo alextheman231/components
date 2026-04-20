@@ -1,26 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { LoaderProps } from "src";
+import type { QueryBoundaryProps } from "src";
 
 import { DataError } from "@alextheman/utility";
-import { Loader } from "src";
+import { QueryBoundary } from "src";
 import { expect } from "storybook/test";
 import { vi } from "vitest";
 
-const meta: Meta<typeof Loader> = {
-  component: Loader,
+const meta: Meta<typeof QueryBoundary> = {
+  component: QueryBoundary,
   tags: ["!autodocs", "!dev"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function render<DataType>(props: LoaderProps<DataType>) {
+function render<DataType>(props: QueryBoundaryProps<DataType>) {
   return (
-    <Loader {...props}>
+    <QueryBoundary {...props}>
       {(data) => {
         return <pre data-testid="loader-data">{JSON.stringify(data, null, 2)}</pre>;
       }}
-    </Loader>
+    </QueryBoundary>
   );
 }
 

@@ -1,26 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { LoaderProps } from "src";
+import type { QueryBoundaryProps } from "src";
 
 import { DataError, normaliseIndents, parseZodSchema } from "@alextheman/utility";
 import Typography from "@mui/material/Typography";
-import { Loader } from "src";
+import { QueryBoundary } from "src";
 import { expect } from "storybook/test";
 import z from "zod";
 
-const meta: Meta<typeof Loader> = {
-  component: Loader,
+const meta: Meta<typeof QueryBoundary> = {
+  component: QueryBoundary,
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function render<DataType>(props: LoaderProps<DataType>) {
+function render<DataType>(props: QueryBoundaryProps<DataType>) {
   return (
-    <Loader {...props}>
+    <QueryBoundary {...props}>
       {(data) => {
         return <pre data-testid="loader-data">{JSON.stringify(data, null, 2)}</pre>;
       }}
-    </Loader>
+    </QueryBoundary>
   );
 }
 
@@ -104,7 +104,7 @@ export const Main: Story = {
     docs: {
       source: {
         code: normaliseIndents`
-              import { Loader } from "@alextheman/components";
+              import { QueryBoundary } from "@alextheman/components";
               import { parseZodSchema } from "@alextheman/utility";
               import { useQuery } from "@tanstack/react-query";
               import axios from "axios";
@@ -128,7 +128,7 @@ export const Main: Story = {
                 return parseZodSchema(dataSchema, data)
               }
   
-              function LoaderDemo(){
+              function QueryBoundaryDemo(){
                 const { data: songs, isPending, error } = useQuery<Data>({
                   queryKey: "data",
                   queryFn: async () => {
@@ -138,11 +138,11 @@ export const Main: Story = {
                 })
   
                 return (
-                  <Loader data={songs} isPending={isPending} error={error}>
+                  <QueryBoundary data={songs} isPending={isPending} error={error}>
                     {(songs) => {
                       return <pre>{JSON.stringify(songs, null, 2)}</pre>;
                     }}
-                  </Loader>
+                  </QueryBoundary>
                 )
               }
           `,
