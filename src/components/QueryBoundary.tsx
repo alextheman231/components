@@ -11,7 +11,7 @@ export type QueryBoundaryProps<DataType> = Omit<
   QueryBoundaryProviderProps<DataType>,
   "children" | "logError"
 > &
-  Omit<QueryBoundaryErrorProps, "errorComponent" | "children"> &
+  Omit<QueryBoundaryErrorProps, "children"> &
   Omit<QueryBoundaryDataProps<DataType>, "showOnError" | "onUndefined" | "onNull" | "onNullable">;
 
 /**
