@@ -1,0 +1,144 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactNode } from "react";
+
+import { parseZodSchema } from "@alextheman/utility";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import { QueryBoundaryError, QueryBoundaryProvider, SkeletonRow } from "src";
+import z from "zod";
+
+import QueryBoundaryDataMap from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
+
+const demoSchema = z.object({
+  id: z.uuid(),
+  name: z.string(),
+  composer: z.string(),
+  duration: z.object({
+    minutes: z.int(),
+    seconds: z.int(),
+  }),
+});
+
+type DemoItemType = z.infer<typeof demoSchema>;
+
+interface DemoProps {
+  isLoading: boolean;
+  error?: unknown;
+  data?: Array<DemoItemType>;
+  emptyComponent?: ReactNode;
+}
+
+const meta: Meta<DemoProps> = {
+  title: "QueryBoundaryDataMap",
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Main: Story = {
+  render: ({ isLoading, error, data }: DemoProps) => {
+    return (
+      <QueryBoundaryProvider
+        isLoading={isLoading}
+        error={error}
+        data={data}
+        loadingComponent={<SkeletonRow columns={4} />}
+      >
+        <QueryBoundaryError />
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Composer</TableCell>
+                <TableCell>Duration</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <QueryBoundaryDataMap
+                itemParser={(item) => {
+                  return parseZodSchema(demoSchema, item);
+                }}
+                emptyComponent={
+                  <TableRow>
+                    <TableCell colSpan={4}>No songs found</TableCell>
+                  </TableRow>
+                }
+                itemKey={(item) => {
+                  return item.id;
+                }}
+              >
+                {(item) => {
+                  return (
+                    <TableRow>
+                      <TableCell>{item.id}</TableCell>
+                      <TableCell>{item.name}</TableCell>
+                      <TableCell>{item.composer}</TableCell>
+                      <TableCell>{`${item.duration.minutes}:${item.duration.seconds.toString().padStart(2, "0")}`}</TableCell>
+                    </TableRow>
+                  );
+                }}
+              </QueryBoundaryDataMap>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </QueryBoundaryProvider>
+    );
+  },
+  args: {
+    isLoading: false,
+    error: null,
+    data: [
+      {
+        id: "2ccef308-09af-4575-b9cb-3c8f9b13b14d",
+        name: "Commit To You",
+        composer: "Alex the Man",
+        duration: {
+          minutes: 4,
+          seconds: 9,
+        },
+      },
+      {
+        id: "d8169ecb-e2d3-4e76-8125-0b8e8d70409c",
+        name: "An Interface For You And I",
+        composer: "Alex the Man",
+        duration: {
+          minutes: 4,
+          seconds: 19,
+        },
+      },
+      {
+        id: "5e7f18ed-1241-496c-87a7-c1a2f2b32f16",
+        name: "Standards",
+        composer: "Alex the Man",
+        duration: {
+          minutes: 4,
+          seconds: 25,
+        },
+      },
+      {
+        id: "5e674a7e-ccc2-43c4-b618-a7bd00d47c65",
+        name: "alex-c-line",
+        composer: "Alex the Man",
+        duration: {
+          minutes: 3,
+          seconds: 50,
+        },
+      },
+      {
+        id: "ff487942-2627-4338-acfd-42759a1fcadb",
+        name: "Patch It Up",
+        composer: "Alex the Man",
+        duration: {
+          minutes: 4,
+          seconds: 31,
+        },
+      },
+    ],
+  },
+};
