@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
-import { useLoader } from "src/providers/LoaderProvider/LoaderProvider";
+import { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
 
-export interface LoaderDataProps<T> {
+export interface QueryBoundaryDataProps<T> {
   /**
    * The elements to show after data has been loaded.
    * This is best provided as a function with a data argument that guarantees the data will not be undefined by the time you receive it here.
@@ -15,22 +15,22 @@ export interface LoaderDataProps<T> {
 }
 
 /**
- * The component responsible for showing the data provided by LoaderProvider.
+ * The component responsible for showing the data provided by QueryBoundaryProvider.
  *
  * @template DataType - The type of data being loaded.
  */
-function LoaderData<DataType>({
+function QueryBoundaryData<DataType>({
   children,
   dataParser: loaderDataParser,
   loadingComponent,
-}: LoaderDataProps<DataType>) {
+}: QueryBoundaryDataProps<DataType>) {
   const {
     isLoading,
     data,
     dataParser: contextDataParser,
     loadingComponent: contextLoadingComponent,
     error,
-  } = useLoader<DataType>();
+  } = useQueryBoundary<DataType>();
   const dataParser = loaderDataParser ?? contextDataParser;
 
   if (isLoading) {
@@ -53,4 +53,4 @@ function LoaderData<DataType>({
   return typeof children === "function" ? <>{children(data)}</> : <>{children}</>;
 }
 
-export default LoaderData;
+export default QueryBoundaryData;
