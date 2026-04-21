@@ -6,6 +6,7 @@ export { default as DropdownMenuInternalLink } from "src/deprecated/DropdownMenu
 export { default as IconWithPopover } from "src/deprecated/IconWithPopover";
 export { default as InternalLink } from "src/deprecated/InternalLink";
 export { default as ListItemInternalLink } from "src/deprecated/ListItemInternalLink";
+export { default as Loader } from "src/deprecated/Loader";
 export { default as LoaderData } from "src/deprecated/LoaderData";
 export { default as LoaderError } from "src/deprecated/LoaderError";
 export { default as LoaderProvider } from "src/deprecated/LoaderProvider";
