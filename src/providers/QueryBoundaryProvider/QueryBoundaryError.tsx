@@ -71,7 +71,9 @@ function QueryBoundaryError({
 
     return (
       <Alert severity="error">
-        {(error as Error)?.message ?? "An unknown error has occured. Please try again later."}
+        {typeof error === "object" && "message" in error && typeof error.message === "string"
+          ? error.message
+          : "An unknown error has occured. Please try again later."}
       </Alert>
     );
   }
