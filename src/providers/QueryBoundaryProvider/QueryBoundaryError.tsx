@@ -53,6 +53,10 @@ function QueryBoundaryError({
 
   const errorComponent = children ?? contextErrorComponent;
 
+  if (data !== null && data !== undefined) {
+    return null;
+  }
+
   if (error) {
     if (logError && !warnedOnce.current) {
       console.error(error);
