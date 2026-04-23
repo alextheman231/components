@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { QueryBoundaryProps } from "src";
 
-import { DataError, normaliseIndents, parseZodSchema } from "@alextheman/utility";
+import { normaliseIndents, parseZodSchema } from "@alextheman/utility";
+import { DataError } from "@alextheman/utility/v6";
 import Typography from "@mui/material/Typography";
 import { QueryBoundary } from "src";
 import { expect } from "storybook/test";

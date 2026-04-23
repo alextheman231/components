@@ -3,7 +3,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
-import { DataError } from "@alextheman/utility";
+import { DataError } from "@alextheman/utility/v6";
 import { createContext, useContext, useMemo, useState } from "react";
 
 export interface DropdownMenuContextValue {

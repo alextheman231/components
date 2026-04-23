@@ -4,7 +4,8 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
-import { DataError, wait } from "@alextheman/utility";
+import { wait } from "@alextheman/utility";
+import { DataError } from "@alextheman/utility/v6";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { createContext, useContext, useState } from "react";

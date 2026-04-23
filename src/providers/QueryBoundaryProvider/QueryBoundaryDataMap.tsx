@@ -1,6 +1,6 @@
 import type { Key, ReactNode } from "react";
 
-import { DataError } from "@alextheman/utility";
+import { DataError } from "@alextheman/utility/v6";
 import Typography from "@mui/material/Typography";
 import { Fragment } from "react";
 

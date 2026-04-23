@@ -1,10 +1,11 @@
-import { DataError, normaliseIndents } from "@alextheman/utility";
+import { normaliseIndents } from "@alextheman/utility";
 import {
   getDependenciesFromGroup,
   getPackageJsonContents,
   getPackageJsonPath,
   setupPackageEndToEnd,
 } from "@alextheman/utility/internal";
+import { DataError } from "@alextheman/utility/v6";
 import { expect, test } from "@playwright/test";
 import { temporaryDirectoryTask } from "tempy";
 
