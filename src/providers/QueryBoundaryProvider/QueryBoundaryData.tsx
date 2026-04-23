@@ -21,7 +21,7 @@ export interface QueryBoundaryDataProps<DataType> {
  */
 function QueryBoundaryData<DataType>({
   children,
-  dataParser: loaderDataParser,
+  dataParser: propDataParser,
   loadingComponent,
 }: QueryBoundaryDataProps<DataType>) {
   const {
@@ -31,7 +31,7 @@ function QueryBoundaryData<DataType>({
     loadingComponent: contextLoadingComponent,
     error,
   } = useQueryBoundary<DataType>();
-  const dataParser = loaderDataParser ?? contextDataParser;
+  const dataParser = propDataParser ?? contextDataParser;
 
   if (isLoading) {
     return <>{loadingComponent ?? contextLoadingComponent}</>;
