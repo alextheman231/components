@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
-import { DataError } from "@alextheman/utility";
+import { DataError } from "@alextheman/utility/v6";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { createContext, useContext, useMemo, useState } from "react";

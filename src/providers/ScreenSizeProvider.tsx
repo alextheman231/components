@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
-import { DataError } from "@alextheman/utility";
+import { DataError } from "@alextheman/utility/v6";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export interface ScreenSizeProps {
