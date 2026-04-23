@@ -46,11 +46,11 @@ function QueryBoundaryData<DataType>({
     return null;
   }
 
-  if (dataParser) {
-    return typeof children === "function" ? <>{children(dataParser(data))}</> : <>{children}</>;
-  }
-
-  return typeof children === "function" ? <>{children(data)}</> : <>{children}</>;
+  return (
+    <>
+      {typeof children === "function" ? children(dataParser ? dataParser(data) : data) : children}
+    </>
+  );
 }
 
 export default QueryBoundaryData;
