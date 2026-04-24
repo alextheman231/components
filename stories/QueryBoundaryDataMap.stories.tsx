@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ReactNode } from "react";
 
-import { parseZodSchema } from "@alextheman/utility";
+import { az } from "@alextheman/utility";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -62,7 +62,7 @@ export const Main: Story = {
             <TableBody>
               <QueryBoundaryDataMap
                 itemParser={(item) => {
-                  return parseZodSchema(demoSchema, item);
+                  return az.with(demoSchema).parse(item);
                 }}
                 emptyComponent={
                   <TableRow>
