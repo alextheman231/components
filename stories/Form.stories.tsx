@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
+import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import z from "zod";
 
@@ -51,16 +52,18 @@ export const Form: Story = {
           }}
         >
           <CardContent>
-            <form.AppField name="firstName">
-              {(field) => {
-                return <field.TextField label="First name" />;
-              }}
-            </form.AppField>
-            <form.AppField name="surname">
-              {(field) => {
-                return <field.TextField label="Surname" />;
-              }}
-            </form.AppField>
+            <Stack spacing={2}>
+              <form.AppField name="firstName">
+                {(field) => {
+                  return <field.TextField label="First name" />;
+                }}
+              </form.AppField>
+              <form.AppField name="surname">
+                {(field) => {
+                  return <field.TextField label="Surname" />;
+                }}
+              </form.AppField>
+            </Stack>
           </CardContent>
           <Divider />
           <CardActions>
