@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import z from "zod";
 
+import { TextField } from "src/v7";
 import createFormHook from "src/v7/hooks/createFormHook";
 
 const meta: Meta = {
@@ -27,7 +28,11 @@ export const Form: Story = {
     const [submitted, setSubmitted] = useState<boolean>(false);
     const [data, setData] = useState<DemoType | null>(null);
 
-    const { useAppForm } = createFormHook();
+    const { useAppForm } = createFormHook({
+      fieldComponents: {
+        CustomField: TextField,
+      },
+    });
 
     const form = useAppForm({
       defaultValues: { firstName: "", surname: "" },
@@ -60,7 +65,7 @@ export const Form: Story = {
               </form.AppField>
               <form.AppField name="surname">
                 {(field) => {
-                  return <field.TextField label="Surname" />;
+                  return <field.CustomField label="Surname" />;
                 }}
               </form.AppField>
             </Stack>
