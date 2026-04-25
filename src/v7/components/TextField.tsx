@@ -31,12 +31,13 @@ import { useFieldContext } from "src/v7/hooks";
  * </form.AppForm>
  * ```
  */
-function TextField(props: MUITextFieldProps) {
+function TextField({ label, ...props }: MUITextFieldProps) {
   const field = useFieldContext();
 
   return (
     <MUITextField
       {...props}
+      label={label}
       error={field.state.meta.errors.length !== 0}
       type="text"
       value={field.state.value}
@@ -44,7 +45,7 @@ function TextField(props: MUITextFieldProps) {
         return field.handleChange(event.target.value);
       }}
       onBlur={field.handleBlur}
-      placeholder={field.name}
+      placeholder={typeof label === "string" ? label : field.name}
       helperText={field.state.meta.errors[0] ?? ""}
     />
   );

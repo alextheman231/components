@@ -53,12 +53,12 @@ export const Form: Story = {
           <CardContent>
             <form.AppField name="firstName">
               {(field) => {
-                return <field.TextField />;
+                return <field.TextField label="First name" />;
               }}
             </form.AppField>
             <form.AppField name="surname">
               {(field) => {
-                return <field.TextField />;
+                return <field.TextField label="Surname" />;
               }}
             </form.AppField>
           </CardContent>
