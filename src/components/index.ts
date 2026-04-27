@@ -7,6 +7,7 @@ export { default as ModeToggle } from "src/components/ModeToggle";
 export { default as NavigationBottom } from "src/components/NavigationBottom";
 export { default as Page } from "src/components/Page";
 export { default as QueryBoundary } from "src/components/QueryBoundary";
+export { default as QueryBoundaryMap } from "src/components/QueryBoundaryMap";
 export { default as ReactPlayground } from "src/components/ReactPlayground";
 export { default as SkeletonRow } from "src/components/SkeletonRow";
 export { default as SwitchWithIcons } from "src/components/SwitchWithIcons";
