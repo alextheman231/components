@@ -6,6 +6,13 @@ export { default as QueryBoundaryError } from "src/providers/QueryBoundaryProvid
 
 export type { QueryBoundaryDataProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryData";
 export type {
+  QueryBoundaryDataMapBaseProps,
+  QueryBoundaryDataMapProps,
+  QueryBoundaryDataMapPropsWithDataParser,
+  QueryBoundaryDataMapPropsWithItemParser,
+  QueryBoundaryDataMapPropsWithNoParser,
+} from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
+export type {
   QueryBoundaryErrorBaseProps,
   QueryBoundaryErrorPropsWithNullable,
   QueryBoundaryErrorPropsWithUndefinedOrNull,
