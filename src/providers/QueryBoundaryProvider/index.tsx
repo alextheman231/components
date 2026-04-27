@@ -1,6 +1,7 @@
 import QueryBoundaryProvider from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
 
 export { default as QueryBoundaryData } from "src/providers/QueryBoundaryProvider/QueryBoundaryData";
+export { default as QueryBoundaryDataMap } from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
 export { default as QueryBoundaryError } from "src/providers/QueryBoundaryProvider/QueryBoundaryError";
 
 export type { QueryBoundaryDataProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryData";
