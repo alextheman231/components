@@ -18,6 +18,7 @@ export type { FileInputProps } from "src/components/FileInput";
 export type { FileInputListProps } from "src/components/FileInputList";
 export type { NavigationBottomProps, NavItemBottom } from "src/components/NavigationBottom";
 export type { QueryBoundaryProps } from "src/components/QueryBoundary";
+export type { QueryBoundaryMapProps } from "src/components/QueryBoundaryMap";
 export type { ReactPlaygroundProps } from "src/components/ReactPlayground";
 export type { SkeletonRowProps } from "src/components/SkeletonRow";
 export type { SwitchWithIconsProps } from "src/components/SwitchWithIcons";
