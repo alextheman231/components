@@ -20,7 +20,11 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      return <StoryWrapper Story={Story} context={context} />;
+      return context.parameters.disableWrapper ? (
+        <Story />
+      ) : (
+        <StoryWrapper Story={Story} context={context} />
+      );
     },
   ],
   tags: ["autodocs"],
