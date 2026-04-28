@@ -190,7 +190,7 @@ function NavigationDrawer({ title, navItems, children, headerElements }: Navigat
           <Typography variant="h6" noWrap component="div">
             {title}
           </Typography>
-          {headerElements}
+          <Box sx={{ marginLeft: "auto" }}>{headerElements}</Box>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
