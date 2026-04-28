@@ -50,6 +50,19 @@ function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) 
       palette: {
         mode,
       },
+      components: {
+        MuiPaper: {
+          styleOverrides: {
+            root: ({ theme }) => {
+              return {
+                border: 1,
+                borderStyle: "solid",
+                borderColor: theme.palette.divider,
+              };
+            },
+          },
+        },
+      },
     });
   }, [mode]);
 
