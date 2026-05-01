@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/alextheman231/components.git"
   },
+  "sideEffects": false,
   "license": "MIT",
   "author": "alextheman",
   "type": "module",
