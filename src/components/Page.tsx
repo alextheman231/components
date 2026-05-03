@@ -8,9 +8,9 @@ import Typography from "@mui/material/Typography";
 
 interface PageProps {
   /** The Page title to show */
-  title: string;
+  title: ReactNode;
   /** The subtitle to show under the Page title */
-  subtitle?: string;
+  subtitle?: ReactNode;
   /** The actions to show in the page header */
   action?: ReactNode;
   /** The actual page contents */
@@ -26,11 +26,15 @@ function Page({ title, subtitle, action, children, disablePadding }: PageProps) 
       <CardHeader
         title={
           <>
-            <Typography variant="h6">{title}</Typography>
+            {typeof title === "string" ? <Typography variant="h6">{title}</Typography> : title}
             {subtitle ? (
-              <Typography variant="body2" color="text.secondary">
-                {subtitle}
-              </Typography>
+              typeof subtitle === "string" ? (
+                <Typography variant="body2" color="text.secondary">
+                  {subtitle}
+                </Typography>
+              ) : (
+                subtitle
+              )
             ) : null}
           </>
         }
