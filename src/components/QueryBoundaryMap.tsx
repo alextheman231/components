@@ -33,7 +33,9 @@ function QueryBoundaryMap<ItemType>({
   data,
   ...props
 }: QueryBoundaryMapProps<ItemType>) {
-  let boundaryErrorComponent: ReactNode = null;
+  let boundaryErrorComponent: ReactNode = (
+    <QueryBoundaryError logError={logError}>{errorComponent}</QueryBoundaryError>
+  );
 
   if (nullableComponent) {
     boundaryErrorComponent = (
