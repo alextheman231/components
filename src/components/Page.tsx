@@ -15,10 +15,12 @@ interface PageProps {
   action?: ReactNode;
   /** The actual page contents */
   children: ReactNode;
+  /** Disable the inner padding of the Page contents. */
+  disablePadding?: boolean;
 }
 
 /** Renders a pre-styled Page that can be used to structure pages throughout your React apps. */
-function Page({ title, subtitle, action, children }: PageProps) {
+function Page({ title, subtitle, action, children, disablePadding }: PageProps) {
   return (
     <Card>
       <CardHeader
@@ -35,7 +37,7 @@ function Page({ title, subtitle, action, children }: PageProps) {
         action={action}
       />
       <Divider />
-      <CardContent>{children}</CardContent>
+      {disablePadding ? children : <CardContent>{children}</CardContent>}
     </Card>
   );
 }
