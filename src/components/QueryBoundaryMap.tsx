@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import type { QueryBoundaryErrorProps, QueryBoundaryProviderProps } from "src/providers";
 import type { QueryBoundaryDataMapProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
 
@@ -31,6 +33,26 @@ function QueryBoundaryMap<ItemType>({
   data,
   ...props
 }: QueryBoundaryMapProps<ItemType>) {
+  let boundaryErrorComponent: ReactNode = null;
+
+  if (nullableComponent) {
+    boundaryErrorComponent = (
+      <QueryBoundaryError nullableComponent={nullableComponent} logError={logError}>
+        {errorComponent}
+      </QueryBoundaryError>
+    );
+  } else if (undefinedComponent || nullComponent) {
+    boundaryErrorComponent = (
+      <QueryBoundaryError
+        undefinedComponent={undefinedComponent}
+        nullComponent={nullComponent}
+        logError={logError}
+      >
+        {errorComponent}
+      </QueryBoundaryError>
+    );
+  }
+
   return (
     <QueryBoundaryProvider<Array<ItemType>>
       loadingComponent={loadingComponent}
@@ -38,15 +60,7 @@ function QueryBoundaryMap<ItemType>({
       error={error}
       data={data}
     >
-      {/* @ts-expect-error: We need to pass all four to QueryBoundaryError for the wrapper to work. It is ok as QueryBoundaryMap will then do its own checks to enforce mutual exclusivity, and QueryBoundaryError knows how to deal with it anyway. */}
-      <QueryBoundaryError
-        undefinedComponent={undefinedComponent}
-        nullComponent={nullComponent}
-        nullableComponent={nullableComponent}
-        logError={logError}
-      >
-        {errorComponent}
-      </QueryBoundaryError>
+      {boundaryErrorComponent}
       <QueryBoundaryDataMap<ItemType> {...props}>{children}</QueryBoundaryDataMap>
     </QueryBoundaryProvider>
   );
