@@ -32,7 +32,9 @@ function QueryBoundary<DataType>({
   loadingComponent = <CircularProgress />,
   ...loaderProviderProps
 }: QueryBoundaryProps<DataType>) {
-  let boundaryErrorComponent: ReactNode = <QueryBoundaryError logError={logError} />;
+  let boundaryErrorComponent: ReactNode = (
+    <QueryBoundaryError logError={logError}>{errorComponent}</QueryBoundaryError>
+  );
 
   if (nullableComponent) {
     boundaryErrorComponent = (
