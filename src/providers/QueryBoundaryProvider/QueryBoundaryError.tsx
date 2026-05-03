@@ -53,12 +53,14 @@ function QueryBoundaryError({
 
   const errorComponent = children ?? contextErrorComponent;
 
-  if (data !== null && data !== undefined) {
-    return null;
-  }
-
   if (error) {
     if (logError && !warnedOnce.current) {
+      if (data !== null && data !== undefined) {
+        console.error(
+          "An error has occurred but data is still present. This may indicate an invalid query state.",
+          { data, error },
+        );
+      }
       console.error(error);
       warnedOnce.current = true;
     }
