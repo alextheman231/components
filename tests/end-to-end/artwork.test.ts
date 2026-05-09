@@ -9,7 +9,7 @@ import { DataError } from "@alextheman/utility/v6";
 import { expect, test } from "@playwright/test";
 import { temporaryDirectoryTask } from "tempy";
 
-import { writeFile } from "node:fs/promises";
+import { cp, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import componentsPackageInfo from "package.json" with { type: "json" };
@@ -25,6 +25,15 @@ function packageJsonNotFoundError(packagePath: string) {
 test.describe("Artwork", () => {
   test("Can access and render the exported artwork", async ({ page }) => {
     await temporaryDirectoryTask(async (temporaryPath) => {
+      await cp(
+        path.join(process.cwd(), "pnpm-workspace.yaml"),
+        path.join(temporaryPath, "pnpm-workspace.yaml"),
+      );
+      await mkdir(path.join(temporaryPath, "patches"));
+      await cp(
+        path.join(process.cwd(), "patches", "eslint-plugin-react.patch"),
+        path.join(temporaryPath, "patches", "eslint-plugin-react.patch"),
+      );
       const runCommandInTempDirectory = await setupPackageEndToEnd(temporaryPath, "pnpm", "module");
 
       const {
