@@ -90,6 +90,9 @@ importers:
       eslint:
         specifier: 10.3.0
         version: 10.3.0
+      eslint-plugin-react:
+        specifier: 7.37.5
+        version: 7.37.5(patch_hash=85ef9602f9497c5fc3908fb47ab767ac8f860e635b43405c0ac0ae4ef0fc9a92)(eslint@10.3.0)
       eslint-plugin-storybook:
         specifier: 10.3.6
         version: 10.3.6(eslint@10.3.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.3)
