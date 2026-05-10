@@ -8,7 +8,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { QueryBoundaryError, QueryBoundaryProvider, SkeletonRow } from "src";
+import { QueryBoundaryError, QueryBoundaryNullable, QueryBoundaryProvider, SkeletonRow } from "src";
 import z from "zod";
 
 import QueryBoundaryDataMap from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
@@ -60,6 +60,13 @@ export const Main: Story = {
               </TableRow>
             </TableHead>
             <TableBody>
+              <QueryBoundaryNullable
+                nullableComponent={
+                  <TableRow>
+                    <TableCell colSpan={4}>No data found</TableCell>
+                  </TableRow>
+                }
+              />
               <QueryBoundaryDataMap
                 itemParser={(item) => {
                   return az.with(demoSchema).parse(item);

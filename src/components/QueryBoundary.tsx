@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
 import type { QueryBoundaryDataProps, QueryBoundaryProviderProps } from "src/providers";
-import type { QueryBoundaryErrorProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryError";
+import type { QueryBoundaryFallbackProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryFallback";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { QueryBoundaryError } from "src/providers";
+import { QueryBoundaryFallback } from "src/providers";
 import QueryBoundaryProvider from "src/providers/QueryBoundaryProvider";
 import QueryBoundaryData from "src/providers/QueryBoundaryProvider/QueryBoundaryData";
 
@@ -13,7 +13,7 @@ export type QueryBoundaryProps<DataType> = Omit<
   QueryBoundaryProviderProps<DataType>,
   "children" | "logError"
 > &
-  Omit<QueryBoundaryErrorProps, "children"> &
+  Omit<QueryBoundaryFallbackProps, "children"> &
   Omit<QueryBoundaryDataProps<DataType>, "showOnError" | "onUndefined" | "onNull" | "onNullable">;
 
 /**
@@ -32,31 +32,32 @@ function QueryBoundary<DataType>({
   loadingComponent = <CircularProgress />,
   ...loaderProviderProps
 }: QueryBoundaryProps<DataType>) {
-  let boundaryErrorComponent: ReactNode = (
-    <QueryBoundaryError logError={logError}>{errorComponent}</QueryBoundaryError>
+  let boundaryFallbackComponent: ReactNode = (
+    <QueryBoundaryFallback logError={logError} errorComponent={errorComponent} />
   );
 
   if (nullableComponent) {
-    boundaryErrorComponent = (
-      <QueryBoundaryError nullableComponent={nullableComponent} logError={logError}>
-        {errorComponent}
-      </QueryBoundaryError>
+    boundaryFallbackComponent = (
+      <QueryBoundaryFallback
+        nullableComponent={nullableComponent}
+        logError={logError}
+        errorComponent={errorComponent}
+      />
     );
   } else if (undefinedComponent || nullComponent) {
-    boundaryErrorComponent = (
-      <QueryBoundaryError
+    boundaryFallbackComponent = (
+      <QueryBoundaryFallback
         undefinedComponent={undefinedComponent}
         nullComponent={nullComponent}
         logError={logError}
-      >
-        {errorComponent}
-      </QueryBoundaryError>
+        errorComponent={errorComponent}
+      />
     );
   }
 
   return (
     <QueryBoundaryProvider<DataType> loadingComponent={loadingComponent} {...loaderProviderProps}>
-      {boundaryErrorComponent}
+      {boundaryFallbackComponent}
       <QueryBoundaryData<DataType>>{children}</QueryBoundaryData>
     </QueryBoundaryProvider>
   );

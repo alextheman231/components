@@ -1,16 +1,16 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryErrorProps, QueryBoundaryProviderProps } from "src/providers";
+import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/providers";
 import type { QueryBoundaryDataMapProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
 
-import { QueryBoundaryError, QueryBoundaryProvider } from "src/providers";
+import { QueryBoundaryFallback, QueryBoundaryProvider } from "src/providers";
 import QueryBoundaryDataMap from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
 
 export type QueryBoundaryMapProps<ItemType> = Omit<
   QueryBoundaryProviderProps<Array<ItemType>>,
   "children" | "logError"
 > &
-  Omit<QueryBoundaryErrorProps, "children"> &
+  Omit<QueryBoundaryFallbackProps, "children"> &
   QueryBoundaryDataMapProps<ItemType>;
 
 /**
@@ -34,24 +34,25 @@ function QueryBoundaryMap<ItemType>({
   ...props
 }: QueryBoundaryMapProps<ItemType>) {
   let boundaryErrorComponent: ReactNode = (
-    <QueryBoundaryError logError={logError}>{errorComponent}</QueryBoundaryError>
+    <QueryBoundaryFallback logError={logError} errorComponent={errorComponent} />
   );
 
   if (nullableComponent) {
     boundaryErrorComponent = (
-      <QueryBoundaryError nullableComponent={nullableComponent} logError={logError}>
-        {errorComponent}
-      </QueryBoundaryError>
+      <QueryBoundaryFallback
+        nullableComponent={nullableComponent}
+        logError={logError}
+        errorComponent={errorComponent}
+      />
     );
   } else if (undefinedComponent || nullComponent) {
     boundaryErrorComponent = (
-      <QueryBoundaryError
+      <QueryBoundaryFallback
         undefinedComponent={undefinedComponent}
         nullComponent={nullComponent}
         logError={logError}
-      >
-        {errorComponent}
-      </QueryBoundaryError>
+        errorComponent={errorComponent}
+      />
     );
   }
 
