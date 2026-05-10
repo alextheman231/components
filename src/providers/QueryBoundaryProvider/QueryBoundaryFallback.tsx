@@ -8,7 +8,7 @@ import QueryBoundaryNullable from "src/providers/QueryBoundaryProvider/QueryBoun
 
 export type QueryBoundaryFallbackProps = Omit<QueryBoundaryErrorProps, "children"> & {
   /** The component to show if an error has been thrown. */
-  errorComponent?: ReactNode;
+  errorComponent?: ReactNode | ((error: unknown) => ReactNode);
 } & QueryBoundaryNullableProps;
 
 /**
