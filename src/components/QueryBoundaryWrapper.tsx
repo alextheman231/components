@@ -5,11 +5,9 @@ import type { QueryBoundaryFallbackProps } from "src/providers/QueryBoundaryProv
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { QueryBoundaryFallback } from "src/providers";
-import QueryBoundaryProvider from "src/providers/QueryBoundaryProvider";
-import QueryBoundaryData from "src/providers/QueryBoundaryProvider/QueryBoundaryData";
+import { createQueryBoundary } from "src/hooks";
 
-export type QueryBoundaryProps<DataType> = Omit<
+export type QueryBoundaryWrapperProps<DataType> = Omit<
   QueryBoundaryProviderProps<DataType>,
   "children" | "logError"
 > &
@@ -22,7 +20,7 @@ export type QueryBoundaryProps<DataType> = Omit<
  *
  * @template DataType - The type of data being loaded.
  */
-function QueryBoundary<DataType>({
+function QueryBoundaryWrapper<DataType>({
   children,
   errorComponent,
   undefinedComponent,
@@ -30,15 +28,19 @@ function QueryBoundary<DataType>({
   nullableComponent,
   logError,
   loadingComponent = <CircularProgress />,
+  isLoading,
+  error,
+  data,
   ...loaderProviderProps
-}: QueryBoundaryProps<DataType>) {
+}: QueryBoundaryWrapperProps<DataType>) {
+  const QueryBoundary = createQueryBoundary({ query: { isLoading, error, data } });
   let boundaryFallbackComponent: ReactNode = (
-    <QueryBoundaryFallback logError={logError} errorComponent={errorComponent} />
+    <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
   );
 
   if (nullableComponent) {
     boundaryFallbackComponent = (
-      <QueryBoundaryFallback
+      <QueryBoundary.Fallback
         nullableComponent={nullableComponent}
         logError={logError}
         errorComponent={errorComponent}
@@ -46,7 +48,7 @@ function QueryBoundary<DataType>({
     );
   } else if (undefinedComponent || nullComponent) {
     boundaryFallbackComponent = (
-      <QueryBoundaryFallback
+      <QueryBoundary.Fallback
         undefinedComponent={undefinedComponent}
         nullComponent={nullComponent}
         logError={logError}
@@ -56,11 +58,11 @@ function QueryBoundary<DataType>({
   }
 
   return (
-    <QueryBoundaryProvider<DataType> loadingComponent={loadingComponent} {...loaderProviderProps}>
+    <QueryBoundary.Context loadingComponent={loadingComponent} {...loaderProviderProps}>
       {boundaryFallbackComponent}
-      <QueryBoundaryData<DataType>>{children}</QueryBoundaryData>
-    </QueryBoundaryProvider>
+      <QueryBoundary.Data>{children}</QueryBoundary.Data>
+    </QueryBoundary.Context>
   );
 }
 
-export default QueryBoundary;
+export default QueryBoundaryWrapper;

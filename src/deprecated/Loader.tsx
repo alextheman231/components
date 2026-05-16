@@ -1,9 +1,9 @@
-import type { QueryBoundaryProps } from "src/components/QueryBoundary";
+import type { QueryBoundaryWrapperProps } from "src/components/QueryBoundaryWrapper";
 
-import { QueryBoundary } from "src/components";
+import { QueryBoundaryWrapper } from "src/components";
 /** @deprecated This type has been renamed to QueryBoundaryProps. */
-export type LoaderProps<DataType> = QueryBoundaryProps<DataType>;
+export type LoaderProps<DataType> = QueryBoundaryWrapperProps<DataType>;
 /** @deprecated This component has been renamed to QueryBoundary */
-const Loader = QueryBoundary;
+const Loader = QueryBoundaryWrapper;
 
 export default Loader;
