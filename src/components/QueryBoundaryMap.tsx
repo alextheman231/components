@@ -3,8 +3,7 @@ import type { ReactNode } from "react";
 import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/providers";
 import type { QueryBoundaryDataMapProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
 
-import { QueryBoundaryFallback, QueryBoundaryProvider } from "src/providers";
-import QueryBoundaryDataMap from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
+import { createQueryBoundary } from "src/hooks";
 
 export type QueryBoundaryMapProps<ItemType> = Omit<
   QueryBoundaryProviderProps<Array<ItemType>>,
@@ -31,15 +30,19 @@ function QueryBoundaryMap<ItemType>({
   isLoading,
   error,
   data,
-  ...props
+  dataParser,
+  itemParser,
+  itemKey,
 }: QueryBoundaryMapProps<ItemType>) {
+  const QueryBoundary = createQueryBoundary({ query: { isLoading, error, dataCollection: data } });
+
   let boundaryErrorComponent: ReactNode = (
-    <QueryBoundaryFallback logError={logError} errorComponent={errorComponent} />
+    <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
   );
 
   if (nullableComponent) {
     boundaryErrorComponent = (
-      <QueryBoundaryFallback
+      <QueryBoundary.Fallback
         nullableComponent={nullableComponent}
         logError={logError}
         errorComponent={errorComponent}
@@ -47,7 +50,7 @@ function QueryBoundaryMap<ItemType>({
     );
   } else if (undefinedComponent || nullComponent) {
     boundaryErrorComponent = (
-      <QueryBoundaryFallback
+      <QueryBoundary.Fallback
         undefinedComponent={undefinedComponent}
         nullComponent={nullComponent}
         logError={logError}
@@ -56,16 +59,39 @@ function QueryBoundaryMap<ItemType>({
     );
   }
 
+  let boundaryDataMapComponent: ReactNode = (
+    <QueryBoundary.DataMap loadingComponent={loadingComponent} itemKey={itemKey}>
+      {children}
+    </QueryBoundary.DataMap>
+  );
+
+  if (dataParser) {
+    boundaryDataMapComponent = (
+      <QueryBoundary.DataMap
+        loadingComponent={loadingComponent}
+        itemKey={itemKey}
+        dataParser={dataParser}
+      >
+        {children}
+      </QueryBoundary.DataMap>
+    );
+  } else if (itemParser) {
+    boundaryDataMapComponent = (
+      <QueryBoundary.DataMap
+        loadingComponent={loadingComponent}
+        itemKey={itemKey}
+        itemParser={itemParser}
+      >
+        {children}
+      </QueryBoundary.DataMap>
+    );
+  }
+
   return (
-    <QueryBoundaryProvider<Array<ItemType>>
-      loadingComponent={loadingComponent}
-      isLoading={isLoading}
-      error={error}
-      data={data}
-    >
+    <QueryBoundary.Context>
       {boundaryErrorComponent}
-      <QueryBoundaryDataMap<ItemType> {...props}>{children}</QueryBoundaryDataMap>
-    </QueryBoundaryProvider>
+      {boundaryDataMapComponent}
+    </QueryBoundary.Context>
   );
 }
 
