@@ -59,7 +59,7 @@ export function useQueryBoundary<DataType, Strict extends boolean = true>({
   if (strict && !context) {
     throw new DataError(
       { strict, context },
-      "LOADER_PROVIDER_NOT_FOUND",
+      "QUERY_BOUNDARY_PROVIDER_NOT_FOUND",
       "Could not find the QueryBoundaryProvider context. Please double-check that it is present.",
     );
   }
