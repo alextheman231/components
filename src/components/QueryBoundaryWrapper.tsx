@@ -31,9 +31,10 @@ function QueryBoundaryWrapper<DataType>({
   isLoading,
   error,
   data,
-  ...loaderProviderProps
+  dataParser,
 }: QueryBoundaryWrapperProps<DataType>) {
   const QueryBoundary = createQueryBoundary({ query: { isLoading, error, data } });
+
   let boundaryFallbackComponent: ReactNode = (
     <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
   );
@@ -58,9 +59,11 @@ function QueryBoundaryWrapper<DataType>({
   }
 
   return (
-    <QueryBoundary.Context loadingComponent={loadingComponent} {...loaderProviderProps}>
+    <QueryBoundary.Context>
       {boundaryFallbackComponent}
-      <QueryBoundary.Data>{children}</QueryBoundary.Data>
+      <QueryBoundary.Data loadingComponent={loadingComponent} dataParser={dataParser}>
+        {children}
+      </QueryBoundary.Data>
     </QueryBoundary.Context>
   );
 }
