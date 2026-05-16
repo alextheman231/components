@@ -8,10 +8,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { QueryBoundaryError, QueryBoundaryNullable, QueryBoundaryProvider, SkeletonRow } from "src";
+import { createQueryBoundary, SkeletonRow } from "src";
 import z from "zod";
-
-import QueryBoundaryDataMap from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
 
 const demoSchema = z.object({
   id: z.uuid(),
@@ -41,14 +39,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
   render: ({ isLoading, error, data }: DemoProps) => {
+    const QueryBoundary = createQueryBoundary({
+      query: { isLoading, error, dataCollection: data },
+    });
+
     return (
-      <QueryBoundaryProvider
-        isLoading={isLoading}
-        error={error}
-        data={data}
-        loadingComponent={<SkeletonRow columns={4} />}
-      >
-        <QueryBoundaryError />
+      <QueryBoundary.Context>
+        <QueryBoundary.Error />
         <TableContainer>
           <Table>
             <TableHead>
@@ -60,16 +57,17 @@ export const Main: Story = {
               </TableRow>
             </TableHead>
             <TableBody>
-              <QueryBoundaryNullable
+              <QueryBoundary.Nullable
                 nullableComponent={
                   <TableRow>
                     <TableCell colSpan={4}>No data found</TableCell>
                   </TableRow>
                 }
               />
-              <QueryBoundaryDataMap
-                itemParser={(item) => {
-                  return az.with(demoSchema).parse(item);
+              <QueryBoundary.DataMap
+                loadingComponent={<SkeletonRow columns={4} />}
+                itemParser={(input) => {
+                  return az.with(demoSchema).parse(input);
                 }}
                 emptyComponent={
                   <TableRow>
@@ -90,11 +88,11 @@ export const Main: Story = {
                     </TableRow>
                   );
                 }}
-              </QueryBoundaryDataMap>
+              </QueryBoundary.DataMap>
             </TableBody>
           </Table>
         </TableContainer>
-      </QueryBoundaryProvider>
+      </QueryBoundary.Context>
     );
   },
   args: {
