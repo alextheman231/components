@@ -2,6 +2,8 @@
 eslint-disable react/prop-types -- ESLint gives false positives because it thinks the props are not typed.
 However, they are - this compound component are all typed and the prop types are recognised by TypeScript.
 */
+import type { JSX, ReactNode } from "react";
+
 import {
   QueryBoundaryData,
   QueryBoundaryDataMap,
@@ -10,15 +12,6 @@ import {
   QueryBoundaryNullable,
   QueryBoundaryProvider,
 } from "src/providers";
-
-export interface DefaultQueryBoundaryComponents<DataType> {
-  Context: typeof QueryBoundaryProvider<DataType>;
-  Error: typeof QueryBoundaryError;
-  Data: typeof QueryBoundaryData<DataType>;
-  DataMap: typeof QueryBoundaryDataMap<DataType>;
-  Fallback: typeof QueryBoundaryFallback;
-  Nullable: typeof QueryBoundaryNullable;
-}
 
 export interface QueryBase {
   /** The current loading status (true if loading, false if not) */
@@ -45,18 +38,26 @@ export interface CreateQueryBoundaryParameters<DataType> {
   query: Query<DataType>;
 }
 
+export interface DefaultQueryBoundaryComponents<DataType> {
+  Context: (props: { children: ReactNode }) => JSX.Element;
+  Error: typeof QueryBoundaryError;
+  Data: typeof QueryBoundaryData<DataType>;
+  DataMap: typeof QueryBoundaryDataMap<DataType>;
+  Fallback: typeof QueryBoundaryFallback;
+  Nullable: typeof QueryBoundaryNullable;
+}
+
 /** A creator function to create a system of QueryBoundary components with the data fully typed throughout. */
 function createQueryBoundary<DataType>({
   query,
 }: CreateQueryBoundaryParameters<DataType>): DefaultQueryBoundaryComponents<DataType> {
   return {
-    Context: ({ children, ...props }) => {
+    Context: ({ children }) => {
       return (
         <QueryBoundaryProvider
           isLoading={query.isLoading}
           error={query.error}
           data={query.data ?? query.dataCollection}
-          {...props}
         >
           {children}
         </QueryBoundaryProvider>
