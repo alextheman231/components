@@ -9,9 +9,9 @@ import { createContext, useContext } from "react";
 
 export interface QueryBoundaryProviderBaseProps<DataType> {
   /** The current loading status (true if loading, false if not) */
-  isLoading: boolean;
+  isLoading?: boolean;
   /** The data being loaded. */
-  data?: DataType;
+  data?: DataType | null | undefined;
   /** A parser for the data. */
   dataParser?: (data: unknown) => NonNullable<DataType>;
   /** The component to show when the data is being fetched. */
