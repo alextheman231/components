@@ -1,27 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { QueryBoundaryProps } from "src";
+import type { QueryBoundaryWrapperProps } from "src";
 
 import { az, normaliseIndents } from "@alextheman/utility";
 import { DataError } from "@alextheman/utility/v6";
 import Typography from "@mui/material/Typography";
-import { QueryBoundary } from "src";
+import { QueryBoundaryWrapper } from "src";
 import { expect } from "storybook/test";
 import z from "zod";
 
-const meta: Meta<typeof QueryBoundary> = {
-  component: QueryBoundary,
+const meta: Meta<typeof QueryBoundaryWrapper> = {
+  component: QueryBoundaryWrapper,
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function render<DataType>(props: QueryBoundaryProps<DataType>) {
+function render<DataType>(props: QueryBoundaryWrapperProps<DataType>) {
   return (
-    <QueryBoundary {...props}>
+    <QueryBoundaryWrapper {...props}>
       {(data) => {
         return <pre data-testid="loader-data">{JSON.stringify(data, null, 2)}</pre>;
       }}
-    </QueryBoundary>
+    </QueryBoundaryWrapper>
   );
 }
 
