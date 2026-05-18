@@ -10,6 +10,7 @@ export { default as Loader } from "src/deprecated/Loader";
 export { default as LoaderData } from "src/deprecated/LoaderData";
 export { default as LoaderError } from "src/deprecated/LoaderError";
 export { default as LoaderProvider } from "src/deprecated/LoaderProvider";
+export { default as NavigationBottom } from "src/deprecated/NavigationBottom";
 export { default as NavigationDrawer } from "src/deprecated/NavigationDrawer";
 export { default as PopoverText } from "src/deprecated/PopoverText";
 export { default as QueryBoundary } from "src/deprecated/QueryBoundary";
@@ -33,6 +34,7 @@ export type {
   LoaderProviderPropsWithError,
   LoaderProviderPropsWithNoError,
 } from "src/deprecated/LoaderProvider";
+export type { NavigationBottomProps, NavItemBottom } from "src/deprecated/NavigationBottom";
 export type { NavigationDrawerProps, NavMenuItem } from "src/deprecated/NavigationDrawer";
 export type { PopoverTextProps } from "src/deprecated/PopoverText";
 export type { QueryBoundaryProps } from "src/deprecated/QueryBoundary";
