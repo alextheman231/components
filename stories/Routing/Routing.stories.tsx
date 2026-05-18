@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { UUID_PATTERN } from "@alextheman/utility";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import NESTED_ROUTE from "stories/Routing/helpers/constants/NESTED_ROUTE";
 import VALID_ROUTE from "stories/Routing/helpers/constants/VALID_ROUTE";
 import MainRouteLinks from "stories/Routing/helpers/MainRouteLinks";
@@ -10,7 +11,7 @@ import ValidRouteContents from "stories/Routing/helpers/ValidRouteContents";
 import { expect } from "storybook/test";
 import { Route } from "wouter";
 
-import { InternalLink, MemoryRouter, Switch } from "src/v7";
+import { InternalLink, MemoryRouter, Switch, useAbsoluteLocation } from "src/v7";
 
 const meta: Meta = {
   title: "Routing with Wouter (v7)",
@@ -143,6 +144,16 @@ export const InvalidNested: Story = {
 
 export const NestedLink: Story = {
   render: () => {
+    function SignInPage() {
+      const [location] = useAbsoluteLocation();
+      return (
+        <>
+          <Typography>This is the sign-in page</Typography>
+          <Typography>Current location: {location}</Typography>
+        </>
+      );
+    }
+
     return (
       <MemoryRouter>
         <Switch>
@@ -154,7 +165,9 @@ export const NestedLink: Story = {
               <Route path="/">
                 <InternalLink to="/users/sign-in">Sign in</InternalLink>
               </Route>
-              <Route path="/sign-in">This is the sign-in page</Route>
+              <Route path="/sign-in">
+                <SignInPage />
+              </Route>
             </Switch>
           </Route>
         </Switch>
@@ -165,6 +178,7 @@ export const NestedLink: Story = {
     await userEvent.click(canvas.getByRole("link", { name: "Go to users page" }));
     await userEvent.click(await canvas.findByRole("link", { name: "Sign in" }));
     await canvas.findByText("This is the sign-in page");
+    await canvas.findByText("Current location: /users/sign-in");
   },
 };
 
