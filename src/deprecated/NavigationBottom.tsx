@@ -25,7 +25,11 @@ export interface NavigationBottomProps {
   navItems: Array<NavItemBottom>;
 }
 
-/** Renders a navigation bar at the bottom of the screen. Especially helpful for common navigation options in a mobile app. */
+/**
+ * Renders a navigation bar at the bottom of the screen. Especially helpful for common navigation options in a mobile app.
+ *
+ * @deprecated Please use `NavigationBottom` from the `@alextheman/components/v7` entrypoint instead.
+ */
 function NavigationBottom({ children, navItems }: NavigationBottomProps) {
   const [value, setValue] = useState<string>("");
   return (
