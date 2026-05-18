@@ -33,15 +33,14 @@ function QueryBoundaryData<DataType>({
   } = useQueryBoundary<DataType>();
   const dataParser = propDataParser ?? contextDataParser;
 
-  if (isLoading) {
-    return <>{loadingComponent ?? contextLoadingComponent}</>;
-  }
-
   if (error) {
     return null;
   }
 
-  // No need to also check for isLoading === true here, since this was covered earlier
+  if (isLoading) {
+    return <>{loadingComponent ?? contextLoadingComponent}</>;
+  }
+
   if (data === null || data === undefined) {
     return null;
   }
