@@ -5,6 +5,7 @@ export { default as QueryBoundaryDataMap } from "src/providers/QueryBoundaryProv
 export { default as QueryBoundaryError } from "src/providers/QueryBoundaryProvider/QueryBoundaryError";
 export { default as QueryBoundaryFallback } from "src/providers/QueryBoundaryProvider/QueryBoundaryFallback";
 export { default as QueryBoundaryNullable } from "src/providers/QueryBoundaryProvider/QueryBoundaryNullable";
+export { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
 
 export type { QueryBoundaryDataProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryData";
 export type {
