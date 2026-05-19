@@ -8,8 +8,10 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { createQueryBoundary, SkeletonRow } from "src";
+import { SkeletonRow } from "src";
 import z from "zod";
+
+import { createListQueryBoundary } from "src/v7";
 
 const demoSchema = z.object({
   id: z.uuid(),
@@ -39,8 +41,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
   render: ({ isLoading, error, data }: DemoProps) => {
-    const QueryBoundary = createQueryBoundary({
-      query: { isLoading, error, dataCollection: data },
+    const QueryBoundary = createListQueryBoundary({
+      query: { isLoading, error, data },
     });
 
     return (

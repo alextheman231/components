@@ -8,7 +8,6 @@ export { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider
 export { default as QueryBoundaryProvider } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
 export type {
-  Query,
   QueryBase,
   QueryMultiple,
   QuerySingle,
