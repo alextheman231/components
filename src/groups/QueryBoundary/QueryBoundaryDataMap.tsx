@@ -4,7 +4,7 @@ import { DataError } from "@alextheman/utility/v6";
 import Typography from "@mui/material/Typography";
 import { Fragment } from "react";
 
-import { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
+import { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryDataMapBaseProps<ItemType> {
   /**

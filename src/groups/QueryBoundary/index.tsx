@@ -4,14 +4,12 @@ However, they are - this compound component are all typed and the prop types are
 */
 import type { JSX, ReactNode } from "react";
 
-import {
-  QueryBoundaryData,
-  QueryBoundaryDataMap,
-  QueryBoundaryError,
-  QueryBoundaryFallback,
-  QueryBoundaryNullable,
-  QueryBoundaryProvider,
-} from "src/providers";
+import QueryBoundaryData from "src/groups/QueryBoundary/QueryBoundaryData";
+import QueryBoundaryDataMap from "src/groups/QueryBoundary/QueryBoundaryDataMap";
+import QueryBoundaryError from "src/groups/QueryBoundary/QueryBoundaryError";
+import QueryBoundaryFallback from "src/groups/QueryBoundary/QueryBoundaryFallback";
+import QueryBoundaryNullable from "src/groups/QueryBoundary/QueryBoundaryNullable";
+import QueryBoundaryProvider from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBase {
   /** The current loading status (true if loading, false if not) */
