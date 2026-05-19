@@ -3,9 +3,9 @@ import type {
   QueryBoundaryFallbackProps,
   QueryBoundaryNullablePropsWithNullable,
   QueryBoundaryNullablePropsWithUndefinedOrNull,
-} from "src/providers";
+} from "src/groups";
 
-import { QueryBoundaryFallback } from "src/providers";
+import { QueryBoundaryFallback } from "src/groups";
 
 /** @deprecated This type has been renamed to QueryBoundaryErrorProps. */
 export type LoaderErrorBaseProps = QueryBoundaryErrorProps;

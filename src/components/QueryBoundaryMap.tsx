@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/providers";
-import type { QueryBoundaryDataMapProps } from "src/providers/QueryBoundaryProvider/QueryBoundaryDataMap";
+import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/groups";
+import type { QueryBoundaryDataMapProps } from "src/groups/QueryBoundary/QueryBoundaryDataMap";
 
-import { createQueryBoundary } from "src/hooks";
+import { createQueryBoundary } from "src/groups";
 
 export type QueryBoundaryMapProps<ItemType> = Omit<
   QueryBoundaryProviderProps<Array<ItemType>>,

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
+import { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryDataProps<DataType> {
   /**

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import Alert from "@mui/material/Alert";
 
-import { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
+import { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryNullablePropsWithUndefinedOrNull {
   /** The component to show if no error was thrown but data is undefined */

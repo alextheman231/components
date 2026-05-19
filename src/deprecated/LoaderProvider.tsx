@@ -4,10 +4,11 @@ import type {
   QueryBoundaryProviderProps,
   QueryBoundaryProviderPropsWithError,
   QueryBoundaryProviderPropsWithNoError,
-} from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
+} from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
-import { QueryBoundaryProvider } from "src/providers";
-import { useQueryBoundary } from "src/providers/QueryBoundaryProvider/QueryBoundaryProvider";
+import QueryBoundaryProvider, {
+  useQueryBoundary,
+} from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
 /** @deprecated This type has been renamed to QueryBoundaryProviderBaseProps. */
 export type LoaderProviderBaseProps<DataType> = QueryBoundaryProviderBaseProps<DataType>;
