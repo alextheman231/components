@@ -45,7 +45,11 @@ export interface DefaultQueryBoundaryComponents<DataType> {
   Nullable: typeof QueryBoundaryNullable;
 }
 
-/** A creator function to create a system of QueryBoundary components with the data fully typed throughout. */
+/**
+ * A creator function to create a system of QueryBoundary components with the data fully typed throughout.
+ *
+ * @deprecated Please use either `createBaseQueryBoundary`, `createItemQueryBoundary`, or `createListQueryBoundary` from `@alextheman/components/v7` instead.
+ */
 function createQueryBoundary<DataType>({
   query,
 }: CreateQueryBoundaryParameters<DataType>): DefaultQueryBoundaryComponents<DataType> {
