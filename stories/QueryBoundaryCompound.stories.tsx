@@ -5,7 +5,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
-import { createQueryBoundary } from "src";
+
+import { createItemQueryBoundary } from "src/v7";
 
 interface RenderProps {
   isLoading: boolean;
@@ -32,11 +33,7 @@ interface Data {
 
 export const Main: Story = {
   render: ({ isLoading, error, data }) => {
-    const QueryBoundary = createQueryBoundary({ query: { isLoading, error, data } });
-
-    function NullableComponent() {
-      return <Typography>No data found</Typography>;
-    }
+    const QueryBoundary = createItemQueryBoundary({ query: { isLoading, error, data } });
 
     return (
       <QueryBoundary.Context>
@@ -63,7 +60,7 @@ export const Main: Story = {
             );
           }}
         </QueryBoundary.Data>
-        <QueryBoundary.Nullable nullableComponent={<NullableComponent />} />
+        <QueryBoundary.Nullable nullableComponent={<Typography>No data found</Typography>} />
       </QueryBoundary.Context>
     );
   },

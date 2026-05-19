@@ -5,7 +5,7 @@ import type { QueryBoundaryFallbackProps } from "src/groups/QueryBoundary/QueryB
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { createQueryBoundary } from "src/groups";
+import createItemQueryBoundary from "src/v7/groups/QueryBoundary/createItemQueryBoundary";
 
 export type QueryBoundaryWrapperProps<DataType> = Omit<
   QueryBoundaryProviderProps<DataType>,
@@ -33,7 +33,7 @@ function QueryBoundaryWrapper<DataType>({
   data,
   dataParser,
 }: QueryBoundaryWrapperProps<DataType>) {
-  const QueryBoundary = createQueryBoundary({ query: { isLoading, error, data } });
+  const QueryBoundary = createItemQueryBoundary({ query: { isLoading, error, data } });
 
   let boundaryFallbackComponent: ReactNode = (
     <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />

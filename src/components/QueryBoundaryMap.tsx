@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/groups";
 import type { QueryBoundaryDataMapProps } from "src/groups/QueryBoundary/QueryBoundaryDataMap";
 
-import { createQueryBoundary } from "src/groups";
+import createListQueryBoundary from "src/v7/groups/QueryBoundary/createListQueryBoundary";
 
 export type QueryBoundaryMapProps<ItemType> = Omit<
   QueryBoundaryProviderProps<Array<ItemType>>,
@@ -34,7 +34,7 @@ function QueryBoundaryMap<ItemType>({
   itemParser,
   itemKey,
 }: QueryBoundaryMapProps<ItemType>) {
-  const QueryBoundary = createQueryBoundary({ query: { isLoading, error, dataCollection: data } });
+  const QueryBoundary = createListQueryBoundary({ query: { isLoading, error, data } });
 
   let boundaryErrorComponent: ReactNode = (
     <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
