@@ -211,3 +211,16 @@ export const Undefined: Story = {
     await expect(canvas.queryByTestId("loader-data")).not.toBeInTheDocument();
   },
 };
+
+export const Null: Story = {
+  render,
+  args: {
+    isLoading: false,
+    data: null,
+    nullComponent: <Typography>Data is null</Typography>,
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText("Data is null")).toBeInTheDocument();
+    await expect(canvas.queryByTestId("loader-data")).not.toBeInTheDocument();
+  },
+};
