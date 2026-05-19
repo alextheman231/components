@@ -57,7 +57,7 @@ function createQueryBoundary<DataType>({
         <QueryBoundaryProvider
           isLoading={query.isLoading}
           error={query.error}
-          data={query.data ?? query.dataCollection}
+          data={"data" in query ? query.data : query.dataCollection}
         >
           {children}
         </QueryBoundaryProvider>
