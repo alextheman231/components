@@ -5,7 +5,7 @@ import type { QueryBoundaryFallbackProps } from "src/groups/QueryBoundary/QueryB
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import createItemQueryBoundary from "src/v7/groups/QueryBoundary/createItemQueryBoundary";
+import createItemQueryBoundary from "src/groups/QueryBoundary/creators/createItemQueryBoundary";
 
 export type QueryBoundaryWrapperProps<DataType> = Omit<
   QueryBoundaryProviderProps<DataType>,

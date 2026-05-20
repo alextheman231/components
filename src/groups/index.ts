@@ -7,6 +7,8 @@ export { default as QueryBoundaryNullable } from "src/groups/QueryBoundary/Query
 export { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 export { default as QueryBoundaryProvider } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
+export * from "src/groups/QueryBoundary/creators";
+
 export type {
   QueryBase,
   QueryMultiple,
