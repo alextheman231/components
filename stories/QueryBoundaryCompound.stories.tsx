@@ -5,8 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
-
-import { createItemQueryBoundary } from "src/v7";
+import { createItemQueryBoundary } from "src";
 
 interface RenderProps {
   isLoading: boolean;

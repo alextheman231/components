@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/groups";
 import type { QueryBoundaryDataMapProps } from "src/groups/QueryBoundary/QueryBoundaryDataMap";
 
-import createListQueryBoundary from "src/v7/groups/QueryBoundary/createListQueryBoundary";
+import createListQueryBoundary from "src/groups/QueryBoundary/creators/createListQueryBoundary";
 
 export type QueryBoundaryMapProps<ItemType> = Omit<
   QueryBoundaryProviderProps<Array<ItemType>>,
