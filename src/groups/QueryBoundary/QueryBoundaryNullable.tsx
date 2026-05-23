@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import Alert from "@mui/material/Alert";
+import Typography from "@mui/material/Typography";
 
 import { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider";
 
@@ -40,23 +40,23 @@ function QueryBoundaryNullable({
   }
 
   if (data === null || data === undefined) {
-    if (nullableComponent) {
+    if (nullableComponent !== undefined) {
       return <>{nullableComponent}</>;
     }
 
     if (data === undefined) {
-      if (undefinedComponent) {
+      if (undefinedComponent !== undefined) {
         return <>{undefinedComponent}</>;
       }
+      return <Typography>No data available.</Typography>;
     }
 
     if (data === null) {
-      if (nullComponent) {
+      if (nullComponent !== undefined) {
         return <>{nullComponent}</>;
       }
+      return <Typography>No data found.</Typography>;
     }
-
-    return <Alert severity="error">Failed to load data. Please try again later.</Alert>;
   }
 
   return null;
