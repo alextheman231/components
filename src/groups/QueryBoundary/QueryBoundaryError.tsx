@@ -34,14 +34,15 @@ function QueryBoundaryError({ children, logError: propsLogError }: QueryBoundary
           "An error has occurred but data is still present. This may indicate an invalid query state.",
           { data, error },
         );
+      } else {
+        console.error(error);
       }
-      console.error(error);
       warnedOnce.current = true;
     }
     if (typeof errorComponent === "function") {
       return errorComponent(error);
     }
-    if (errorComponent) {
+    if (errorComponent !== undefined) {
       return <>{errorComponent}</>;
     }
 
@@ -49,7 +50,7 @@ function QueryBoundaryError({ children, logError: propsLogError }: QueryBoundary
       <Alert severity="error">
         {typeof error === "object" && "message" in error && typeof error.message === "string"
           ? error.message
-          : "An unknown error has occured. Please try again later."}
+          : "An unknown error has occured."}
       </Alert>
     );
   }
