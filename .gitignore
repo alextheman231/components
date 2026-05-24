@@ -16,3 +16,5 @@ alextheman-components-*
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+.alex-c-line.private.config.js
