@@ -6,5 +6,9 @@ export { default as SnackbarProvider, useSnackbar } from "src/providers/Snackbar
 
 export type { AudioContextValue, AudioProviderProps, TrackData } from "src/providers/AudioProvider";
 export type { ModeProviderProps } from "src/providers/ModeProvider";
-export type { ScreenSizeProps, ScreenSizeContextValue } from "src/providers/ScreenSizeProvider";
+export type {
+  ScreenSizeProps,
+  ScreenSizeContextValue,
+  ScreenDimensions,
+} from "src/providers/ScreenSizeProvider";
 export type { SnackbarProviderProps } from "src/providers/SnackbarProvider";
