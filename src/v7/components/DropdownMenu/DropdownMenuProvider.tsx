@@ -56,7 +56,7 @@ function DropdownMenuProvider({ children }: DropdownMenuProviderProps) {
   const [anchorElement, setAnchorElement] = useState<HTMLElement | null>(null);
 
   const isDropdownOpen = useMemo(() => {
-    return !!anchorElement;
+    return Boolean(anchorElement);
   }, [anchorElement]);
 
   function closeMenu() {
