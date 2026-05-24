@@ -14,8 +14,8 @@ export interface TrackData {
 
 export interface AudioContextValue {
   tracks: Array<TrackData>;
-  currentTrack: TrackData;
-  setCurrentTrack: Dispatch<SetStateAction<TrackData>>;
+  currentTrack: TrackData | null;
+  setCurrentTrack: Dispatch<SetStateAction<TrackData | null>>;
 }
 export interface AudioProviderProps {
   tracks: Array<TrackData>;
@@ -41,7 +41,9 @@ export function useAudioContext<Strict extends boolean = true>({
 
 /** Provides audio information to the children components. */
 function AudioProvider({ tracks, children }: AudioProviderProps) {
-  const [currentTrack, setCurrentTrack] = useState<TrackData>(tracks[0]);
+  const [currentTrack, setCurrentTrack] = useState<TrackData | null>(
+    tracks.length === 0 ? null : tracks[0],
+  );
 
   return <AudioContext value={{ tracks, currentTrack, setCurrentTrack }}>{children}</AudioContext>;
 }
