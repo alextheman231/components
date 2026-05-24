@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import { createContext, use, useEffect, useMemo, useState } from "react";
+import { createContext, use, useMemo, useSyncExternalStore } from "react";
 
 export interface ScreenSizeProps {
   /** The children that will be receiving the ScreenSizeContext. */
@@ -15,13 +15,16 @@ export interface ScreenSizeProps {
   largeScreenHeight?: number;
 }
 
-export interface ScreenSizeContextValue {
-  /** Whether the screen is a large screen or not. */
-  isLargeScreen: boolean;
+export interface ScreenDimensions {
   /** The current window width. */
   windowWidth: number;
   /** The current window height. */
   windowHeight: number;
+}
+
+export interface ScreenSizeContextValue extends ScreenDimensions {
+  /** Whether the screen is a large screen or not. */
+  isLargeScreen: boolean;
 }
 
 const ScreenSizeContext = createContext<ScreenSizeContextValue>({
@@ -45,26 +48,40 @@ export function useScreenSize<Strict extends boolean = true>({
   return context;
 }
 
+let dimensions: ScreenDimensions = {
+  windowWidth: window.innerWidth,
+  windowHeight: window.innerHeight,
+};
+
+function getDimensions(): ScreenDimensions {
+  return dimensions;
+}
+
+function subscribe(callback: () => void) {
+  function handleResize() {
+    dimensions = {
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+    };
+
+    callback();
+  }
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}
+
 /** Provides context about the current screen size. */
 function ScreenSizeProvider({
   children,
   largeScreenWidth = 669,
   largeScreenHeight = 660,
 }: ScreenSizeProps) {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight);
-
-  useEffect(() => {
-    function setDimensions() {
-      setWindowWidth(window.innerWidth);
-      setWindowHeight(window.innerHeight);
-    }
-    setDimensions();
-    window.addEventListener("resize", setDimensions);
-    return () => {
-      window.removeEventListener("resize", setDimensions);
-    };
-  }, []);
+  const { windowWidth, windowHeight } = useSyncExternalStore<ScreenDimensions>(
+    subscribe,
+    getDimensions,
+  );
 
   const isLargeScreen = useMemo(() => {
     return windowWidth > largeScreenWidth && windowHeight > largeScreenHeight;
