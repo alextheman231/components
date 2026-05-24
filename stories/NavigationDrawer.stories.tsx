@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button from "@mui/material/Button";
-import { ModeProvider, ModeToggle, Page } from "src";
+import { Page, ThemeProvider, ThemeToggle } from "src";
 
 import { MemoryRouter, NavigationDrawer } from "src/v7";
 
@@ -19,13 +19,13 @@ export const Main: Story = {
 
   render: () => {
     return (
-      <ModeProvider>
+      <ThemeProvider>
         <MemoryRouter>
           <NavigationDrawer
             title="Navigation Drawer"
             headerElements={
               <>
-                <ModeToggle />
+                <ThemeToggle />
                 <Button>Actions</Button>
               </>
             }
@@ -44,7 +44,7 @@ export const Main: Story = {
             <Page title="Navigation Drawer">Page contents here</Page>
           </NavigationDrawer>
         </MemoryRouter>
-      </ModeProvider>
+      </ThemeProvider>
     );
   },
 };

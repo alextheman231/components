@@ -1,6 +1,6 @@
-import { ModeToggle } from "src/components";
+import { ThemeToggle } from "src/components";
 
-/** @deprecated This component has been renamed to `ModeToggle`. */
-const DarkModeToggle = ModeToggle;
+/** @deprecated This component has been renamed to `ThemeToggle`. */
+const DarkModeToggle = ThemeToggle;
 
 export default DarkModeToggle;

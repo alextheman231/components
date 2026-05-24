@@ -3,13 +3,13 @@ export { default as CollapsableItem } from "src/components/CollapsableItem";
 export { default as ExternalLink } from "src/components/ExternalLink";
 export { default as FileInput, FileType } from "src/components/FileInput";
 export { default as FileInputList } from "src/components/FileInputList";
-export { default as ModeToggle } from "src/components/ModeToggle";
 export { default as Page } from "src/components/Page";
 export { default as QueryBoundaryMap } from "src/components/QueryBoundaryMap";
 export { default as QueryBoundaryWrapper } from "src/components/QueryBoundaryWrapper";
 export { default as ReactPlayground } from "src/components/ReactPlayground";
 export { default as SkeletonRow } from "src/components/SkeletonRow";
 export { default as SwitchWithIcons } from "src/components/SwitchWithIcons";
+export { default as ThemeToggle } from "src/components/ThemeToggle";
 
 export type { CollapsableItemProps } from "src/components/CollapsableItem";
 export type { ExternalLinkProps } from "src/components/ExternalLink";

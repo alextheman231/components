@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { stripIndent } from "common-tags";
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
 
-import { useMode } from "src/providers";
+import { useTheme } from "src/providers";
 
 export interface ReactPlaygroundProps extends ComponentProps<typeof LiveProvider> {
   /** Extra styling to apply to the preview. Must be compatible with the Material UI `sx` prop. */
@@ -15,7 +15,7 @@ export interface ReactPlaygroundProps extends ComponentProps<typeof LiveProvider
 
 /** Renders a playground to help demonstrate your React code in an interactive setting. */
 function ReactPlayground({ code, previewStyles, ...liveProviderProps }: ReactPlaygroundProps) {
-  const { mode } = useMode();
+  const { mode } = useTheme();
   const defaultPreviewStyles: SxProps<Theme> = {
     backgroundColor: mode === "dark" ? "black" : "white",
     border: 0.3,
