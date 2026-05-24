@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ScreenSizeProvider } from "src";
-import ScreenSizeProviderConsumerMain from "stories/ScreenSizeProvider/demos/ScreenSizeProviderConsumerMain";
+import Typography from "@mui/material/Typography";
+import { ScreenSizeProvider, useScreenSize } from "src";
 
 const meta: Meta<typeof ScreenSizeProvider> = {
   component: ScreenSizeProvider,
@@ -19,9 +19,21 @@ function setDimensions(screenSize: "large" | "small") {
 
 export const Main: Story = {
   render: (props) => {
+    function Consumer() {
+      const { isLargeScreen, windowWidth, windowHeight } = useScreenSize();
+
+      return (
+        <>
+          <Typography id="large-screen-text">Size: {isLargeScreen ? "Large" : "Small"}</Typography>
+          <Typography id="window-width-text">windowWidth: {windowWidth}</Typography>
+          <Typography id="window-height-text">windowHeight: {windowHeight}</Typography>
+        </>
+      );
+    }
+
     return (
       <ScreenSizeProvider {...props}>
-        <ScreenSizeProviderConsumerMain />
+        <Consumer />
       </ScreenSizeProvider>
     );
   },
