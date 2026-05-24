@@ -23,12 +23,12 @@ function QueryBoundaryError({ children, logError: propsLogError }: QueryBoundary
     logError: contextLogError,
   } = useQueryBoundary();
   const logError = propsLogError ?? contextLogError;
-  const warnedOnce = useRef(false);
+  const warnedOnceRef = useRef(false);
 
   const errorComponent = children ?? contextErrorComponent;
 
   if (error) {
-    if (logError && !warnedOnce.current) {
+    if (logError && !warnedOnceRef.current) {
       if (data !== null && data !== undefined) {
         console.error(
           "An error has occurred but data is still present. This may indicate an invalid query state.",
@@ -37,7 +37,7 @@ function QueryBoundaryError({ children, logError: propsLogError }: QueryBoundary
       } else {
         console.error(error);
       }
-      warnedOnce.current = true;
+      warnedOnceRef.current = true;
     }
     if (typeof errorComponent === "function") {
       return errorComponent(error);

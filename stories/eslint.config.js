@@ -10,6 +10,7 @@ export default [
     rules: {
       "jsdoc/require-jsdoc": "off",
       "n/no-unsupported-features/node-builtins": "off",
+      "@eslint-react/rules-of-hooks": "off", // Gives false positives when used in render.
     },
   },
 ];

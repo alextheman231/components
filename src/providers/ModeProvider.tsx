@@ -7,7 +7,7 @@ import type { ContextHookOptions } from "src/types";
 import { DataError } from "@alextheman/utility/v6";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, use, useMemo, useState } from "react";
 
 export interface ModeContextValue {
   toggleMode: () => void;
@@ -23,7 +23,7 @@ const ModeContext = createContext<ModeContextValue>({
 export function useMode<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ModeContextValue> {
-  const context = useContext(ModeContext);
+  const context = use(ModeContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -67,7 +67,7 @@ function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) 
   }, [mode]);
 
   return (
-    <ModeContext.Provider
+    <ModeContext
       value={{
         mode,
         toggleMode: () => {
@@ -81,7 +81,7 @@ function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) 
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </ModeContext.Provider>
+    </ModeContext>
   );
 }
 
