@@ -27,7 +27,7 @@ export interface ScreenSizeContextValue extends ScreenDimensions {
   isLargeScreen: boolean;
 }
 
-const ScreenSizeContext = createContext<ScreenSizeContextValue>({
+const ScreenSizeContext = createContext<ScreenSizeContextValue | undefined>({
   windowWidth: 0,
   windowHeight: 0,
   isLargeScreen: false,
@@ -45,7 +45,7 @@ export function useScreenSize<Strict extends boolean = true>({
       "Could not find the ScreenSizeProvider context. Please double-check that it is present.",
     );
   }
-  return context;
+  return context as OptionalOnCondition<Strict, ScreenSizeContextValue>;
 }
 
 let dimensions: ScreenDimensions = {
