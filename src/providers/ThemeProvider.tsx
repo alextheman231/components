@@ -1,29 +1,30 @@
 import type { OptionalOnCondition } from "@alextheman/utility";
-import type { PaletteMode } from "@mui/material/styles";
+import type { PaletteMode, ThemeOptions } from "@mui/material/styles";
 import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
+import { omitProperties } from "@alextheman/utility";
 import { DataError } from "@alextheman/utility/v6";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { createContext, use, useMemo, useState } from "react";
 
-export interface ModeContextValue {
+export interface ThemeContextValue {
   toggleMode: () => void;
   mode: PaletteMode;
 }
 
-const ModeContext = createContext<ModeContextValue>({
+const ThemeContext = createContext<ThemeContextValue>({
   toggleMode: () => {},
   mode: "dark",
 });
 
 /** Access the mode context directly. */
-export function useMode<Strict extends boolean = true>({
+export function useTheme<Strict extends boolean = true>({
   strict = true as Strict,
-}: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ModeContextValue> {
-  const context = use(ModeContext);
+}: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ThemeContextValue> {
+  const context = use(ThemeContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -34,21 +35,24 @@ export function useMode<Strict extends boolean = true>({
   return context;
 }
 
-export interface ModeProviderProps {
+export interface ThemeProviderProps {
   /** The children that will have access to the current mode. */
   children: ReactNode;
   /** The initial mode. */
   mode?: PaletteMode;
+  /** Extra options to apply on top of our default theme options */
+  themeOptions?: ThemeOptions;
 }
 
 /** Provides information about the current theme mode to its children components. */
-function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) {
+function ThemeProvider({ children, mode: modeProp = "dark", themeOptions }: ThemeProviderProps) {
   const [mode, setMode] = useState<PaletteMode>(modeProp);
 
   const theme = useMemo(() => {
     return createTheme({
       palette: {
         mode,
+        ...omitProperties(themeOptions?.palette ?? {}, ["mode"]),
       },
       components: {
         MuiPaper: {
@@ -60,14 +64,18 @@ function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) 
                 borderColor: theme.palette.divider,
               };
             },
+            ...themeOptions?.components?.MuiPaper?.styleOverrides,
           },
+          ...omitProperties(themeOptions?.components?.MuiPaper ?? {}, "styleOverrides"),
         },
+        ...omitProperties(themeOptions?.components ?? {}, "MuiPaper"),
       },
+      ...omitProperties(themeOptions ?? {}, ["components", "palette"]),
     });
-  }, [mode]);
+  }, [mode, themeOptions]);
 
   return (
-    <ModeContext
+    <ThemeContext
       value={{
         mode,
         toggleMode: () => {
@@ -77,12 +85,12 @@ function ModeProvider({ children, mode: modeProp = "dark" }: ModeProviderProps) 
         },
       }}
     >
-      <ThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
-      </ThemeProvider>
-    </ModeContext>
+      </MuiThemeProvider>
+    </ThemeContext>
   );
 }
 
-export default ModeProvider;
+export default ThemeProvider;

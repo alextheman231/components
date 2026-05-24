@@ -2,7 +2,7 @@ import type { StoryContext } from "@storybook/react-vite";
 import type { ReactNode } from "react";
 
 import { VersionNumber } from "@alextheman/utility";
-import { ModeProvider, ModeToggle, Page } from "src";
+import { Page, ThemeProvider, ThemeToggle } from "src";
 
 import { name as packageName, version } from "package.json" with { type: "json" };
 
@@ -13,15 +13,15 @@ interface StoryWrapperProps {
 
 function StoryWrapper({ Story, context }: StoryWrapperProps) {
   return (
-    <ModeProvider>
+    <ThemeProvider>
       <Page
         title={`${context.title} / ${context.name}`}
         subtitle={`${packageName} • ${new VersionNumber(version)}`}
-        action={<ModeToggle />}
+        action={<ThemeToggle />}
       >
         <Story />
       </Page>
-    </ModeProvider>
+    </ThemeProvider>
   );
 }
 
