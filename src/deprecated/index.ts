@@ -17,6 +17,7 @@ export { default as NavigationBottom } from "src/deprecated/NavigationBottom";
 export { default as NavigationDrawer } from "src/deprecated/NavigationDrawer";
 export { default as PopoverText } from "src/deprecated/PopoverText";
 export { default as QueryBoundary } from "src/deprecated/QueryBoundary";
+export { default as ReactPlayground } from "src/deprecated/ReactPlayground";
 export { default as SubmitButton } from "src/deprecated/SubmitButton";
 
 export * from "src/deprecated/DropdownMenu2";
@@ -41,4 +42,5 @@ export type { NavigationBottomProps, NavItemBottom } from "src/deprecated/Naviga
 export type { NavigationDrawerProps, NavMenuItem } from "src/deprecated/NavigationDrawer";
 export type { PopoverTextProps } from "src/deprecated/PopoverText";
 export type { QueryBoundaryProps } from "src/deprecated/QueryBoundary";
+export type { ReactPlaygroundProps } from "src/deprecated/ReactPlayground";
 export type { SubmitButtonProps } from "src/deprecated/SubmitButton";
