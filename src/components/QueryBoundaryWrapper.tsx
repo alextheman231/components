@@ -39,7 +39,7 @@ function QueryBoundaryWrapper<DataType>({
     <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
   );
 
-  if (nullableComponent) {
+  if (nullableComponent !== undefined) {
     boundaryFallbackComponent = (
       <QueryBoundary.Fallback
         nullableComponent={nullableComponent}
@@ -47,7 +47,7 @@ function QueryBoundaryWrapper<DataType>({
         errorComponent={errorComponent}
       />
     );
-  } else if (undefinedComponent || nullComponent) {
+  } else if (undefinedComponent !== undefined || nullComponent !== undefined) {
     boundaryFallbackComponent = (
       <QueryBoundary.Fallback
         undefinedComponent={undefinedComponent}
