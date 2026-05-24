@@ -8,12 +8,17 @@ import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
 
 import { useTheme } from "src/providers";
 
+/** @deprecated This type is no longer being maintained. Please use the type of the components from `react-live` directly. */
 export interface ReactPlaygroundProps extends ComponentProps<typeof LiveProvider> {
   /** Extra styling to apply to the preview. Must be compatible with the Material UI `sx` prop. */
   previewStyles?: SxProps<Theme>;
 }
 
-/** Renders a playground to help demonstrate your React code in an interactive setting. */
+/**
+ * Renders a playground to help demonstrate your React code in an interactive setting.
+ *
+ * @deprecated This component is no longer being maintained. Please use the components from `react-live` directly.
+ */
 function ReactPlayground({ code, previewStyles, ...liveProviderProps }: ReactPlaygroundProps) {
   const { mode } = useTheme();
   const defaultPreviewStyles: SxProps<Theme> = {
