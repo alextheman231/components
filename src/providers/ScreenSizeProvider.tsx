@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, use, useEffect, useMemo, useState } from "react";
 
 export interface ScreenSizeProps {
   /** The children that will be receiving the ScreenSizeContext. */
@@ -34,7 +34,7 @@ const ScreenSizeContext = createContext<ScreenSizeContextValue>({
 export function useScreenSize<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ScreenSizeContextValue> {
-  const context = useContext(ScreenSizeContext);
+  const context = use(ScreenSizeContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -71,7 +71,7 @@ function ScreenSizeProvider({
   }, [windowWidth, windowHeight, largeScreenWidth, largeScreenHeight]);
 
   return (
-    <ScreenSizeContext.Provider
+    <ScreenSizeContext
       value={{
         isLargeScreen,
         windowWidth,
@@ -79,7 +79,7 @@ function ScreenSizeProvider({
       }}
     >
       {children}
-    </ScreenSizeContext.Provider>
+    </ScreenSizeContext>
   );
 }
 

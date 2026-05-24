@@ -5,7 +5,7 @@ import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
 import CircularProgress from "@mui/material/CircularProgress";
-import { createContext, useContext } from "react";
+import { createContext, use } from "react";
 
 export interface QueryBoundaryProviderBaseProps<DataType> {
   /** The current loading status (true if loading, false if not) */
@@ -55,7 +55,7 @@ export function useQueryBoundary<DataType, Strict extends boolean = true>({
   Strict,
   QueryBoundaryContextValue<DataType>
 > {
-  const context = useContext(QueryBoundaryContext);
+  const context = use(QueryBoundaryContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -78,9 +78,9 @@ function QueryBoundaryProvider<DataType>({
   ...contextProps
 }: QueryBoundaryProviderProps<DataType>) {
   return (
-    <QueryBoundaryContext.Provider value={{ loadingComponent, ...contextProps }}>
+    <QueryBoundaryContext value={{ loadingComponent, ...contextProps }}>
       {children}
-    </QueryBoundaryContext.Provider>
+    </QueryBoundaryContext>
   );
 }
 

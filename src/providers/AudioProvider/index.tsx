@@ -4,7 +4,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import { createContext, useContext, useState } from "react";
+import { createContext, use, useState } from "react";
 
 export interface TrackData {
   title: string;
@@ -28,7 +28,7 @@ const AudioContext = createContext<AudioContextValue | undefined>(undefined);
 export function useAudioContext<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, AudioContextValue> {
-  const context = useContext(AudioContext);
+  const context = use(AudioContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -43,11 +43,7 @@ export function useAudioContext<Strict extends boolean = true>({
 function AudioProvider({ tracks, children }: AudioProviderProps) {
   const [currentTrack, setCurrentTrack] = useState<TrackData>(tracks[0]);
 
-  return (
-    <AudioContext.Provider value={{ tracks, currentTrack, setCurrentTrack }}>
-      {children}
-    </AudioContext.Provider>
-  );
+  return <AudioContext value={{ tracks, currentTrack, setCurrentTrack }}>{children}</AudioContext>;
 }
 
 export default AudioProvider;

@@ -1,7 +1,3 @@
-/* 
-eslint-disable react/prop-types -- ESLint gives false positives because it thinks the props are not typed.
-However, they are - this compound component are all typed and the prop types are recognised by TypeScript.
-*/
 import type { JSX, ReactNode } from "react";
 
 import QueryBoundaryError from "src/groups/QueryBoundary/QueryBoundaryError";

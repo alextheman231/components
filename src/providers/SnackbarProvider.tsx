@@ -8,7 +8,7 @@ import { wait } from "@alextheman/utility";
 import { DataError } from "@alextheman/utility/v6";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-import { createContext, useContext, useState } from "react";
+import { createContext, use, useState } from "react";
 
 export interface SnackbarProviderProps {
   /** The children that will have access to the snackbar context. */
@@ -28,7 +28,7 @@ const SnackbarContext = createContext<SnackbarContextValue | undefined>(undefine
 export function useSnackbar<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, SnackbarContextValue> {
-  const context = useContext(SnackbarContext);
+  const context = use(SnackbarContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -62,14 +62,14 @@ function SnackbarProvider({ children, autoHideDuration = 5000 }: SnackbarProvide
   }
 
   return (
-    <SnackbarContext.Provider value={{ addSnackbar }}>
+    <SnackbarContext value={{ addSnackbar }}>
       <Snackbar open={open} autoHideDuration={autoHideDurationState} onClose={handleClose}>
         <Alert onClose={handleClose} severity={severity}>
           {message}
         </Alert>
       </Snackbar>
       {children}
-    </SnackbarContext.Provider>
+    </SnackbarContext>
   );
 }
 

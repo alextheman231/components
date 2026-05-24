@@ -4,7 +4,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, use, useMemo, useState } from "react";
 
 export interface DropdownMenuContextValue {
   /** A function responsible for closing the dropdown menu. */
@@ -25,7 +25,7 @@ const DropdownMenuContext = createContext<DropdownMenuInternalContextValue | und
 export function useDropdownMenu<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, DropdownMenuContextValue> {
-  const context = useContext(DropdownMenuContext);
+  const context = use(DropdownMenuContext);
   if (strict && !context) {
     throw new DataError(
       { strict, context },
@@ -64,11 +64,9 @@ function DropdownMenuProvider({ children }: DropdownMenuProviderProps) {
   }
 
   return (
-    <DropdownMenuContext.Provider
-      value={{ closeMenu, isDropdownOpen, anchorElement, setAnchorElement }}
-    >
+    <DropdownMenuContext value={{ closeMenu, isDropdownOpen, anchorElement, setAnchorElement }}>
       {children}
-    </DropdownMenuContext.Provider>
+    </DropdownMenuContext>
   );
 }
 

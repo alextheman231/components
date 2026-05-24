@@ -62,7 +62,7 @@ function CollapsableItem({
     } else if (!isItemOpen && onClose) {
       onClose();
     }
-  }, [isItemOpen]);
+  }, [isItemOpen, onOpen, onClose]);
 
   return (
     <Box>
