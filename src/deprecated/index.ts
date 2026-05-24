@@ -1,3 +1,4 @@
+export { default as createQueryBoundary } from "src/deprecated/createQueryBoundary";
 export { default as DarkModeToggle } from "src/deprecated/DarkModeToggle";
 export { default as DropdownMenu } from "src/deprecated/DropdownMenu";
 export { default as DropdownMenu2 } from "src/deprecated/DropdownMenu2";
