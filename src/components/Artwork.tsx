@@ -63,7 +63,11 @@ function Connector() {
   );
 }
 
-/** The artwork associated with the package's theme song, _An Interface For You And I_. */
+/**
+ * The artwork associated with the package's theme song, _An Interface For You And I_.
+ *
+ * Listen to it here: https://youtu.be/Nq-fX9Ljf4I
+ */
 function Artwork() {
   return (
     <Card
