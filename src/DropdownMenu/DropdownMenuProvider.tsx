@@ -4,7 +4,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { ContextHookOptions } from "src/root/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import { createContext, use, useState } from "react";
+import { createContext, use, useId, useState } from "react";
 
 export interface DropdownMenuContextValue {
   /** A function responsible for closing the dropdown menu. */
@@ -16,6 +16,7 @@ export interface DropdownMenuContextValue {
 export type DropdownMenuInternalContextValue = DropdownMenuContextValue & {
   anchorElement: HTMLElement | null;
   setAnchorElement: Dispatch<SetStateAction<HTMLElement | null>>;
+  menuId: string;
 };
 const DropdownMenuContext = createContext<DropdownMenuInternalContextValue | undefined>(undefined);
 
@@ -54,7 +55,7 @@ export interface DropdownMenuProviderProps {
 /** Provides shared context for the `DropdownMenu` related components. */
 function DropdownMenuProvider({ children }: DropdownMenuProviderProps) {
   const [anchorElement, setAnchorElement] = useState<HTMLElement | null>(null);
-
+  const menuId = useId();
   const isDropdownOpen = Boolean(anchorElement);
 
   function closeMenu() {
@@ -62,7 +63,9 @@ function DropdownMenuProvider({ children }: DropdownMenuProviderProps) {
   }
 
   return (
-    <DropdownMenuContext value={{ closeMenu, isDropdownOpen, anchorElement, setAnchorElement }}>
+    <DropdownMenuContext
+      value={{ closeMenu, isDropdownOpen, anchorElement, setAnchorElement, menuId }}
+    >
       {children}
     </DropdownMenuContext>
   );

@@ -45,12 +45,12 @@ function DropdownMenuTrigger<RootComponent extends ElementType>({
   variant = "contained",
   ...buttonProps
 }: DropdownMenuTriggerProps<RootComponent>) {
-  const { isDropdownOpen, setAnchorElement } = useDropdownMenuContextInternal();
+  const { isDropdownOpen, setAnchorElement, menuId } = useDropdownMenuContextInternal();
 
   return (
     <Button
       {...(component ? { component } : {})}
-      aria-controls={isDropdownOpen ? "dropdown-menu" : undefined}
+      aria-controls={isDropdownOpen ? menuId : undefined}
       aria-haspopup="true"
       aria-expanded={isDropdownOpen}
       endIcon={isDropdownOpen ? <OpenIcon /> : <ClosedIcon />}
