@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CollapsableItem } from "src";
+import { CollapsibleItem } from "src";
 
-const meta: Meta<typeof CollapsableItem> = {
-  component: CollapsableItem,
+const meta: Meta<typeof CollapsibleItem> = {
+  component: CollapsibleItem,
 };
 
 export default meta;
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Main: Story = {
   render: ({ children, ...props }) => {
-    return <CollapsableItem {...props}>{children}</CollapsableItem>;
+    return <CollapsibleItem {...props}>{children}</CollapsibleItem>;
   },
   args: {
     children: (

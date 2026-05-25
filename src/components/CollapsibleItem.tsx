@@ -8,7 +8,7 @@ import Collapse from "@mui/material/Collapse";
 import { useEffect, useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-export interface CollapsableItemProps {
+export interface CollapsibleItemProps {
   /** Whether the item should initially be open or not. */
   isInitiallyOpen?: boolean;
   /** A callback function to execute when the item is open. */
@@ -41,7 +41,7 @@ export interface CollapsableItemProps {
 /**
  * Shows a display area that can be opened to show the children components, or hidden away.
  */
-function CollapsableItem({
+function CollapsibleItem({
   isInitiallyOpen,
   onOpen,
   onClose,
@@ -52,8 +52,8 @@ function CollapsableItem({
   collapseProps,
   openIcon = <MdArrowDropUp />,
   closedIcon = <MdArrowDropDown />,
-  useDefaultStyling = ButtonComponent === ButtonBase ? true : false,
-}: CollapsableItemProps) {
+  useDefaultStyling = ButtonComponent === ButtonBase,
+}: CollapsibleItemProps) {
   const [isItemOpen, setIsItemOpen] = useState<boolean>(Boolean(isInitiallyOpen));
 
   useEffect(() => {
@@ -100,4 +100,4 @@ function CollapsableItem({
   );
 }
 
-export default CollapsableItem;
+export default CollapsibleItem;
