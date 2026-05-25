@@ -1,5 +1,5 @@
 export { default as Artwork } from "src/components/Artwork";
-export { default as CollapsableItem } from "src/components/CollapsableItem";
+export { default as CollapsibleItem } from "src/components/CollapsibleItem";
 export { default as ExternalLink } from "src/components/ExternalLink";
 export { default as FileInput, FileType } from "src/components/FileInput";
 export { default as FileInputList } from "src/components/FileInputList";
@@ -10,7 +10,7 @@ export { default as SkeletonRow } from "src/components/SkeletonRow";
 export { default as SwitchWithIcons } from "src/components/SwitchWithIcons";
 export { default as ThemeToggle } from "src/components/ThemeToggle";
 
-export type { CollapsableItemProps } from "src/components/CollapsableItem";
+export type { CollapsibleItemProps } from "src/components/CollapsibleItem";
 export type { ExternalLinkProps } from "src/components/ExternalLink";
 export type { FileInputProps } from "src/components/FileInput";
 export type { FileInputListProps } from "src/components/FileInputList";
