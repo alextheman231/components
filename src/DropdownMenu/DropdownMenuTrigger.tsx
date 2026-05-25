@@ -9,7 +9,7 @@ import type {
 import Button from "@mui/material/Button";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-import { useDropdownMenuInternal } from "src/DropdownMenu/DropdownMenuProvider";
+import { useDropdownMenuContextInternal } from "src/DropdownMenu/DropdownMenuProvider";
 
 export type DropdownMenuTriggerProps<RootComponent extends ElementType> = {
   /**
@@ -45,7 +45,7 @@ function DropdownMenuTrigger<RootComponent extends ElementType>({
   variant = "contained",
   ...buttonProps
 }: DropdownMenuTriggerProps<RootComponent>) {
-  const { isDropdownOpen, setAnchorElement } = useDropdownMenuInternal();
+  const { isDropdownOpen, setAnchorElement } = useDropdownMenuContextInternal();
 
   return (
     <Button

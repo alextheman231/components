@@ -3,7 +3,7 @@ import type { MouseEvent, ReactNode } from "react";
 
 import Menu from "@mui/material/Menu";
 
-import { useDropdownMenuInternal } from "src/DropdownMenu/DropdownMenuProvider";
+import { useDropdownMenuContextInternal } from "src/DropdownMenu/DropdownMenuProvider";
 
 export interface DropdownMenuProps extends Omit<MenuProps, "anchorEl" | "open"> {
   /** The children to render inside of the dropdown. */
@@ -16,7 +16,7 @@ export interface DropdownMenuProps extends Omit<MenuProps, "anchorEl" | "open"> 
  * This component's open state would be controlled by the `DropdownMenuTrigger`.
  */
 function DropdownMenu({ children, onClose, ...menuProps }: DropdownMenuProps) {
-  const { anchorElement, isDropdownOpen, closeMenu } = useDropdownMenuInternal();
+  const { anchorElement, isDropdownOpen, closeMenu } = useDropdownMenuContextInternal();
 
   return (
     <Menu

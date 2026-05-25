@@ -5,7 +5,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { Fragment } from "react";
 
-import { useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
+import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryDataMapBaseProps<ItemType> {
   /**
@@ -74,7 +74,7 @@ function QueryBoundaryDataMap<ItemType>({
   emptyFallback = <Typography>No data present</Typography>,
   strictlyRequireArray = true,
 }: QueryBoundaryDataMapProps<ItemType>) {
-  const { isLoading, data, error } = useQueryBoundary<Array<ItemType>>();
+  const { isLoading, data, error } = useQueryBoundaryContext<Array<ItemType>>();
 
   if (isLoading) {
     return <>{loadingFallback}</>;

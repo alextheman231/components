@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
+import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryDataProps<DataType> {
   /**
@@ -26,7 +26,7 @@ function QueryBoundaryData<DataType>({
   dataParser,
   loadingFallback = <CircularProgress />,
 }: QueryBoundaryDataProps<DataType>) {
-  const { isLoading, data, error } = useQueryBoundary<DataType>();
+  const { isLoading, data, error } = useQueryBoundaryContext<DataType>();
 
   if (error) {
     return null;

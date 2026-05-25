@@ -2,7 +2,7 @@ export { default as DropdownMenu } from "src/DropdownMenu/DropdownMenu";
 export { default as DropdownMenuItem } from "src/DropdownMenu/DropdownMenuItem";
 export {
   default as DropdownMenuProvider,
-  useDropdownMenu,
+  useDropdownMenuContext,
 } from "src/DropdownMenu/DropdownMenuProvider";
 export { default as DropdownMenuTrigger } from "src/DropdownMenu/DropdownMenuTrigger";
 export { default as DropdownMenuWrapper } from "src/DropdownMenu/DropdownMenuWrapper";

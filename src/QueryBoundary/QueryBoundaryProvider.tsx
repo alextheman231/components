@@ -24,7 +24,7 @@ const QueryBoundaryContext = createContext<QueryBoundaryContextValue<unknown> | 
 );
 
 /** Access the QueryBoundary context directly. */
-export function useQueryBoundary<DataType, Strict extends boolean = true>({
+export function useQueryBoundaryContext<DataType, Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<
   Strict,

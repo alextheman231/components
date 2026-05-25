@@ -22,7 +22,7 @@ const DropdownMenuContext = createContext<DropdownMenuInternalContextValue | und
 /**
   Access the DropdownMenu context directly.
  */
-export function useDropdownMenu<Strict extends boolean = true>({
+export function useDropdownMenuContext<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, DropdownMenuContextValue> {
   const context = use(DropdownMenuContext);
@@ -37,10 +37,10 @@ export function useDropdownMenu<Strict extends boolean = true>({
 }
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-export function useDropdownMenuInternal<Strict extends boolean = true>({
+export function useDropdownMenuContextInternal<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, DropdownMenuInternalContextValue> {
-  return useDropdownMenu({ strict }) as OptionalOnCondition<
+  return useDropdownMenuContext({ strict }) as OptionalOnCondition<
     Strict,
     DropdownMenuInternalContextValue
   >;

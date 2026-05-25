@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuProvider,
   DropdownMenuTrigger,
-  useDropdownMenu,
+  useDropdownMenuContext,
 } from "src/DropdownMenu";
 import DropdownMenuWrapper from "src/DropdownMenu/DropdownMenuWrapper";
 import { ExternalLink } from "src/root";
@@ -171,7 +171,7 @@ export const TriggerDefaultPrevention: Story = {
 export const IsDropdownOpenStateReaction: Story = {
   render: ({ onClick }) => {
     function DropdownMenuConsumer() {
-      const { isDropdownOpen } = useDropdownMenu();
+      const { isDropdownOpen } = useDropdownMenuContext();
 
       useEffect(() => {
         onClick();
