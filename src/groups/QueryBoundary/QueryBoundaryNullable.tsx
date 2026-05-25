@@ -6,17 +6,17 @@ import { useQueryBoundary } from "src/groups/QueryBoundary/QueryBoundaryProvider
 
 export interface QueryBoundaryNullablePropsWithUndefinedOrNull {
   /** The component to show if no error was thrown but data is undefined */
-  undefinedComponent?: ReactNode;
+  undefinedFallback?: ReactNode;
   /** The component to show if no error was thrown but data is null */
-  nullComponent?: ReactNode;
-  nullableComponent?: never;
+  nullFallback?: ReactNode;
+  nullableFallback?: never;
 }
 
 export interface QueryBoundaryNullablePropsWithNullable {
-  undefinedComponent?: never;
-  nullComponent?: never;
+  undefinedFallback?: never;
+  nullFallback?: never;
   /** The component to show if no error was thrown but data is undefined or null */
-  nullableComponent?: ReactNode;
+  nullableFallback?: ReactNode;
 }
 
 export type QueryBoundaryNullableProps =
@@ -25,9 +25,9 @@ export type QueryBoundaryNullableProps =
 
 /** The component responsible for handling cases when the data provided by `QueryBoundaryProvider` may be missing. */
 function QueryBoundaryNullable({
-  undefinedComponent,
-  nullComponent,
-  nullableComponent,
+  undefinedFallback,
+  nullFallback,
+  nullableFallback,
 }: QueryBoundaryNullableProps) {
   const { isLoading, data, error } = useQueryBoundary();
 
@@ -40,20 +40,20 @@ function QueryBoundaryNullable({
   }
 
   if (data === null || data === undefined) {
-    if (nullableComponent !== undefined) {
-      return <>{nullableComponent}</>;
+    if (nullableFallback !== undefined) {
+      return <>{nullableFallback}</>;
     }
 
     if (data === undefined) {
-      if (undefinedComponent !== undefined) {
-        return <>{undefinedComponent}</>;
+      if (undefinedFallback !== undefined) {
+        return <>{undefinedFallback}</>;
       }
       return <Typography>No data available.</Typography>;
     }
 
     if (data === null) {
-      if (nullComponent !== undefined) {
-        return <>{nullComponent}</>;
+      if (nullFallback !== undefined) {
+        return <>{nullFallback}</>;
       }
       return <Typography>No data found.</Typography>;
     }

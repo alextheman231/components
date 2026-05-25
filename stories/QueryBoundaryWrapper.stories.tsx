@@ -94,11 +94,11 @@ export const Main: Story = {
     },
   },
   argTypes: {
-    loadingComponent: { control: false },
-    errorComponent: { control: false },
-    undefinedComponent: { control: false },
-    nullableComponent: { control: false },
-    nullComponent: { control: false },
+    loadingFallback: { control: false },
+    errorFallback: { control: false },
+    undefinedFallback: { control: false },
+    nullableFallback: { control: false },
+    nullFallback: { control: false },
     children: { control: false },
   },
   parameters: {
@@ -206,7 +206,7 @@ export const Undefined: Story = {
     data: undefined,
     // @ts-expect-error: For some reason Storybook struggles to resolve our discriminated union, even though it does resolve correctly at runtime.
     // Suppressing this type error in the meantime until I figure out why.
-    undefinedComponent: <Typography>No data</Typography>,
+    undefinedFallback: <Typography>No data</Typography>,
   },
   play: async ({ canvas }) => {
     await expect(canvas.getByText("No data")).toBeInTheDocument();
@@ -221,7 +221,7 @@ export const UndefinedTypingProof: Story = {
         isLoading={true}
         error={null}
         data={undefined}
-        undefinedComponent={<p>Test</p>}
+        undefinedFallback={<p>Test</p>}
       >
         {() => {
           return null;
@@ -239,7 +239,7 @@ export const Null: Story = {
     data: null,
     // @ts-expect-error: For some reason Storybook struggles to resolve our discriminated union, even though it does resolve correctly at runtime.
     // Suppressing this type error in the meantime until I figure out why.
-    nullComponent: <Typography>Data is null</Typography>,
+    nullFallback: <Typography>Data is null</Typography>,
   },
   play: async ({ canvas }) => {
     await expect(canvas.getByText("Data is null")).toBeInTheDocument();
@@ -250,7 +250,7 @@ export const Null: Story = {
 export const NullTypingProof: Story = {
   render: () => {
     return (
-      <QueryBoundaryWrapper isLoading={true} error={null} data={null} nullComponent={<p>Test</p>}>
+      <QueryBoundaryWrapper isLoading={true} error={null} data={null} nullFallback={<p>Test</p>}>
         {() => {
           return null;
         }}
@@ -267,7 +267,7 @@ export const NullableTypingProof: Story = {
         isLoading={true}
         error={null}
         data={undefined}
-        nullableComponent={<p>Test</p>}
+        nullableFallback={<p>Test</p>}
       >
         {() => {
           return null;
@@ -282,25 +282,25 @@ export const DiscriminatedUnion: Story = {
   render: () => {
     return (
       <>
-        {/* @ts-expect-error: nullableComponent and undefinedComponent provided together */}
+        {/* @ts-expect-error: nullableFallback and undefinedFallback provided together */}
         <QueryBoundaryWrapper
           isLoading={true}
           error={null}
           data={undefined}
-          nullableComponent={<p>Test</p>}
-          undefinedComponent={<p>Test</p>}
+          nullableFallback={<p>Test</p>}
+          undefinedFallback={<p>Test</p>}
         >
           {() => {
             return null;
           }}
         </QueryBoundaryWrapper>
-        {/* @ts-expect-error: nullableComponent and nullComponent provided together */}
+        {/* @ts-expect-error: nullableFallback and nullFallback provided together */}
         <QueryBoundaryWrapper
           isLoading={true}
           error={null}
           data={undefined}
-          nullableComponent={<p>Test</p>}
-          nullComponent={<p>Test</p>}
+          nullableFallback={<p>Test</p>}
+          nullFallback={<p>Test</p>}
         >
           {() => {
             return null;

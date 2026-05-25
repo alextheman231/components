@@ -13,7 +13,7 @@ export interface QueryBoundaryDataProps<DataType> {
   /** A parser for the data. */
   dataParser?: (data: unknown) => NonNullable<DataType>;
   /** The component to show when the data is being fetched. */
-  loadingComponent?: ReactNode;
+  loadingFallback?: ReactNode;
 }
 
 /**
@@ -24,7 +24,7 @@ export interface QueryBoundaryDataProps<DataType> {
 function QueryBoundaryData<DataType>({
   children,
   dataParser,
-  loadingComponent = <CircularProgress />,
+  loadingFallback = <CircularProgress />,
 }: QueryBoundaryDataProps<DataType>) {
   const { isLoading, data, error } = useQueryBoundary<DataType>();
 
@@ -33,7 +33,7 @@ function QueryBoundaryData<DataType>({
   }
 
   if (isLoading) {
-    return <>{loadingComponent}</>;
+    return <>{loadingFallback}</>;
   }
 
   if (data === null || data === undefined) {

@@ -19,12 +19,12 @@ export type QueryBoundaryWrapperProps<DataType> = QueryBoundaryContextValue<Data
  */
 function QueryBoundaryWrapper<DataType>({
   children,
-  errorComponent,
-  undefinedComponent,
-  nullComponent,
-  nullableComponent,
+  errorFallback,
+  undefinedFallback,
+  nullFallback,
+  nullableFallback,
   logError,
-  loadingComponent = <CircularProgress />,
+  loadingFallback = <CircularProgress />,
   isLoading,
   error,
   data,
@@ -33,24 +33,24 @@ function QueryBoundaryWrapper<DataType>({
   const QueryBoundary = createItemQueryBoundary({ query: { isLoading, error, data } });
 
   let boundaryFallbackComponent: ReactNode = (
-    <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
+    <QueryBoundary.Fallback logError={logError} errorFallback={errorFallback} />
   );
 
-  if (nullableComponent !== undefined) {
+  if (nullableFallback !== undefined) {
     boundaryFallbackComponent = (
       <QueryBoundary.Fallback
-        nullableComponent={nullableComponent}
+        nullableFallback={nullableFallback}
         logError={logError}
-        errorComponent={errorComponent}
+        errorFallback={errorFallback}
       />
     );
-  } else if (undefinedComponent !== undefined || nullComponent !== undefined) {
+  } else if (undefinedFallback !== undefined || nullFallback !== undefined) {
     boundaryFallbackComponent = (
       <QueryBoundary.Fallback
-        undefinedComponent={undefinedComponent}
-        nullComponent={nullComponent}
+        undefinedFallback={undefinedFallback}
+        nullFallback={nullFallback}
         logError={logError}
-        errorComponent={errorComponent}
+        errorFallback={errorFallback}
       />
     );
   }
@@ -58,7 +58,7 @@ function QueryBoundaryWrapper<DataType>({
   return (
     <QueryBoundary.Context>
       {boundaryFallbackComponent}
-      <QueryBoundary.Data loadingComponent={loadingComponent} dataParser={dataParser}>
+      <QueryBoundary.Data loadingFallback={loadingFallback} dataParser={dataParser}>
         {children}
       </QueryBoundary.Data>
     </QueryBoundary.Context>

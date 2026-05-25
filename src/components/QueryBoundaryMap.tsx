@@ -17,12 +17,12 @@ export type QueryBoundaryMapProps<ItemType> = QueryBoundaryContextValue<Array<It
  * @template DataType - The type of data being loaded.
  */
 function QueryBoundaryMap<ItemType>({
-  loadingComponent,
-  undefinedComponent,
-  nullComponent,
-  nullableComponent,
+  loadingFallback,
+  undefinedFallback,
+  nullFallback,
+  nullableFallback,
   logError,
-  errorComponent,
+  errorFallback,
   children,
   isLoading,
   error,
@@ -33,31 +33,31 @@ function QueryBoundaryMap<ItemType>({
 }: QueryBoundaryMapProps<ItemType>) {
   const QueryBoundary = createListQueryBoundary({ query: { isLoading, error, data } });
 
-  let boundaryErrorComponent: ReactNode = (
-    <QueryBoundary.Fallback logError={logError} errorComponent={errorComponent} />
+  let boundaryErrorFallback: ReactNode = (
+    <QueryBoundary.Fallback logError={logError} errorFallback={errorFallback} />
   );
 
-  if (nullableComponent) {
-    boundaryErrorComponent = (
+  if (nullableFallback) {
+    boundaryErrorFallback = (
       <QueryBoundary.Fallback
-        nullableComponent={nullableComponent}
+        nullableFallback={nullableFallback}
         logError={logError}
-        errorComponent={errorComponent}
+        errorFallback={errorFallback}
       />
     );
-  } else if (undefinedComponent || nullComponent) {
-    boundaryErrorComponent = (
+  } else if (undefinedFallback || nullFallback) {
+    boundaryErrorFallback = (
       <QueryBoundary.Fallback
-        undefinedComponent={undefinedComponent}
-        nullComponent={nullComponent}
+        undefinedFallback={undefinedFallback}
+        nullFallback={nullFallback}
         logError={logError}
-        errorComponent={errorComponent}
+        errorFallback={errorFallback}
       />
     );
   }
 
   let boundaryDataMapComponent: ReactNode = (
-    <QueryBoundary.DataMap loadingComponent={loadingComponent} itemKey={itemKey}>
+    <QueryBoundary.DataMap loadingFallback={loadingFallback} itemKey={itemKey}>
       {children}
     </QueryBoundary.DataMap>
   );
@@ -65,7 +65,7 @@ function QueryBoundaryMap<ItemType>({
   if (dataParser) {
     boundaryDataMapComponent = (
       <QueryBoundary.DataMap
-        loadingComponent={loadingComponent}
+        loadingFallback={loadingFallback}
         itemKey={itemKey}
         dataParser={dataParser}
       >
@@ -75,7 +75,7 @@ function QueryBoundaryMap<ItemType>({
   } else if (itemParser) {
     boundaryDataMapComponent = (
       <QueryBoundary.DataMap
-        loadingComponent={loadingComponent}
+        loadingFallback={loadingFallback}
         itemKey={itemKey}
         itemParser={itemParser}
       >
@@ -86,7 +86,7 @@ function QueryBoundaryMap<ItemType>({
 
   return (
     <QueryBoundary.Context>
-      {boundaryErrorComponent}
+      {boundaryErrorFallback}
       {boundaryDataMapComponent}
     </QueryBoundary.Context>
   );
