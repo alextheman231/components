@@ -15,10 +15,7 @@ export interface ThemeContextValue {
   mode: PaletteMode;
 }
 
-const ThemeContext = createContext<ThemeContextValue>({
-  toggleMode: () => {},
-  mode: "dark",
-});
+const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 /** Access the mode context directly. */
 export function useThemeContext<Strict extends boolean = true>({
@@ -32,7 +29,7 @@ export function useThemeContext<Strict extends boolean = true>({
       "Could not find the ModeProvider context. Please double-check that it is present.",
     );
   }
-  return context;
+  return context as OptionalOnCondition<Strict, ThemeContextValue>;
 }
 
 export interface ThemeProviderProps {
