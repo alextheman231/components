@@ -16,10 +16,11 @@ export interface DropdownMenuProps extends Omit<MenuProps, "anchorEl" | "open"> 
  * This component's open state would be controlled by the `DropdownMenuTrigger`.
  */
 function DropdownMenu({ children, onClose, ...menuProps }: DropdownMenuProps) {
-  const { anchorElement, isDropdownOpen, closeMenu } = useDropdownMenuContextInternal();
+  const { anchorElement, isDropdownOpen, closeMenu, menuId } = useDropdownMenuContextInternal();
 
   return (
     <Menu
+      id={menuId}
       anchorEl={anchorElement}
       open={isDropdownOpen}
       onClose={(event: MouseEvent, reason) => {
