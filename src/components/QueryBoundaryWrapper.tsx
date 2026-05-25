@@ -1,18 +1,16 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryDataProps, QueryBoundaryProviderProps } from "src/groups";
+import type { QueryBoundaryContextValue, QueryBoundaryDataProps } from "src/groups";
 import type { QueryBoundaryFallbackProps } from "src/groups/QueryBoundary/QueryBoundaryFallback";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
 import createItemQueryBoundary from "src/groups/QueryBoundary/creators/createItemQueryBoundary";
 
-export type QueryBoundaryWrapperProps<DataType> = Omit<
-  QueryBoundaryProviderProps<DataType>,
-  "children" | "logError"
-> &
-  Omit<QueryBoundaryFallbackProps, "errorComponent"> &
-  Omit<QueryBoundaryDataProps<DataType>, "showOnError" | "onUndefined" | "onNull" | "onNullable">;
+export type QueryBoundaryWrapperProps<DataType> = 
+  QueryBoundaryContextValue<DataType> &
+  QueryBoundaryFallbackProps &
+  QueryBoundaryDataProps<DataType>;
 
 /**
  * An in-line component that deals with state management when fetching data from an API.

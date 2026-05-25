@@ -25,7 +25,5 @@ export type {
 } from "src/groups/QueryBoundary/QueryBoundaryNullable";
 export type {
   QueryBoundaryProviderProps,
-  QueryBoundaryProviderBaseProps,
-  QueryBoundaryProviderPropsWithError,
-  QueryBoundaryProviderPropsWithNoError,
+  QueryBoundaryContextValue,
 } from "src/groups/QueryBoundary/QueryBoundaryProvider";

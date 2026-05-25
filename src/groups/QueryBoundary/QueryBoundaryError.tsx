@@ -15,17 +15,9 @@ export interface QueryBoundaryErrorProps {
 /**
  * The component responsible for showing any errors provided by QueryBoundaryProvider.
  */
-function QueryBoundaryError({ children, logError: propsLogError }: QueryBoundaryErrorProps) {
-  const {
-    data,
-    error,
-    errorComponent: contextErrorComponent,
-    logError: contextLogError,
-  } = useQueryBoundary();
-  const logError = propsLogError ?? contextLogError;
+function QueryBoundaryError({ children, logError }: QueryBoundaryErrorProps) {
+  const { data, error } = useQueryBoundary();
   const warnedOnceRef = useRef(false);
-
-  const errorComponent = children ?? contextErrorComponent;
 
   if (error) {
     if (logError && !warnedOnceRef.current) {
@@ -39,11 +31,11 @@ function QueryBoundaryError({ children, logError: propsLogError }: QueryBoundary
       }
       warnedOnceRef.current = true;
     }
-    if (typeof errorComponent === "function") {
-      return errorComponent(error);
+    if (typeof children === "function") {
+      return children(error);
     }
-    if (errorComponent !== undefined) {
-      return <>{errorComponent}</>;
+    if (children !== undefined) {
+      return <>{children}</>;
     }
 
     return (
