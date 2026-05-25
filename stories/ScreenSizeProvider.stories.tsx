@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Typography from "@mui/material/Typography";
-import { ScreenSizeProvider, useScreenSize } from "src";
+
+import { ScreenSizeProvider, useScreenSize } from "src/root";
 
 const meta: Meta<typeof ScreenSizeProvider> = {
   component: ScreenSizeProvider,

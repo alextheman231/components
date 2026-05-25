@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ExternalLink } from "src";
+import { ExternalLink } from "src/root";
 
 const meta: Meta<typeof ExternalLink> = {
   component: ExternalLink,

@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { useState } from "react";
-import { Page } from "src";
+
+import { Page } from "src/root";
 
 const meta: Meta<typeof Page> = {
   component: Page,

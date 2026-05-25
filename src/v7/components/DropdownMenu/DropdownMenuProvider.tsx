@@ -1,7 +1,7 @@
 import type { OptionalOnCondition } from "@alextheman/utility";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 
-import type { ContextHookOptions } from "src/types";
+import type { ContextHookOptions } from "src/root/types";
 
 import { DataError } from "@alextheman/utility/v6";
 import { createContext, use, useState } from "react";

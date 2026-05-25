@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button from "@mui/material/Button";
-import { Page, ThemeProvider, ThemeToggle } from "src";
 
+import { Page, ThemeProvider, ThemeToggle } from "src/root";
 import { MemoryRouter, NavigationDrawer } from "src/v7";
 
 const meta: Meta<typeof NavigationDrawer> = {

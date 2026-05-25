@@ -2,7 +2,8 @@ import type { StoryContext } from "@storybook/react-vite";
 import type { ReactNode } from "react";
 
 import { VersionNumber } from "@alextheman/utility";
-import { Page, ThemeProvider, ThemeToggle } from "src";
+
+import { Page, ThemeProvider, ThemeToggle } from "src/root";
 
 import { name as packageName, version } from "package.json" with { type: "json" };
 
