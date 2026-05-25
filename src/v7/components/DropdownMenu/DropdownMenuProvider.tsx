@@ -4,7 +4,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import { createContext, use, useMemo, useState } from "react";
+import { createContext, use, useState } from "react";
 
 export interface DropdownMenuContextValue {
   /** A function responsible for closing the dropdown menu. */
@@ -55,9 +55,7 @@ export interface DropdownMenuProviderProps {
 function DropdownMenuProvider({ children }: DropdownMenuProviderProps) {
   const [anchorElement, setAnchorElement] = useState<HTMLElement | null>(null);
 
-  const isDropdownOpen = useMemo(() => {
-    return Boolean(anchorElement);
-  }, [anchorElement]);
+  const isDropdownOpen = Boolean(anchorElement);
 
   function closeMenu() {
     setAnchorElement(null);

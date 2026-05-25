@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DropdownMenuItem, ExternalLink } from "src";
 import { expect, fn, screen } from "storybook/test";
 import { Route } from "wouter";
@@ -12,6 +12,7 @@ import {
   InternalLink,
   MemoryRouter,
   Switch,
+  useDropdownMenu,
 } from "src/v7";
 import DropdownMenuWrapper from "src/v7/components/DropdownMenu/DropdownMenuWrapper";
 
@@ -165,5 +166,41 @@ export const TriggerDefaultPrevention: Story = {
     await expect(
       screen.queryByRole("menuitem", { name: "Unreachable Dropdown Menu Item" }),
     ).not.toBeInTheDocument();
+  },
+};
+
+export const IsDropdownOpenStateReaction: Story = {
+  render: ({ onClick }) => {
+    function DropdownMenuConsumer() {
+      const { isDropdownOpen } = useDropdownMenu();
+
+      useEffect(() => {
+        onClick();
+      }, [isDropdownOpen]);
+
+      return (
+        <>
+          <DropdownMenuTrigger>Toggle Dropdown Menu</DropdownMenuTrigger>
+          <DropdownMenu>
+            <DropdownMenuItem>An item in the dropdown</DropdownMenuItem>
+          </DropdownMenu>
+        </>
+      );
+    }
+
+    return (
+      <DropdownMenuProvider>
+        <DropdownMenuConsumer />
+      </DropdownMenuProvider>
+    );
+  },
+  args: {
+    onClick: fn(),
+  },
+  play: async ({ args, userEvent, canvas }) => {
+    const button = canvas.getByRole("button", { name: "Toggle Dropdown Menu" });
+    await userEvent.click(button);
+    // The useEffect callback gets called once on initial render, then again when the dropdown opens.
+    await expect(args.onClick).toHaveBeenCalledTimes(2);
   },
 };
