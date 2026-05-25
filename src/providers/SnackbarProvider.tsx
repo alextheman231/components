@@ -4,10 +4,7 @@ import type { ReactNode } from "react";
 
 import type { ContextHookOptions } from "src/types";
 
-import { wait } from "@alextheman/utility";
 import { DataError } from "@alextheman/utility/v6";
-import Alert from "@mui/material/Alert";
-import Snackbar from "@mui/material/Snackbar";
 import { createContext, use, useState } from "react";
 
 export interface SnackbarProviderProps {
@@ -17,9 +14,28 @@ export interface SnackbarProviderProps {
   autoHideDuration?: number;
 }
 
+export interface SnackbarItem {
+  /** The ID of the Snackbar */
+  id: string;
+  /** The severity of the alert. This defines the color and icon used. */
+  severity?: AlertColor;
+  /** The message to show as part of the snackbar. */
+  message: string;
+  /** The amount of milliseconds to show the snackbar for. */
+  duration: number;
+}
+
+export interface AddSnackbarOptions {
+  severity?: AlertColor;
+  duration?: number;
+}
 export interface SnackbarContextValue {
+  /** An array of all the snackbars to render. */
+  snackbars: Array<SnackbarItem>;
   /** A function that adds the snackbar to the page. */
-  addSnackbar: (message: string, severity?: AlertColor, duration?: number) => void;
+  addSnackbar: (message: string, options?: AddSnackbarOptions) => void;
+  /** A function to remove a snackbar. */
+  removeSnackbar: (id?: string) => void;
 }
 
 const SnackbarContext = createContext<SnackbarContextValue | undefined>(undefined);
@@ -39,37 +55,41 @@ export function useSnackbar<Strict extends boolean = true>({
   return context as OptionalOnCondition<Strict, SnackbarContextValue>;
 }
 
-/** Controls the display of the snackbars on the page. */
+/** Provides an array of snackbars for the `Snackbars` component to display. */
 function SnackbarProvider({ children, autoHideDuration = 5000 }: SnackbarProviderProps) {
-  const [open, setOpen] = useState<boolean>(false);
-  const [autoHideDurationState, setAutoHideDurationState] = useState<number>(autoHideDuration);
-  const [message, setMessage] = useState<string>("");
-  const [severity, setSeverity] = useState<AlertColor>("info");
+  const [snackbars, setSnackbars] = useState<Array<SnackbarItem>>([]);
 
-  function addSnackbar(message: string, severity?: AlertColor, duration?: number) {
-    setOpen(true);
-    setAutoHideDurationState(duration ?? autoHideDuration);
-    setSeverity(severity ?? "info");
-    setMessage(message);
+  function addSnackbar(message: string, options: AddSnackbarOptions = {}) {
+    const { severity = "info", duration = autoHideDuration } = options;
+    setSnackbars((previous) => {
+      return [
+        ...previous,
+        {
+          severity,
+          id: crypto.randomUUID(),
+          message,
+          duration,
+        },
+      ];
+    });
   }
 
-  async function handleClose() {
-    setOpen(false);
-    // Wait for 0.2 seconds to ensure that the message is only cleared after the snackbar is fully closed.
-    // This prevents potential weird flickering that may occur if they happen synchronously.
-    await wait(0.2);
-    setMessage("");
+  function removeSnackbar(id?: string) {
+    setSnackbars((previous) => {
+      const newSnackbars = [...previous];
+      if (id === undefined) {
+        newSnackbars.shift();
+        return newSnackbars;
+      }
+
+      return newSnackbars.filter((snackbar) => {
+        return snackbar.id !== id;
+      });
+    });
   }
 
   return (
-    <SnackbarContext value={{ addSnackbar }}>
-      <Snackbar open={open} autoHideDuration={autoHideDurationState} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={severity}>
-          {message}
-        </Alert>
-      </Snackbar>
-      {children}
-    </SnackbarContext>
+    <SnackbarContext value={{ snackbars, addSnackbar, removeSnackbar }}>{children}</SnackbarContext>
   );
 }
 
