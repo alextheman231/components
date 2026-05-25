@@ -15,13 +15,37 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./DropdownMenu": {
+      "types": "./dist/DropdownMenu/index.d.ts",
+      "import": "./dist/DropdownMenu/index.js"
+    },
     "./QueryBoundary": {
       "types": "./dist/QueryBoundary/index.d.ts",
       "import": "./dist/QueryBoundary/index.js"
     },
-    "./Tabs": {
-      "types": "./dist/Tabs/index.d.ts",
-      "import": "./dist/Tabs/index.js"
+    "./Tab": {
+      "types": "./dist/Tab/index.d.ts",
+      "import": "./dist/Tab/index.js"
+    },
+    "./audio": {
+      "types": "./dist/audio/index.d.ts",
+      "import": "./dist/audio/index.js"
+    },
+    "./form": {
+      "types": "./dist/form/index.d.ts",
+      "import": "./dist/form/index.js"
+    },
+    "./routing": {
+      "types": "./dist/routing/index.d.ts",
+      "import": "./dist/routing/index.js"
+    },
+    "./snackbar": {
+      "types": "./dist/snackbar/index.d.ts",
+      "import": "./dist/snackbar/index.js"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.ts",
+      "import": "./dist/theme/index.js"
     }
   },
   "files": [

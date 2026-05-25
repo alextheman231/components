@@ -2,7 +2,7 @@ import type { RouterProps } from "wouter";
 
 import { memoryLocation } from "wouter/memory-location";
 
-import { Router } from "src/v7";
+import Router from "src/routing/Router";
 
 /**
  * A router that can be used with Wouter that stores all entries in memory. Works similarly to the `MemoryRouter` from `react-router-dom`.

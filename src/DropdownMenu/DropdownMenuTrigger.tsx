@@ -9,7 +9,7 @@ import type {
 import Button from "@mui/material/Button";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-import { useDropdownMenuInternal } from "src/v7/components/DropdownMenu/DropdownMenuProvider";
+import { useDropdownMenuInternal } from "src/DropdownMenu/DropdownMenuProvider";
 
 export type DropdownMenuTriggerProps<RootComponent extends ElementType> = {
   /**

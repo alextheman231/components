@@ -20,7 +20,8 @@ import Typography from "@mui/material/Typography";
 import { Fragment, useState } from "react";
 import { MdChevronLeft, MdChevronRight, MdMenu } from "react-icons/md";
 
-import { InternalLink, useAbsoluteLocation } from "src/v7/components/routing";
+import InternalLink from "src/routing/InternalLink";
+import useAbsoluteLocation from "src/routing/useAbsoluteLocation";
 
 const drawerWidth = 240;
 

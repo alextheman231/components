@@ -6,7 +6,6 @@ export { default as FileInputList } from "src/root/components/FileInputList";
 export { default as Page } from "src/root/components/Page";
 export { default as SkeletonRow } from "src/root/components/SkeletonRow";
 export { default as SwitchWithIcons } from "src/root/components/SwitchWithIcons";
-export { default as ThemeToggle } from "src/root/components/ThemeToggle";
 
 export type { CollapsibleItemProps } from "src/root/components/CollapsibleItem";
 export type { ExternalLinkProps } from "src/root/components/ExternalLink";

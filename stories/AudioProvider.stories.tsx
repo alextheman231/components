@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { TrackData } from "src/root/providers/AudioProvider";
+import type { TrackData } from "src/audio/AudioProvider";
 
-import AudioProvider from "src/root/providers/AudioProvider";
-import AudioControls from "src/root/providers/AudioProvider/AudioControls";
+import AudioControls from "src/audio/AudioControls";
+import AudioProvider from "src/audio/AudioProvider";
 
 const meta: Meta<typeof AudioProvider> = {
   component: AudioProvider,

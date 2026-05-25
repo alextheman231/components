@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { InternalLinkProps } from "src/v7";
+import type { InternalLinkProps } from "src/routing";
 
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -8,7 +8,7 @@ import { useRef } from "react";
 import { expect } from "storybook/test";
 import { Route, Switch } from "wouter";
 
-import { InternalLink, MemoryRouter } from "src/v7";
+import { InternalLink, MemoryRouter } from "src/routing";
 
 const meta: Meta<typeof InternalLink> = {
   component: InternalLink,

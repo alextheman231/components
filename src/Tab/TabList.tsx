@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import Tabs from "@mui/material/Tabs";
 
-import { useTabContext } from "src/Tabs/TabProvider";
+import { useTabContext } from "src/Tab/TabProvider";
 
 export interface TabListProps extends Omit<TabsProps, "value"> {
   children: ReactNode;

@@ -3,7 +3,7 @@ import type { MouseEvent, ReactNode } from "react";
 
 import Menu from "@mui/material/Menu";
 
-import { useDropdownMenuInternal } from "src/v7/components/DropdownMenu/DropdownMenuProvider";
+import { useDropdownMenuInternal } from "src/DropdownMenu/DropdownMenuProvider";
 
 export interface DropdownMenuProps extends Omit<MenuProps, "anchorEl" | "open"> {
   /** The children to render inside of the dropdown. */

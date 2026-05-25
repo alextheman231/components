@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 
-import { useAudioContext } from "src/root/providers/AudioProvider";
+import { useAudioContext } from "src/audio/AudioProvider";
 
 /** Controls the tracks provided by the AudioProvider. */
 function AudioControls() {

@@ -1,10 +1,10 @@
 import type { ElementType, ReactNode } from "react";
 
-import type { DropdownMenuTriggerProps } from "src/v7/components/DropdownMenu/DropdownMenuTrigger";
+import type { DropdownMenuTriggerProps } from "src/DropdownMenu/DropdownMenuTrigger";
 
-import DropdownMenu from "src/v7/components/DropdownMenu/DropdownMenu";
-import DropdownMenuProvider from "src/v7/components/DropdownMenu/DropdownMenuProvider";
-import DropdownMenuTrigger from "src/v7/components/DropdownMenu/DropdownMenuTrigger";
+import DropdownMenu from "src/DropdownMenu/DropdownMenu";
+import DropdownMenuProvider from "src/DropdownMenu/DropdownMenuProvider";
+import DropdownMenuTrigger from "src/DropdownMenu/DropdownMenuTrigger";
 
 export interface DropdownMenuWrapperProps {
   /** The children to render inside of the dropdown. */

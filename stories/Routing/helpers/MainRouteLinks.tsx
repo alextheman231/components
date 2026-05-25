@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { InternalLink } from "src/v7";
+import { InternalLink } from "src/routing";
 
 interface MainRouteLinksProps {
   showValid?: boolean;

@@ -4,7 +4,7 @@ import { MdArrowRight, MdHome } from "react-icons/md";
 import { expect } from "storybook/test";
 import { Route } from "wouter";
 
-import { InternalLink, MemoryRouter, NavigationBottom, Switch } from "src/v7";
+import { InternalLink, MemoryRouter, NavigationBottom, Switch } from "src/routing";
 
 const meta: Meta<typeof NavigationBottom> = {
   component: NavigationBottom,
