@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import Typography from "@mui/material/Typography";
 
-import { useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
+import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryNullablePropsWithUndefinedOrNull {
   /** The component to show if no error was thrown but data is undefined */
@@ -29,7 +29,7 @@ function QueryBoundaryNullable({
   nullFallback,
   nullableFallback,
 }: QueryBoundaryNullableProps) {
-  const { isLoading, data, error } = useQueryBoundary();
+  const { isLoading, data, error } = useQueryBoundaryContext();
 
   if (isLoading) {
     return null;

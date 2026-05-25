@@ -6,11 +6,11 @@ import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { useEffect, useState } from "react";
 
-import { useSnackbar } from "src/snackbar/SnackbarProvider";
+import { useSnackbarContext } from "src/snackbar/SnackbarProvider";
 
 /** Displays the array of snackbars provided by `SnackbarProvider`. */
 function Snackbars() {
-  const { snackbars, removeSnackbar } = useSnackbar();
+  const { snackbars, removeSnackbar } = useSnackbarContext();
   const [open, setOpen] = useState<boolean>(false);
   const [currentSnackbar, setCurrentSnackbar] = useState<SnackbarItem | null>(null);
 

@@ -10,7 +10,7 @@ import type {
 
 import MenuItem from "@mui/material/MenuItem";
 
-import { useDropdownMenu } from "src/DropdownMenu/DropdownMenuProvider";
+import { useDropdownMenuContext } from "src/DropdownMenu/DropdownMenuProvider";
 
 export type DropdownMenuItemProps<RootComponent extends ElementType = typeof Button> = {
   /**
@@ -39,7 +39,7 @@ function DropdownMenuItem<RootComponent extends ElementType = typeof Button>({
   onClick,
   ...menuItemProps
 }: DropdownMenuItemProps<RootComponent>) {
-  const { closeMenu } = useDropdownMenu();
+  const { closeMenu } = useDropdownMenuContext();
 
   return (
     <MenuItem

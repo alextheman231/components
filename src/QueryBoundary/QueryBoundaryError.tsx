@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Alert from "@mui/material/Alert";
 import { useRef } from "react";
 
-import { useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
+import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryErrorProps {
   /** The component to show if an error has been thrown. */
@@ -16,7 +16,7 @@ export interface QueryBoundaryErrorProps {
  * The component responsible for showing any errors provided by QueryBoundaryProvider.
  */
 function QueryBoundaryError({ children, logError }: QueryBoundaryErrorProps) {
-  const { data, error } = useQueryBoundary();
+  const { data, error } = useQueryBoundaryContext();
   const warnedOnceRef = useRef(false);
 
   if (error) {

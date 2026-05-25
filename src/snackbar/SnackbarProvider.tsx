@@ -41,7 +41,7 @@ export interface SnackbarContextValue {
 const SnackbarContext = createContext<SnackbarContextValue | undefined>(undefined);
 
 /** Access the snackbar context directly. */
-export function useSnackbar<Strict extends boolean = true>({
+export function useSnackbarContext<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, SnackbarContextValue> {
   const context = use(SnackbarContext);
