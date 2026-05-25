@@ -1,9 +1,9 @@
 import type { JSX, ReactNode } from "react";
 
-import QueryBoundaryError from "src/root/groups/QueryBoundary/QueryBoundaryError";
-import QueryBoundaryFallback from "src/root/groups/QueryBoundary/QueryBoundaryFallback";
-import QueryBoundaryNullable from "src/root/groups/QueryBoundary/QueryBoundaryNullable";
-import QueryBoundaryProvider from "src/root/groups/QueryBoundary/QueryBoundaryProvider";
+import QueryBoundaryError from "src/QueryBoundary/QueryBoundaryError";
+import QueryBoundaryFallback from "src/QueryBoundary/QueryBoundaryFallback";
+import QueryBoundaryNullable from "src/QueryBoundary/QueryBoundaryNullable";
+import QueryBoundaryProvider from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBase<DataType> {
   /** The current loading status (true if loading, false if not) */

@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryDataMapProps } from "src/root/groups/QueryBoundary/QueryBoundaryDataMap";
-import type { QueryBoundaryFallbackProps } from "src/root/groups/QueryBoundary/QueryBoundaryFallback";
-import type { QueryBoundaryContextValue } from "src/root/groups/QueryBoundary/QueryBoundaryProvider";
+import type { QueryBoundaryDataMapProps } from "src/QueryBoundary/QueryBoundaryDataMap";
+import type { QueryBoundaryFallbackProps } from "src/QueryBoundary/QueryBoundaryFallback";
+import type { QueryBoundaryContextValue } from "src/QueryBoundary/QueryBoundaryProvider";
 
-import createListQueryBoundary from "src/root/groups/QueryBoundary/creators/createListQueryBoundary";
+import createListQueryBoundary from "src/QueryBoundary/creators/createListQueryBoundary";
 
 export type QueryBoundaryListWrapperProps<ItemType> = QueryBoundaryContextValue<Array<ItemType>> &
   QueryBoundaryFallbackProps &

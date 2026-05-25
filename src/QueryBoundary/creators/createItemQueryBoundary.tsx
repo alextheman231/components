@@ -1,10 +1,10 @@
 import type {
   DefaultQueryBoundaryComponentsBase,
   QueryBase,
-} from "src/root/groups/QueryBoundary/creators/createBaseQueryBoundary";
+} from "src/QueryBoundary/creators/createBaseQueryBoundary";
 
-import createBaseQueryBoundary from "src/root/groups/QueryBoundary/creators/createBaseQueryBoundary";
-import QueryBoundaryData from "src/root/groups/QueryBoundary/QueryBoundaryData";
+import createBaseQueryBoundary from "src/QueryBoundary/creators/createBaseQueryBoundary";
+import QueryBoundaryData from "src/QueryBoundary/QueryBoundaryData";
 
 export interface QueryItem<DataType> extends Omit<QueryBase<DataType>, "data"> {
   /** The data being loaded. */
