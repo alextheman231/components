@@ -5,7 +5,7 @@ export { default as QueryBoundaryFallback } from "src/QueryBoundary/QueryBoundar
 export { default as QueryBoundaryItemWrapper } from "src/QueryBoundary/QueryBoundaryItemWrapper";
 export { default as QueryBoundaryListWrapper } from "src/QueryBoundary/QueryBoundaryListWrapper";
 export { default as QueryBoundaryNullable } from "src/QueryBoundary/QueryBoundaryNullable";
-export { useQueryBoundaryContext as useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
+export { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
 export { default as QueryBoundaryProvider } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export * from "src/QueryBoundary/creators";
