@@ -1,27 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { QueryBoundaryWrapperProps } from "src";
+import type { QueryBoundaryItemWrapperProps } from "src";
 
 import { az, normaliseIndents } from "@alextheman/utility";
 import { DataError } from "@alextheman/utility/v6";
 import Typography from "@mui/material/Typography";
-import { QueryBoundaryWrapper } from "src";
+import { QueryBoundaryItemWrapper } from "src";
 import { expect } from "storybook/test";
 import z from "zod";
 
-const meta: Meta<typeof QueryBoundaryWrapper> = {
-  component: QueryBoundaryWrapper,
+const meta: Meta<typeof QueryBoundaryItemWrapper> = {
+  component: QueryBoundaryItemWrapper,
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function render<DataType>(props: QueryBoundaryWrapperProps<DataType>) {
+function render<DataType>(props: QueryBoundaryItemWrapperProps<DataType>) {
   return (
-    <QueryBoundaryWrapper {...props}>
+    <QueryBoundaryItemWrapper {...props}>
       {(data) => {
         return <pre data-testid="loader-data">{JSON.stringify(data, null, 2)}</pre>;
       }}
-    </QueryBoundaryWrapper>
+    </QueryBoundaryItemWrapper>
   );
 }
 
@@ -217,7 +217,7 @@ export const Undefined: Story = {
 export const UndefinedTypingProof: Story = {
   render: () => {
     return (
-      <QueryBoundaryWrapper
+      <QueryBoundaryItemWrapper
         isLoading={true}
         error={null}
         data={undefined}
@@ -226,7 +226,7 @@ export const UndefinedTypingProof: Story = {
         {() => {
           return null;
         }}
-      </QueryBoundaryWrapper>
+      </QueryBoundaryItemWrapper>
     );
   },
   tags: ["!autodocs"],
@@ -250,11 +250,16 @@ export const Null: Story = {
 export const NullTypingProof: Story = {
   render: () => {
     return (
-      <QueryBoundaryWrapper isLoading={true} error={null} data={null} nullFallback={<p>Test</p>}>
+      <QueryBoundaryItemWrapper
+        isLoading={true}
+        error={null}
+        data={null}
+        nullFallback={<p>Test</p>}
+      >
         {() => {
           return null;
         }}
-      </QueryBoundaryWrapper>
+      </QueryBoundaryItemWrapper>
     );
   },
   tags: ["!autodocs"],
@@ -263,7 +268,7 @@ export const NullTypingProof: Story = {
 export const NullableTypingProof: Story = {
   render: () => {
     return (
-      <QueryBoundaryWrapper
+      <QueryBoundaryItemWrapper
         isLoading={true}
         error={null}
         data={undefined}
@@ -272,7 +277,7 @@ export const NullableTypingProof: Story = {
         {() => {
           return null;
         }}
-      </QueryBoundaryWrapper>
+      </QueryBoundaryItemWrapper>
     );
   },
   tags: ["!autodocs"],
@@ -283,7 +288,7 @@ export const DiscriminatedUnion: Story = {
     return (
       <>
         {/* @ts-expect-error: nullableFallback and undefinedFallback provided together */}
-        <QueryBoundaryWrapper
+        <QueryBoundaryItemWrapper
           isLoading={true}
           error={null}
           data={undefined}
@@ -293,9 +298,9 @@ export const DiscriminatedUnion: Story = {
           {() => {
             return null;
           }}
-        </QueryBoundaryWrapper>
+        </QueryBoundaryItemWrapper>
         {/* @ts-expect-error: nullableFallback and nullFallback provided together */}
-        <QueryBoundaryWrapper
+        <QueryBoundaryItemWrapper
           isLoading={true}
           error={null}
           data={undefined}
@@ -305,7 +310,7 @@ export const DiscriminatedUnion: Story = {
           {() => {
             return null;
           }}
-        </QueryBoundaryWrapper>
+        </QueryBoundaryItemWrapper>
       </>
     );
   },

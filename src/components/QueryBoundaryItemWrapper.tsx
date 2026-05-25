@@ -7,7 +7,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import createItemQueryBoundary from "src/groups/QueryBoundary/creators/createItemQueryBoundary";
 
-export type QueryBoundaryWrapperProps<DataType> = QueryBoundaryContextValue<DataType> &
+export type QueryBoundaryItemWrapperProps<DataType> = QueryBoundaryContextValue<DataType> &
   QueryBoundaryFallbackProps &
   QueryBoundaryDataProps<DataType>;
 
@@ -17,7 +17,7 @@ export type QueryBoundaryWrapperProps<DataType> = QueryBoundaryContextValue<Data
  *
  * @template DataType - The type of data being loaded.
  */
-function QueryBoundaryWrapper<DataType>({
+function QueryBoundaryItemWrapper<DataType>({
   children,
   errorFallback,
   undefinedFallback,
@@ -29,7 +29,7 @@ function QueryBoundaryWrapper<DataType>({
   error,
   data,
   dataParser,
-}: QueryBoundaryWrapperProps<DataType>) {
+}: QueryBoundaryItemWrapperProps<DataType>) {
   const QueryBoundary = createItemQueryBoundary({ query: { isLoading, error, data } });
 
   let boundaryFallbackComponent: ReactNode = (
@@ -65,4 +65,4 @@ function QueryBoundaryWrapper<DataType>({
   );
 }
 
-export default QueryBoundaryWrapper;
+export default QueryBoundaryItemWrapper;

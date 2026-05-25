@@ -5,7 +5,7 @@ import type { QueryBoundaryDataMapProps } from "src/groups/QueryBoundary/QueryBo
 
 import createListQueryBoundary from "src/groups/QueryBoundary/creators/createListQueryBoundary";
 
-export type QueryBoundaryMapProps<ItemType> = QueryBoundaryContextValue<Array<ItemType>> &
+export type QueryBoundaryListWrapperProps<ItemType> = QueryBoundaryContextValue<Array<ItemType>> &
   QueryBoundaryFallbackProps &
   QueryBoundaryDataMapProps<ItemType>;
 
@@ -16,7 +16,7 @@ export type QueryBoundaryMapProps<ItemType> = QueryBoundaryContextValue<Array<It
  *
  * @template DataType - The type of data being loaded.
  */
-function QueryBoundaryMap<ItemType>({
+function QueryBoundaryListWrapper<ItemType>({
   loadingFallback,
   undefinedFallback,
   nullFallback,
@@ -30,7 +30,7 @@ function QueryBoundaryMap<ItemType>({
   dataParser,
   itemParser,
   itemKey,
-}: QueryBoundaryMapProps<ItemType>) {
+}: QueryBoundaryListWrapperProps<ItemType>) {
   const QueryBoundary = createListQueryBoundary({ query: { isLoading, error, data } });
 
   let boundaryErrorFallback: ReactNode = (
@@ -92,4 +92,4 @@ function QueryBoundaryMap<ItemType>({
   );
 }
 
-export default QueryBoundaryMap;
+export default QueryBoundaryListWrapper;
