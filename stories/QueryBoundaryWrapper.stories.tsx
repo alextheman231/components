@@ -204,6 +204,8 @@ export const Undefined: Story = {
   args: {
     isLoading: false,
     data: undefined,
+    // @ts-expect-error: For some reason Storybook struggles to resolve our discriminated union, even though it does resolve correctly at runtime.
+    // Suppressing this type error in the meantime until I figure out why.
     undefinedComponent: <Typography>No data</Typography>,
   },
   play: async ({ canvas }) => {
@@ -212,15 +214,100 @@ export const Undefined: Story = {
   },
 };
 
+export const UndefinedTypingProof: Story = {
+  render: () => {
+    return (
+      <QueryBoundaryWrapper
+        isLoading={true}
+        error={null}
+        data={undefined}
+        undefinedComponent={<p>Test</p>}
+      >
+        {() => {
+          return null;
+        }}
+      </QueryBoundaryWrapper>
+    );
+  },
+  tags: ["!autodocs"],
+};
+
 export const Null: Story = {
   render,
   args: {
     isLoading: false,
     data: null,
+    // @ts-expect-error: For some reason Storybook struggles to resolve our discriminated union, even though it does resolve correctly at runtime.
+    // Suppressing this type error in the meantime until I figure out why.
     nullComponent: <Typography>Data is null</Typography>,
   },
   play: async ({ canvas }) => {
     await expect(canvas.getByText("Data is null")).toBeInTheDocument();
     await expect(canvas.queryByTestId("loader-data")).not.toBeInTheDocument();
   },
+};
+
+export const NullTypingProof: Story = {
+  render: () => {
+    return (
+      <QueryBoundaryWrapper isLoading={true} error={null} data={null} nullComponent={<p>Test</p>}>
+        {() => {
+          return null;
+        }}
+      </QueryBoundaryWrapper>
+    );
+  },
+  tags: ["!autodocs"],
+};
+
+export const NullableTypingProof: Story = {
+  render: () => {
+    return (
+      <QueryBoundaryWrapper
+        isLoading={true}
+        error={null}
+        data={undefined}
+        nullableComponent={<p>Test</p>}
+      >
+        {() => {
+          return null;
+        }}
+      </QueryBoundaryWrapper>
+    );
+  },
+  tags: ["!autodocs"],
+};
+
+export const DiscriminatedUnion: Story = {
+  render: () => {
+    return (
+      <>
+        {/* @ts-expect-error: nullableComponent and undefinedComponent provided together */}
+        <QueryBoundaryWrapper
+          isLoading={true}
+          error={null}
+          data={undefined}
+          nullableComponent={<p>Test</p>}
+          undefinedComponent={<p>Test</p>}
+        >
+          {() => {
+            return null;
+          }}
+        </QueryBoundaryWrapper>
+        {/* @ts-expect-error: nullableComponent and nullComponent provided together */}
+        <QueryBoundaryWrapper
+          isLoading={true}
+          error={null}
+          data={undefined}
+          nullableComponent={<p>Test</p>}
+          nullComponent={<p>Test</p>}
+        >
+          {() => {
+            return null;
+          }}
+        </QueryBoundaryWrapper>
+      </>
+    );
+  },
+  tags: ["!autodocs"],
 };

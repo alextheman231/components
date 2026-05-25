@@ -7,8 +7,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import createItemQueryBoundary from "src/groups/QueryBoundary/creators/createItemQueryBoundary";
 
-export type QueryBoundaryWrapperProps<DataType> = 
-  QueryBoundaryContextValue<DataType> &
+export type QueryBoundaryWrapperProps<DataType> = QueryBoundaryContextValue<DataType> &
   QueryBoundaryFallbackProps &
   QueryBoundaryDataProps<DataType>;
 
