@@ -27,7 +27,7 @@ interface DemoProps {
   isLoading: boolean;
   error?: unknown;
   data?: Array<DemoItemType>;
-  emptyComponent?: ReactNode;
+  emptyFallback?: ReactNode;
 }
 
 const meta: Meta<DemoProps> = {
@@ -58,18 +58,18 @@ export const Main: Story = {
             </TableHead>
             <TableBody>
               <QueryBoundary.Nullable
-                nullableComponent={
+                nullableFallback={
                   <TableRow>
                     <TableCell colSpan={4}>No data found</TableCell>
                   </TableRow>
                 }
               />
               <QueryBoundary.DataMap
-                loadingComponent={<SkeletonRow columns={4} />}
+                loadingFallback={<SkeletonRow columns={4} />}
                 itemParser={(input) => {
                   return az.with(demoSchema).parse(input);
                 }}
-                emptyComponent={
+                emptyFallback={
                   <TableRow>
                     <TableCell colSpan={4}>No songs found</TableCell>
                   </TableRow>

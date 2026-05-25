@@ -59,7 +59,7 @@ export const Main: Story = {
             );
           }}
         </QueryBoundary.Data>
-        <QueryBoundary.Nullable nullableComponent={<Typography>No data found</Typography>} />
+        <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
       </QueryBoundary.Context>
     );
   },

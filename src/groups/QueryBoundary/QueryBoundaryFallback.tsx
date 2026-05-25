@@ -8,20 +8,20 @@ import QueryBoundaryNullable from "src/groups/QueryBoundary/QueryBoundaryNullabl
 
 export type QueryBoundaryFallbackProps = Omit<QueryBoundaryErrorProps, "children"> & {
   /** The component to show if an error has been thrown. */
-  errorComponent?: ReactNode | ((error: unknown) => ReactNode);
+  errorFallback?: ReactNode | ((error: unknown) => ReactNode);
 } & QueryBoundaryNullableProps;
 
 /**
  * The component responsible for handling both errors and nullable data from `QueryBoundaryProvider`
  */
 function QueryBoundaryFallback({
-  errorComponent,
+  errorFallback,
   logError,
   ...queryBoundaryNullableProps
 }: QueryBoundaryFallbackProps) {
   return (
     <>
-      <QueryBoundaryError logError={logError}>{errorComponent}</QueryBoundaryError>
+      <QueryBoundaryError logError={logError}>{errorFallback}</QueryBoundaryError>
       <QueryBoundaryNullable {...queryBoundaryNullableProps} />
     </>
   );

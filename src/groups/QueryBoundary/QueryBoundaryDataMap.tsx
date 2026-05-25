@@ -15,9 +15,9 @@ export interface QueryBoundaryDataMapBaseProps<ItemType> {
    */
   children: ReactNode | ((data: ItemType) => ReactNode);
   /** The component to show when the data is being fetched. */
-  loadingComponent?: ReactNode;
+  loadingFallback?: ReactNode;
   /** The component to show if the array is empty. */
-  emptyComponent?: ReactNode;
+  emptyFallback?: ReactNode;
   /** Throw an error if the provided data is not an array. (defaults to `true`) */
   strictlyRequireArray?: boolean;
   /**
@@ -67,17 +67,17 @@ export type QueryBoundaryDataMapProps<ItemType> =
  */
 function QueryBoundaryDataMap<ItemType>({
   children,
-  loadingComponent = <CircularProgress />,
+  loadingFallback = <CircularProgress />,
   itemKey,
   itemParser,
   dataParser,
-  emptyComponent = <Typography>No data present</Typography>,
+  emptyFallback = <Typography>No data present</Typography>,
   strictlyRequireArray = true,
 }: QueryBoundaryDataMapProps<ItemType>) {
   const { isLoading, data, error } = useQueryBoundary<Array<ItemType>>();
 
   if (isLoading) {
-    return <>{loadingComponent}</>;
+    return <>{loadingFallback}</>;
   }
 
   if (error) {
@@ -100,7 +100,7 @@ function QueryBoundaryDataMap<ItemType>({
   }
 
   if (data.length === 0) {
-    return <>{emptyComponent}</>;
+    return <>{emptyFallback}</>;
   }
 
   let items: Array<ItemType>;
