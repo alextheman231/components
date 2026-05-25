@@ -18,6 +18,15 @@ export interface CreateListQueryBoundaryParameters<DataType> {
 export interface DefaultQueryBoundaryListComponents<
   DataType,
 > extends DefaultQueryBoundaryComponentsBase {
+  /**
+   * The component responsible for handling an array of data provided by `QueryBoundary.Context`.
+   *
+   * It will map through the data array, rendering the result of the children function in a fragment with a key of its index in the list, unless overridden by the `itemKey` prop.
+   *
+   * @template ItemType - The type of data being loaded.
+   *
+   * @throws {DataError} If the data provided by `QueryBoundary.Context` is not an array, and the `strictlyRequireArray` prop is `true` (it is by default).
+   */
   DataMap: typeof QueryBoundaryDataMap<DataType>;
 }
 
