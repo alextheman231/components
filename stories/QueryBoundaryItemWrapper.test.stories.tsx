@@ -1,26 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { QueryBoundaryWrapperProps } from "src";
+import type { QueryBoundaryItemWrapperProps } from "src";
 
 import { DataError } from "@alextheman/utility/v6";
-import { QueryBoundaryWrapper } from "src";
+import { QueryBoundaryItemWrapper } from "src";
 import { expect } from "storybook/test";
 import { vi } from "vitest";
 
-const meta: Meta<typeof QueryBoundaryWrapper> = {
-  component: QueryBoundaryWrapper,
+const meta: Meta<typeof QueryBoundaryItemWrapper> = {
+  component: QueryBoundaryItemWrapper,
   tags: ["!autodocs", "!dev"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function render<DataType>(props: QueryBoundaryWrapperProps<DataType>) {
+function render<DataType>(props: QueryBoundaryItemWrapperProps<DataType>) {
   return (
-    <QueryBoundaryWrapper {...props}>
+    <QueryBoundaryItemWrapper {...props}>
       {(data) => {
         return <pre data-testid="loader-data">{JSON.stringify(data, null, 2)}</pre>;
       }}
-    </QueryBoundaryWrapper>
+    </QueryBoundaryItemWrapper>
   );
 }
 
