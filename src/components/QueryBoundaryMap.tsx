@@ -1,15 +1,12 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryFallbackProps, QueryBoundaryProviderProps } from "src/groups";
+import type { QueryBoundaryContextValue, QueryBoundaryFallbackProps } from "src/groups";
 import type { QueryBoundaryDataMapProps } from "src/groups/QueryBoundary/QueryBoundaryDataMap";
 
 import createListQueryBoundary from "src/groups/QueryBoundary/creators/createListQueryBoundary";
 
-export type QueryBoundaryMapProps<ItemType> = Omit<
-  QueryBoundaryProviderProps<Array<ItemType>>,
-  "children" | "logError"
-> &
-  Omit<QueryBoundaryFallbackProps, "errorComponent"> &
+export type QueryBoundaryMapProps<ItemType> = QueryBoundaryContextValue<Array<ItemType>> &
+  QueryBoundaryFallbackProps &
   QueryBoundaryDataMapProps<ItemType>;
 
 /**

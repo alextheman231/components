@@ -1,6 +1,7 @@
 import type { Key, ReactNode } from "react";
 
 import { DataError } from "@alextheman/utility/v6";
+import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { Fragment } from "react";
 
@@ -66,23 +67,14 @@ export type QueryBoundaryDataMapProps<ItemType> =
  */
 function QueryBoundaryDataMap<ItemType>({
   children,
-  loadingComponent: propLoadingComponent,
+  loadingComponent = <CircularProgress />,
   itemKey,
   itemParser,
-  dataParser: propDataParser,
+  dataParser,
   emptyComponent = <Typography>No data present</Typography>,
   strictlyRequireArray = true,
 }: QueryBoundaryDataMapProps<ItemType>) {
-  const {
-    isLoading,
-    data,
-    dataParser: contextDataParser,
-    loadingComponent: contextLoadingComponent,
-    error,
-  } = useQueryBoundary<Array<ItemType>>();
-
-  const dataParser = propDataParser ?? contextDataParser;
-  const loadingComponent = propLoadingComponent ?? contextLoadingComponent;
+  const { isLoading, data, error } = useQueryBoundary<Array<ItemType>>();
 
   if (isLoading) {
     return <>{loadingComponent}</>;

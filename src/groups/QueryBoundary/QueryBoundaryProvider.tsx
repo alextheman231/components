@@ -4,42 +4,17 @@ import type { ReactNode } from "react";
 import type { ContextHookOptions } from "src/types";
 
 import { DataError } from "@alextheman/utility/v6";
-import CircularProgress from "@mui/material/CircularProgress";
 import { createContext, use } from "react";
 
-export interface QueryBoundaryProviderBaseProps<DataType> {
+export interface QueryBoundaryContextValue<DataType> {
   /** The current loading status (true if loading, false if not) */
   isLoading?: boolean;
   /** The data being loaded. */
   data?: DataType | null | undefined;
-  /** A parser for the data. */
-  dataParser?: (data: unknown) => NonNullable<DataType>;
-  /** The component to show when the data is being fetched. */
-  loadingComponent?: ReactNode;
-}
-
-export interface QueryBoundaryProviderPropsWithNoError<
-  DataType,
-> extends QueryBoundaryProviderBaseProps<DataType> {
-  error?: never;
-  errorComponent?: never;
-  logError?: never;
-}
-
-export interface QueryBoundaryProviderPropsWithError<
-  DataType,
-> extends QueryBoundaryProviderBaseProps<DataType> {
   /** The error given if the request gave an error. */
   error: unknown;
-  /** The component to show if an error has been thrown. Note that this may not be provided unless the error prop has also been provided. */
-  errorComponent?: ReactNode | ((error: unknown) => ReactNode);
-  /** Whether you want to log the error to the console or not. */
-  logError?: boolean;
 }
 
-export type QueryBoundaryContextValue<DataType> =
-  | QueryBoundaryProviderPropsWithNoError<DataType>
-  | QueryBoundaryProviderPropsWithError<DataType>;
 export type QueryBoundaryProviderProps<DataType> = QueryBoundaryContextValue<DataType> & {
   children: ReactNode;
 };
@@ -74,14 +49,9 @@ export function useQueryBoundary<DataType, Strict extends boolean = true>({
  */
 function QueryBoundaryProvider<DataType>({
   children,
-  loadingComponent = <CircularProgress />,
   ...contextProps
 }: QueryBoundaryProviderProps<DataType>) {
-  return (
-    <QueryBoundaryContext value={{ loadingComponent, ...contextProps }}>
-      {children}
-    </QueryBoundaryContext>
-  );
+  return <QueryBoundaryContext value={contextProps}>{children}</QueryBoundaryContext>;
 }
 
 export default QueryBoundaryProvider;
