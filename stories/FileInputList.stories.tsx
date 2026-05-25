@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { FileInputListProps } from "src/root";
+import type { FileInputListProps } from "src/file";
 
 import { DataError } from "@alextheman/utility/v6";
 import { useState } from "react";
 import { expect, waitFor, within } from "storybook/test";
 
-import { FileInputList } from "src/root";
+import { FileInput, FileInputList } from "src/file";
 
 const meta: Meta<typeof FileInputList> = {
   component: FileInputList,
+  subcomponents: { FileInput },
 };
 
 export default meta;

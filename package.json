@@ -31,6 +31,10 @@
       "types": "./dist/audio/index.d.ts",
       "import": "./dist/audio/index.js"
     },
+    "./file": {
+      "types": "./dist/file/index.d.ts",
+      "import": "./dist/file/index.js"
+    },
     "./form": {
       "types": "./dist/form/index.d.ts",
       "import": "./dist/form/index.js"

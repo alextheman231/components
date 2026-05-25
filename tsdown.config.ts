@@ -22,8 +22,12 @@ const config: Array<UserConfig> = [
     outDir: "dist/DropdownMenu",
   },
   {
-    entry: ["src/form/index.ts"],
-    outDir: "dist/form",
+    entry: ["src/file/index.ts"],
+    outDir: "dist/file",
+  },
+  {
+    entry: ["src/file/index.ts"],
+    outDir: "dist/file",
   },
   {
     entry: ["src/QueryBoundary/index.ts"],
