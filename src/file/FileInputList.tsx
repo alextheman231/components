@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 
-import type { FileInputProps } from "src/root/components/FileInput";
+import type { FileInputProps } from "src/file/FileInput";
 
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -9,7 +9,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { MdDelete } from "react-icons/md";
 
-import FileInput from "src/root/components/FileInput";
+import FileInput from "src/file/FileInput";
 
 export interface FileInputListProps extends Omit<FileInputProps, "onFileInput"> {
   /** The array of files (must be a React state). */
