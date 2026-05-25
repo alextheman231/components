@@ -25,8 +25,8 @@ importers:
         version: 4.4.3
     devDependencies:
       '@alextheman/eslint-plugin':
-        specifier: 5.16.0
-        version: 5.16.0(f4680e60b8b41d4516af35e9cbc1d9c2)
+        specifier: 5.16.1
+        version: 5.16.1(f4680e60b8b41d4516af35e9cbc1d9c2)
       '@emotion/react':
         specifier: 11.14.0
         version: 11.14.0(@types/react@19.2.15)(react@19.2.6)
@@ -153,8 +153,8 @@ packages:
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
 
-  '@alextheman/eslint-plugin@5.16.0':
-    resolution: {integrity: sha512-nnYjhLrrP+iTAykfRnLgOC7eDoe4zHJQ73c3wKsNKWyuUH2/ov82WbAcqG+PzR3YplJU86ZqQRp4f7SfMMvqIQ==}
+  '@alextheman/eslint-plugin@5.16.1':
+    resolution: {integrity: sha512-EPBlidoF5cE1EfClA+cM/nSYjk/tKsGXeSYp8YWMbOjAra1Wyi/NDtUFsLI2t+rUWN9+FMYVeMfT46NzY6jcxg==}
     engines: {node: '>=22.3.0'}
     peerDependencies:
       '@eslint-react/eslint-plugin': '>=5.8.4'
@@ -4223,7 +4223,7 @@ snapshots:
 
   '@adobe/css-tools@4.4.4': {}
 
-  '@alextheman/eslint-plugin@5.16.0(f4680e60b8b41d4516af35e9cbc1d9c2)':
+  '@alextheman/eslint-plugin@5.16.1(f4680e60b8b41d4516af35e9cbc1d9c2)':
     dependencies:
       '@alextheman/utility': 5.19.0(zod@4.4.3)
       '@eslint-react/eslint-plugin': 5.8.4(eslint@10.4.0)(typescript@6.0.3)
