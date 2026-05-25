@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Button from "@mui/material/Button";
 import { expect } from "storybook/test";
 
-import { SnackbarProvider, useSnackbar } from "src/snackbar";
+import { SnackbarProvider, useSnackbarContext } from "src/snackbar";
 import Snackbars from "src/snackbar/Snackbars";
 
 const meta: Meta<typeof SnackbarProvider> = {
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   render: () => {
     function SnackbarConsumer() {
-      const { addSnackbar } = useSnackbar();
+      const { addSnackbar } = useSnackbarContext();
 
       return (
         <Button
