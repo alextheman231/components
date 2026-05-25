@@ -19,9 +19,13 @@ export interface CreateBaseQueryBoundaryParameters<DataType> {
 }
 
 export interface DefaultQueryBoundaryComponentsBase {
+  /** Provides the context for the query boundary. */
   Context: (props: { children: ReactNode }) => JSX.Element;
+  /** The component responsible for showing any errors provided by `QueryBoundary.Context`. */
   Error: typeof QueryBoundaryError;
+  /** The component responsible for handling cases when the data provided by `QueryBoundary.Context` may be missing. */
   Fallback: typeof QueryBoundaryFallback;
+  /** The component responsible for handling both errors and nullable data from `QueryBoundary.Context`*/
   Nullable: typeof QueryBoundaryNullable;
 }
 

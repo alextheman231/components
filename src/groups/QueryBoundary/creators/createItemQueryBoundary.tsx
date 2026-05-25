@@ -18,6 +18,11 @@ export interface CreateItemQueryBoundaryParameters<DataType> {
 export interface DefaultQueryBoundaryItemComponents<
   DataType,
 > extends DefaultQueryBoundaryComponentsBase {
+  /**
+   * The component responsible for showing the data provided by `QueryBoundary.Context`.
+   *
+   * @template DataType - The type of data being loaded.
+   */
   Data: typeof QueryBoundaryData<DataType>;
 }
 
