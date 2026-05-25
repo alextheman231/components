@@ -6,7 +6,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
-interface PageProps {
+export interface PageProps {
   /** The Page title to show */
   title: ReactNode;
   /** The subtitle to show under the Page title */
