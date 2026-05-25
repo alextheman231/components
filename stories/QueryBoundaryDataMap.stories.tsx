@@ -8,8 +8,9 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { createListQueryBoundary, SkeletonRow } from "src";
 import z from "zod";
+
+import { createListQueryBoundary, SkeletonRow } from "src/root";
 
 const demoSchema = z.object({
   id: z.uuid(),

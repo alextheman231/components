@@ -2,7 +2,7 @@ import type { UserConfig } from "tsdown";
 
 const config: Array<UserConfig> = [
   {
-    entry: ["src/index.ts"],
+    entry: ["src/root/index.ts"],
     format: ["esm", "cjs"],
     dts: true,
     deps: {

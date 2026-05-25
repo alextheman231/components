@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { useEffect, useState } from "react";
-import { ExternalLink } from "src";
 import { expect, fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
+import { ExternalLink } from "src/root";
 import {
   DropdownMenu,
   DropdownMenuItem,

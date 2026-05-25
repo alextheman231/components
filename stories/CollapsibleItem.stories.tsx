@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CollapsibleItem } from "src";
+
+import { CollapsibleItem } from "src/root";
 
 const meta: Meta<typeof CollapsibleItem> = {
   component: CollapsibleItem,
