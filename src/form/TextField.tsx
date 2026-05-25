@@ -31,7 +31,7 @@ import { useFieldContext } from "src/form/formHooks";
  * </form.AppForm>
  * ```
  */
-function TextField({ label, ...props }: MUITextFieldProps) {
+function TextField({ label, type, ...props }: MUITextFieldProps) {
   const field = useFieldContext();
 
   return (
@@ -39,7 +39,7 @@ function TextField({ label, ...props }: MUITextFieldProps) {
       {...props}
       label={label}
       error={field.state.meta.errors.length !== 0}
-      type="text"
+      type={type ?? "text"}
       value={field.state.value}
       onChange={(event) => {
         return field.handleChange(event.target.value);
