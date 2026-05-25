@@ -5,7 +5,8 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 
-import { InternalLink, useAbsoluteLocation } from "src/v7/components/routing";
+import InternalLink from "src/routing/InternalLink";
+import useAbsoluteLocation from "src/routing/useAbsoluteLocation";
 
 export interface NavItemBottom {
   /** The label to display on the nav item. */

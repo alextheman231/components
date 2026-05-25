@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { useTabContext } from "src/Tabs/TabProvider";
+import { useTabContext } from "src/Tab/TabProvider";
 
 export interface TabPanelProps<TabState extends string = string> {
   value: TabState;

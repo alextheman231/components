@@ -1,11 +1,11 @@
 import type { JSX, ReactNode } from "react";
 
-import type { TabContextValue } from "src/Tabs/TabProvider";
+import type { TabContextValue } from "src/Tab/TabProvider";
 
-import TabItem from "src/Tabs/TabItem";
-import TabList from "src/Tabs/TabList";
-import TabPanel from "src/Tabs/TabPanel";
-import TabProvider from "src/Tabs/TabProvider";
+import TabItem from "src/Tab/TabItem";
+import TabList from "src/Tab/TabList";
+import TabPanel from "src/Tab/TabPanel";
+import TabProvider from "src/Tab/TabProvider";
 
 export interface TabComponents<TabState extends string = string> {
   /** Provides the context for the tab grouping. */

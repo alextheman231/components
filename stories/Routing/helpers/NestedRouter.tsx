@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import VALID_ROUTE from "stories/Routing/helpers/constants/VALID_ROUTE";
 import { Route } from "wouter";
 
-import { InternalLink, Switch } from "src/v7";
+import { InternalLink, Switch } from "src/routing";
 
 interface NestedRouterProps {
   fallback?: ReactNode;

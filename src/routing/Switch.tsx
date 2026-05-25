@@ -3,8 +3,8 @@ import type { SwitchProps as WouterSwitchProps } from "wouter";
 
 import { Route, Switch as WouterSwitch } from "wouter";
 
-import ErrorPage from "src/v7/components/routing/ErrorPage";
-import InternalLink from "src/v7/components/routing/InternalLink";
+import ErrorPage from "src/routing/ErrorPage";
+import InternalLink from "src/routing/InternalLink";
 
 export interface SwitchProps extends WouterSwitchProps {
   /** The content to render if no routes match. */

@@ -4,18 +4,16 @@ import { useEffect, useState } from "react";
 import { expect, fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
-import { ExternalLink } from "src/root";
 import {
   DropdownMenu,
   DropdownMenuItem,
   DropdownMenuProvider,
   DropdownMenuTrigger,
-  InternalLink,
-  MemoryRouter,
-  Switch,
   useDropdownMenu,
-} from "src/v7";
-import DropdownMenuWrapper from "src/v7/components/DropdownMenu/DropdownMenuWrapper";
+} from "src/DropdownMenu";
+import DropdownMenuWrapper from "src/DropdownMenu/DropdownMenuWrapper";
+import { ExternalLink } from "src/root";
+import { InternalLink, MemoryRouter, Switch } from "src/routing";
 
 const meta: Meta = {
   component: DropdownMenuProvider,

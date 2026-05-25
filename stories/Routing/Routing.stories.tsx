@@ -11,7 +11,7 @@ import ValidRouteContents from "stories/Routing/helpers/ValidRouteContents";
 import { expect } from "storybook/test";
 import { Route } from "wouter";
 
-import { InternalLink, MemoryRouter, Switch, useAbsoluteLocation } from "src/v7";
+import { InternalLink, MemoryRouter, Switch, useAbsoluteLocation } from "src/routing";
 
 const meta: Meta = {
   title: "Routing with Wouter (v7)",

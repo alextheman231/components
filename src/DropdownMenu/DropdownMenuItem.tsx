@@ -10,7 +10,7 @@ import type {
 
 import MenuItem from "@mui/material/MenuItem";
 
-import { useDropdownMenu } from "src/v7/components/DropdownMenu/DropdownMenuProvider";
+import { useDropdownMenu } from "src/DropdownMenu/DropdownMenuProvider";
 
 export type DropdownMenuItemProps<RootComponent extends ElementType = typeof Button> = {
   /**

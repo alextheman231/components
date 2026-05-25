@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 
 import { VersionNumber } from "@alextheman/utility";
 
-import { Page, ThemeProvider, ThemeToggle } from "src/root";
+import { Page } from "src/root";
+import { ThemeProvider } from "src/theme";
+import ThemeToggle from "src/theme/ThemeToggle";
 
 import { name as packageName, version } from "package.json" with { type: "json" };
 

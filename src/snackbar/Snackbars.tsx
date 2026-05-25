@@ -1,12 +1,12 @@
 import type { SyntheticEvent } from "react";
 
-import type { SnackbarItem } from "src/root/providers/SnackbarProvider";
+import type { SnackbarItem } from "src/snackbar/SnackbarProvider";
 
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import { useEffect, useState } from "react";
 
-import { useSnackbar } from "src/root/providers/SnackbarProvider";
+import { useSnackbar } from "src/snackbar/SnackbarProvider";
 
 /** Displays the array of snackbars provided by `SnackbarProvider`. */
 function Snackbars() {

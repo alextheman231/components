@@ -8,8 +8,8 @@ import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import z from "zod";
 
-import { TextField } from "src/v7";
-import createFormHook from "src/v7/hooks/createFormHook";
+import { TextField } from "src/form";
+import createFormHook from "src/form/createFormHook";
 
 const meta: Meta = {
   title: "Form Hooks",

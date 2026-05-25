@@ -1,6 +1,6 @@
 import Stack from "@mui/material/Stack";
 
-import { InternalLink } from "src/v7";
+import { InternalLink } from "src/routing";
 
 function ValidRouteContents() {
   return (

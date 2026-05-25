@@ -2,7 +2,7 @@ import type { TextFieldProps as MUITextFieldProps } from "@mui/material/TextFiel
 
 import MUITextField from "@mui/material/TextField";
 
-import { useFieldContext } from "src/v7/hooks";
+import { useFieldContext } from "src/form/formHooks";
 
 /**
  * A text field component for use with TanStack Form's app form pattern. Must be used in a `<form.AppField />` context.
