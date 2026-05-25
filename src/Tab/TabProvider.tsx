@@ -21,7 +21,7 @@ export const TabContext = createContext<TabContextValue<any> | undefined>(undefi
 /** Access the TabContext directly. */
 export function useTabContext<TabState extends string = string, Strict extends boolean = true>({
   strict = true as Strict,
-}: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, TabProviderProps<TabState>> {
+}: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, TabContextValue<TabState>> {
   const context = use(TabContext);
   if (strict && !context) {
     throw new DataError(
@@ -30,7 +30,7 @@ export function useTabContext<TabState extends string = string, Strict extends b
       "Could not find the TabProvider. Please double-check that it is present.",
     );
   }
-  return context as OptionalOnCondition<Strict, TabProviderProps<TabState>>;
+  return context as OptionalOnCondition<Strict, TabContextValue<TabState>>;
 }
 
 /**
