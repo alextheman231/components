@@ -37,7 +37,7 @@ function QueryBoundaryListWrapper<ItemType>({
     <QueryBoundary.Fallback logError={logError} errorFallback={errorFallback} />
   );
 
-  if (nullableFallback) {
+  if (nullableFallback !== undefined) {
     boundaryErrorFallback = (
       <QueryBoundary.Fallback
         nullableFallback={nullableFallback}
@@ -45,7 +45,7 @@ function QueryBoundaryListWrapper<ItemType>({
         errorFallback={errorFallback}
       />
     );
-  } else if (undefinedFallback || nullFallback) {
+  } else if (undefinedFallback !== undefined || nullFallback !== undefined) {
     boundaryErrorFallback = (
       <QueryBoundary.Fallback
         undefinedFallback={undefinedFallback}
