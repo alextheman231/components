@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { InternalLinkProps } from "src";
+
+import type { InternalLinkProps } from "src/v7";
 
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
