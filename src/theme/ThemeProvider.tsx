@@ -21,7 +21,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 });
 
 /** Access the mode context directly. */
-export function useTheme<Strict extends boolean = true>({
+export function useThemeContext<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, ThemeContextValue> {
   const context = use(ThemeContext);

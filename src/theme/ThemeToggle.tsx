@@ -2,11 +2,11 @@ import Tooltip from "@mui/material/Tooltip";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 import SwitchWithIcons from "src/root/components/SwitchWithIcons";
-import { useTheme } from "src/theme/ThemeProvider";
+import { useThemeContext } from "src/theme/ThemeProvider";
 
 /** A toggle to switch between dark mode and light mode. Must be used in a `ThemeProvider`. */
 function ThemeToggle() {
-  const { mode, toggleMode } = useTheme();
+  const { mode, toggleMode } = useThemeContext();
   const isDarkMode = mode === "dark";
   const modeText = `Enable ${isDarkMode ? "light" : "dark"} mode`;
 
