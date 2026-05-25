@@ -18,4 +18,3 @@ export type { QueryBoundaryMapProps } from "src/components/QueryBoundaryMap";
 export type { QueryBoundaryWrapperProps } from "src/components/QueryBoundaryWrapper";
 export type { SkeletonRowProps } from "src/components/SkeletonRow";
 export type { SwitchWithIconsProps } from "src/components/SwitchWithIcons";
-export type { DropdownMenuProps } from "src/deprecated/DropdownMenu";

@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { useEffect, useState } from "react";
-import { DropdownMenuItem, ExternalLink } from "src";
+import { ExternalLink } from "src";
 import { expect, fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
 import {
   DropdownMenu,
+  DropdownMenuItem,
   DropdownMenuProvider,
   DropdownMenuTrigger,
   InternalLink,
