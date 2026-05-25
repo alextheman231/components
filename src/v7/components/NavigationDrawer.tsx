@@ -19,9 +19,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Fragment, useState } from "react";
 import { MdChevronLeft, MdChevronRight, MdMenu } from "react-icons/md";
-import { useLocation } from "wouter";
 
-import { InternalLink } from "src/v7/components/routing";
+import { InternalLink, useAbsoluteLocation } from "src/v7/components/routing";
 
 const drawerWidth = 240;
 
@@ -158,7 +157,7 @@ export interface NavigationDrawerProps {
 function NavigationDrawer({ title, navItems, children, headerElements }: NavigationDrawerProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [location] = useLocation();
+  const [location] = useAbsoluteLocation();
 
   function handleDrawerOpen() {
     setOpen(true);
