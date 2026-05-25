@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { QueryBoundaryItemWrapperProps } from "src/root";
+import type { QueryBoundaryItemWrapperProps } from "src/QueryBoundary";
 
 import { az, normaliseIndents } from "@alextheman/utility";
 import { DataError } from "@alextheman/utility/v6";
@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { expect } from "storybook/test";
 import z from "zod";
 
-import { QueryBoundaryItemWrapper } from "src/root";
+import { QueryBoundaryItemWrapper } from "src/QueryBoundary";
 
 const meta: Meta<typeof QueryBoundaryItemWrapper> = {
   component: QueryBoundaryItemWrapper,

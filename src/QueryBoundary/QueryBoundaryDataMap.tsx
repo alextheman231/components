@@ -5,7 +5,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { Fragment } from "react";
 
-import { useQueryBoundary } from "src/root/groups/QueryBoundary/QueryBoundaryProvider";
+import { useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryDataMapBaseProps<ItemType> {
   /**

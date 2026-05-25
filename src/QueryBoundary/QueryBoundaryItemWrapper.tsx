@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryDataProps } from "src/root/groups/QueryBoundary/QueryBoundaryData";
-import type { QueryBoundaryFallbackProps } from "src/root/groups/QueryBoundary/QueryBoundaryFallback";
-import type { QueryBoundaryContextValue } from "src/root/groups/QueryBoundary/QueryBoundaryProvider";
+import type { QueryBoundaryDataProps } from "src/QueryBoundary/QueryBoundaryData";
+import type { QueryBoundaryFallbackProps } from "src/QueryBoundary/QueryBoundaryFallback";
+import type { QueryBoundaryContextValue } from "src/QueryBoundary/QueryBoundaryProvider";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import createItemQueryBoundary from "src/root/groups/QueryBoundary/creators/createItemQueryBoundary";
+import createItemQueryBoundary from "src/QueryBoundary/creators/createItemQueryBoundary";
 
 export type QueryBoundaryItemWrapperProps<DataType> = QueryBoundaryContextValue<DataType> &
   QueryBoundaryFallbackProps &

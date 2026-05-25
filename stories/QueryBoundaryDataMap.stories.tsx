@@ -10,7 +10,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import z from "zod";
 
-import { createListQueryBoundary, SkeletonRow } from "src/root";
+import { createListQueryBoundary } from "src/QueryBoundary";
+import { SkeletonRow } from "src/root";
 
 const demoSchema = z.object({
   id: z.uuid(),

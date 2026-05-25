@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
-import type { QueryBoundaryErrorProps } from "src/root/groups/QueryBoundary/QueryBoundaryError";
-import type { QueryBoundaryNullableProps } from "src/root/groups/QueryBoundary/QueryBoundaryNullable";
+import type { QueryBoundaryErrorProps } from "src/QueryBoundary/QueryBoundaryError";
+import type { QueryBoundaryNullableProps } from "src/QueryBoundary/QueryBoundaryNullable";
 
-import QueryBoundaryError from "src/root/groups/QueryBoundary/QueryBoundaryError";
-import QueryBoundaryNullable from "src/root/groups/QueryBoundary/QueryBoundaryNullable";
+import QueryBoundaryError from "src/QueryBoundary/QueryBoundaryError";
+import QueryBoundaryNullable from "src/QueryBoundary/QueryBoundaryNullable";
 
 export type QueryBoundaryFallbackProps = Omit<QueryBoundaryErrorProps, "children"> & {
   /** The component to show if an error has been thrown. */

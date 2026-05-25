@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { QueryBoundaryItemWrapperProps } from "src/root";
+import type { QueryBoundaryItemWrapperProps } from "src/QueryBoundary";
 
 import { DataError } from "@alextheman/utility/v6";
 import { expect } from "storybook/test";
 import { vi } from "vitest";
 
-import { QueryBoundaryItemWrapper } from "src/root";
+import { QueryBoundaryItemWrapper } from "src/QueryBoundary";
 
 const meta: Meta<typeof QueryBoundaryItemWrapper> = {
   component: QueryBoundaryItemWrapper,

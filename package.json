@@ -13,13 +13,15 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     },
-    "./v7": {
-      "types": "./dist/v7/index.d.ts",
-      "import": "./dist/v7/index.js",
-      "require": "./dist/v7/index.cjs"
+    "./QueryBoundary": {
+      "types": "./dist/QueryBoundary/index.d.ts",
+      "import": "./dist/QueryBoundary/index.js"
+    },
+    "./Tabs": {
+      "types": "./dist/Tabs/index.d.ts",
+      "import": "./dist/Tabs/index.js"
     }
   },
   "files": [

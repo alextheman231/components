@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Alert from "@mui/material/Alert";
 import { useRef } from "react";
 
-import { useQueryBoundary } from "src/root/groups/QueryBoundary/QueryBoundaryProvider";
+import { useQueryBoundary } from "src/QueryBoundary/QueryBoundaryProvider";
 
 export interface QueryBoundaryErrorProps {
   /** The component to show if an error has been thrown. */
