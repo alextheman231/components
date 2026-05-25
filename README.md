@@ -7,7 +7,7 @@
 [![CI](https://github.com/alextheman231/components/actions/workflows/ci.yml/badge.svg)](https://github.com/alextheman231/components/actions/workflows/ci.yml)
 [![Publish to NPM Registry and GitHub Releases/Pages](https://github.com/alextheman231/components/actions/workflows/publish.yml/badge.svg)](https://github.com/alextheman231/components/actions/workflows/publish.yml)
 
-This is a React component library used across my projects. It is built with React and Material UI, and integrates with tools such as react-router-dom (soon to be replaced with Wouter) and react-hook-form (soon to be replaced with TanStack Form).
+This is a React component library used across my projects. It is built with React and Material UI, and integrates with tools such as Wouter and Tanstack Form.
 
 ## Installation
 
