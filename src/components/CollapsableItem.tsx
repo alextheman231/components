@@ -54,7 +54,7 @@ function CollapsableItem({
   closedIcon = <MdArrowDropDown />,
   useDefaultStyling = ButtonComponent === ButtonBase ? true : false,
 }: CollapsableItemProps) {
-  const [isItemOpen, setIsItemOpen] = useState<boolean>(!!isInitiallyOpen);
+  const [isItemOpen, setIsItemOpen] = useState<boolean>(Boolean(isInitiallyOpen));
 
   useEffect(() => {
     if (isItemOpen && onOpen) {
