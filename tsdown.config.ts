@@ -26,8 +26,8 @@ const config: Array<UserConfig> = [
     outDir: "dist/file",
   },
   {
-    entry: ["src/file/index.ts"],
-    outDir: "dist/file",
+    entry: ["src/form/index.ts"],
+    outDir: "dist/form",
   },
   {
     entry: ["src/QueryBoundary/index.ts"],
