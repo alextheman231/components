@@ -12,7 +12,7 @@ export interface QueryBoundaryContextValue<DataType> {
   /** The data being loaded. */
   data?: DataType | null | undefined;
   /** The error given if the request gave an error. */
-  error: unknown;
+  error?: unknown;
 }
 
 export type QueryBoundaryProviderProps<DataType> = QueryBoundaryContextValue<DataType> & {
