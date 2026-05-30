@@ -47,9 +47,10 @@ function DropdownMenuTrigger<RootComponent extends ElementType>({
 }: DropdownMenuTriggerProps<RootComponent>) {
   const { isDropdownOpen, setAnchorElement, menuId } = useDropdownMenuContextInternal();
 
+  const ButtonComponent = component ?? Button;
+
   return (
-    <Button
-      {...(component ? { component } : {})}
+    <ButtonComponent
       aria-controls={isDropdownOpen ? menuId : undefined}
       aria-haspopup="true"
       aria-expanded={isDropdownOpen}

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
+import { MdMoreVert } from "react-icons/md";
 import { expect, fn, screen } from "storybook/test";
 import { Route } from "wouter";
 
@@ -201,5 +203,21 @@ export const IsDropdownOpenStateReaction: Story = {
     await userEvent.click(button);
     // The useEffect callback gets called once on initial render, then again when the dropdown opens.
     await expect(args.onClick).toHaveBeenCalledTimes(2);
+  },
+};
+
+export const DropdownTriggerOverride: Story = {
+  render: () => {
+    return (
+      <DropdownMenuProvider>
+        <DropdownMenuTrigger component={IconButton}>
+          <MdMoreVert />
+        </DropdownMenuTrigger>
+        <DropdownMenu>
+          <DropdownMenuItem>Item 1</DropdownMenuItem>
+          <DropdownMenuItem>Item 2</DropdownMenuItem>
+        </DropdownMenu>
+      </DropdownMenuProvider>
+    );
   },
 };
