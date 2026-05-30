@@ -54,8 +54,9 @@ function DropdownMenuTrigger<RootComponent extends ElementType>({
       aria-controls={isDropdownOpen ? menuId : undefined}
       aria-haspopup="true"
       aria-expanded={isDropdownOpen}
-      endIcon={isDropdownOpen ? <OpenIcon /> : <ClosedIcon />}
-      variant={variant}
+      {...(ButtonComponent === Button
+        ? { endIcon: isDropdownOpen ? <OpenIcon /> : <ClosedIcon />, variant }
+        : {})}
       {...buttonProps}
       onClick={(event: MouseEvent<HTMLElement>) => {
         if (onClick) {
