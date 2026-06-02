@@ -27,7 +27,6 @@ function Snackbars() {
       setCurrentSnackbar(snackbars[0]);
       removeSnackbar();
       setOpen(true);
-      /* eslint-enable */
     }
   }, [open, removeSnackbar, snackbars]);
 

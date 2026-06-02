@@ -220,7 +220,7 @@ export const UndefinedTypingProof: Story = {
   render: () => {
     return (
       <QueryBoundaryItemWrapper
-        isLoading={true}
+        isLoading
         error={null}
         data={undefined}
         undefinedFallback={<p>Test</p>}
@@ -252,12 +252,7 @@ export const Null: Story = {
 export const NullTypingProof: Story = {
   render: () => {
     return (
-      <QueryBoundaryItemWrapper
-        isLoading={true}
-        error={null}
-        data={null}
-        nullFallback={<p>Test</p>}
-      >
+      <QueryBoundaryItemWrapper isLoading error={null} data={null} nullFallback={<p>Test</p>}>
         {() => {
           return null;
         }}
@@ -271,7 +266,7 @@ export const NullableTypingProof: Story = {
   render: () => {
     return (
       <QueryBoundaryItemWrapper
-        isLoading={true}
+        isLoading
         error={null}
         data={undefined}
         nullableFallback={<p>Test</p>}
@@ -291,7 +286,7 @@ export const DiscriminatedUnion: Story = {
       <>
         {/* @ts-expect-error: nullableFallback and undefinedFallback provided together */}
         <QueryBoundaryItemWrapper
-          isLoading={true}
+          isLoading
           error={null}
           data={undefined}
           nullableFallback={<p>Test</p>}
@@ -303,7 +298,7 @@ export const DiscriminatedUnion: Story = {
         </QueryBoundaryItemWrapper>
         {/* @ts-expect-error: nullableFallback and nullFallback provided together */}
         <QueryBoundaryItemWrapper
-          isLoading={true}
+          isLoading
           error={null}
           data={undefined}
           nullableFallback={<p>Test</p>}

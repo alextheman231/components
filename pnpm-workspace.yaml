@@ -5,3 +5,5 @@ savePrefix: ""
 minimumReleaseAgeExclude:
   - "@alextheman/*"
   - alex-c-line
+patchedDependencies:
+  eslint-plugin-react: patches/eslint-plugin-react.patch
