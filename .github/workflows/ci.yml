@@ -13,12 +13,12 @@ permissions:
 
 jobs:
   package-ci:
-    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@836601cc7cd1e60f2c0acfc60bbdb280908ef7e8 # v11.2.6
+    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@3a7c224f60dbd26c8e2f31738236b6cbc8dd96e7 # v12.0.0
     with:
       use_playwright: true
 
   actions-ci:
-    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@836601cc7cd1e60f2c0acfc60bbdb280908ef7e8 # v11.2.6
+    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@3a7c224f60dbd26c8e2f31738236b6cbc8dd96e7 # v12.0.0
 
   end-to-end-ci:
     if: ${{ github.head_ref != 'alex-up-bot/change-major-version' && github.head_ref != 'alex-up-bot/change-minor-version' && github.head_ref != 'alex-up-bot/change-patch-version' }}
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
 
