@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { containsKeys } from "@alextheman/utility";
 import Alert from "@mui/material/Alert";
 import { useRef } from "react";
 
@@ -40,7 +41,7 @@ function QueryBoundaryError({ children, logError }: QueryBoundaryErrorProps) {
 
     return (
       <Alert severity="error">
-        {typeof error === "object" && "message" in error && typeof error.message === "string"
+        {containsKeys(error, "message") && typeof error.message === "string"
           ? error.message
           : "An unknown error has occured."}
       </Alert>
