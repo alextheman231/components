@@ -17,12 +17,17 @@ export type QueryBoundaryFallbackProps = Omit<QueryBoundaryErrorProps, "children
 function QueryBoundaryFallback({
   errorFallback,
   logError,
-  ...queryBoundaryNullableProps
+  data,
+  isLoading,
+  error,
+  ...props
 }: QueryBoundaryFallbackProps) {
   return (
     <>
-      <QueryBoundaryError logError={logError}>{errorFallback}</QueryBoundaryError>
-      <QueryBoundaryNullable {...queryBoundaryNullableProps} />
+      <QueryBoundaryError data={data} error={error} logError={logError}>
+        {errorFallback}
+      </QueryBoundaryError>
+      <QueryBoundaryNullable data={data} isLoading={isLoading} error={error} {...props} />
     </>
   );
 }

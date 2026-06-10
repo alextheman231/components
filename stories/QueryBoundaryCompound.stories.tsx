@@ -36,7 +36,7 @@ export const Main: Story = {
     const QueryBoundary = createItemQueryBoundary({ query: { isLoading, error, data } });
 
     return (
-      <QueryBoundary.Context>
+      <>
         <QueryBoundary.Error />
         <QueryBoundary.Data>
           {(item) => {
@@ -61,7 +61,7 @@ export const Main: Story = {
           }}
         </QueryBoundary.Data>
         <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
-      </QueryBoundary.Context>
+      </>
     );
   },
   args: {

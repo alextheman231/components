@@ -4,20 +4,21 @@ import { containsKeys } from "@alextheman/utility";
 import Alert from "@mui/material/Alert";
 import { useRef } from "react";
 
-import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
-
 export interface QueryBoundaryErrorProps {
   /** The component to show if an error has been thrown. */
   children?: ReactNode | ((error: unknown) => ReactNode);
   /** An option to log the error to the console. */
   logError?: boolean;
+  /** The data being loaded. */
+  data?: unknown;
+  /** The error given if the request gave an error. */
+  error?: unknown;
 }
 
 /**
  * The component responsible for showing any errors provided by QueryBoundaryProvider.
  */
-function QueryBoundaryError({ children, logError }: QueryBoundaryErrorProps) {
-  const { data, error } = useQueryBoundaryContext();
+function QueryBoundaryError({ children, data, error, logError }: QueryBoundaryErrorProps) {
   const warnedOnceRef = useRef(false);
 
   if (error) {

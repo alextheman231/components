@@ -23,7 +23,7 @@ const QueryBoundaryContext = createContext<QueryBoundaryContextValue<unknown> | 
   undefined,
 );
 
-/** Access the QueryBoundary context directly. */
+/** @deprecated This is no longer needed - please pass the loading, error, and data props to the consuming components directly, or use `createBaseQueryBoundary`, `createItemQueryBoundary`, or `createListQueryBoundary`. */
 export function useQueryBoundaryContext<DataType, Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<
@@ -45,13 +45,12 @@ export function useQueryBoundaryContext<DataType, Strict extends boolean = true>
  * A provider for a context that deals with state management when fetching data from an API.
  * This may be used over QueryBoundary if you require more control over the placement of the error message and data display.
  *
+ * @deprecated This is no longer needed - please pass the loading, error, and data props to the consuming components directly, or use `createBaseQueryBoundary`, `createItemQueryBoundary`, or `createListQueryBoundary`.
+ *
  * @template DataType - The type of data being loaded.
  */
-function QueryBoundaryProvider<DataType>({
-  children,
-  ...contextProps
-}: QueryBoundaryProviderProps<DataType>) {
-  return <QueryBoundaryContext value={contextProps}>{children}</QueryBoundaryContext>;
+function QueryBoundaryProvider<DataType>({ children: _ }: QueryBoundaryProviderProps<DataType>) {
+  return null;
 }
 
 export default QueryBoundaryProvider;
