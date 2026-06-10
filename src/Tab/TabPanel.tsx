@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
 
-import { useTabContext } from "src/Tab/TabProvider";
-
 export interface TabPanelProps<TabState extends string = string> {
+  /** The current tab state. */
+  tab: TabState;
+  /** The value needed for the current tab state in order to render the children. */
   value: TabState;
+  /** The children to render if the value is equal to the current tab state. */
   children: ReactNode;
 }
 
@@ -12,9 +14,11 @@ export interface TabPanelProps<TabState extends string = string> {
  *
  * @template TabState The possible values for the tab.
  */
-function TabPanel<TabState extends string = string>({ value, children }: TabPanelProps<TabState>) {
-  const { tab } = useTabContext();
-
+function TabPanel<TabState extends string = string>({
+  value,
+  children,
+  tab,
+}: TabPanelProps<TabState>) {
   if (value === tab) {
     return children;
   }

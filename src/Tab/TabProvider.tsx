@@ -18,7 +18,11 @@ export interface TabProviderProps<
 }
 
 export const TabContext = createContext<TabContextValue<any> | undefined>(undefined);
-/** Access the TabContext directly. */
+/**
+ * Access the TabContext directly.
+ *
+ * @deprecated This is no longer needed - please use `createTabGroup` instead.
+ */
 export function useTabContext<TabState extends string = string, Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, TabContextValue<TabState>> {
@@ -35,6 +39,8 @@ export function useTabContext<TabState extends string = string, Strict extends b
 
 /**
  * A provider for a context that manages tab grouping.
+ *
+ * @deprecated This is no longer needed - please use `createTabGroup` instead.
  *
  * @template TabState The possible values for the tab.
  */
