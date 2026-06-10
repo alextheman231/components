@@ -3,6 +3,7 @@ import type { TabProps } from "@mui/material/Tab";
 import Tab from "@mui/material/Tab";
 
 export interface TabItemProps<TabState extends string = string> extends Omit<TabProps, "value"> {
+  /** The tab state value associated with the item. */
   value: TabState;
 }
 
