@@ -5,8 +5,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { Fragment } from "react";
 
-import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
-
 export interface QueryBoundaryDataMapBaseProps<ItemType> {
   /**
    * The elements to show after data has been loaded.
@@ -26,6 +24,12 @@ export interface QueryBoundaryDataMapBaseProps<ItemType> {
    * If not provided, it will fall back to using the index.
    */
   itemKey?: (item: ItemType, index: number) => Key;
+  /** The current loading status (true if loading, false if not) */
+  isLoading?: boolean;
+  /** The data being loaded. */
+  data?: Array<ItemType> | null | undefined;
+  /** The error given if the request gave an error. */
+  error?: unknown;
 }
 
 export interface QueryBoundaryDataMapPropsWithItemParser<
@@ -73,9 +77,10 @@ function QueryBoundaryDataMap<ItemType>({
   dataParser,
   emptyFallback = <Typography>No data present</Typography>,
   strictlyRequireArray = true,
+  data,
+  isLoading,
+  error,
 }: QueryBoundaryDataMapProps<ItemType>) {
-  const { isLoading, data, error } = useQueryBoundaryContext<Array<ItemType>>();
-
   if (isLoading) {
     return <>{loadingFallback}</>;
   }

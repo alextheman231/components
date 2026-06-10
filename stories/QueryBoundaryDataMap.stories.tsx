@@ -46,7 +46,7 @@ export const Main: Story = {
     });
 
     return (
-      <QueryBoundary.Context>
+      <>
         <QueryBoundary.Error />
         <TableContainer>
           <Table>
@@ -94,7 +94,7 @@ export const Main: Story = {
             </TableBody>
           </Table>
         </TableContainer>
-      </QueryBoundary.Context>
+      </>
     );
   },
   args: {

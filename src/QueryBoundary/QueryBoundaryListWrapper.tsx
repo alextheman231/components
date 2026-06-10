@@ -86,10 +86,10 @@ function QueryBoundaryListWrapper<ItemType>({
   }
 
   return (
-    <QueryBoundary.Context>
+    <>
       {boundaryErrorFallback}
       {boundaryDataMapComponent}
-    </QueryBoundary.Context>
+    </>
   );
 }
 

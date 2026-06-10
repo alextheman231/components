@@ -2,8 +2,6 @@ import type { ReactNode } from "react";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
-
 export interface QueryBoundaryDataProps<DataType> {
   /**
    * The elements to show after data has been loaded.
@@ -14,6 +12,12 @@ export interface QueryBoundaryDataProps<DataType> {
   dataParser?: (data: unknown) => NonNullable<DataType>;
   /** The component to show when the data is being fetched. */
   loadingFallback?: ReactNode;
+  /** The current loading status (true if loading, false if not) */
+  isLoading?: boolean;
+  /** The data being loaded. */
+  data?: DataType | null | undefined;
+  /** The error given if the request gave an error. */
+  error?: unknown;
 }
 
 /**
@@ -25,9 +29,10 @@ function QueryBoundaryData<DataType>({
   children,
   dataParser,
   loadingFallback = <CircularProgress />,
+  data,
+  isLoading,
+  error,
 }: QueryBoundaryDataProps<DataType>) {
-  const { isLoading, data, error } = useQueryBoundaryContext<DataType>();
-
   if (error) {
     return null;
   }

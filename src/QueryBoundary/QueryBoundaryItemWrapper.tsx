@@ -57,12 +57,12 @@ function QueryBoundaryItemWrapper<DataType>({
   }
 
   return (
-    <QueryBoundary.Context>
+    <>
       {boundaryFallbackComponent}
       <QueryBoundary.Data loadingFallback={loadingFallback} dataParser={dataParser}>
         {children}
       </QueryBoundary.Data>
-    </QueryBoundary.Context>
+    </>
   );
 }
 
