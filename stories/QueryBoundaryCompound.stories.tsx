@@ -7,6 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 
 import { createItemQueryBoundary } from "src/QueryBoundary";
+import createObjectQueryBoundary from "src/QueryBoundary/creators/createObjectQueryBoundary";
 
 interface RenderProps {
   isLoading: boolean;
@@ -15,7 +16,7 @@ interface RenderProps {
 }
 
 const meta: Meta<RenderProps> = {
-  title: "QueryBoundary Compound Pattern (v7)",
+  title: "QueryBoundary Compound Pattern",
 };
 
 export default meta;
@@ -60,6 +61,58 @@ export const Main: Story = {
             );
           }}
         </QueryBoundary.Data>
+        <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
+      </>
+    );
+  },
+  args: {
+    isLoading: true,
+    error: null,
+    data: {
+      id: "2ccef308-09af-4575-b9cb-3c8f9b13b14d",
+      name: "Commit To You",
+      composer: "Alex the Man",
+      duration: {
+        minutes: 4,
+        seconds: 9,
+      },
+    },
+  },
+};
+
+export const Object: Story = {
+  render: ({ isLoading, error, data }) => {
+    const QueryBoundary = createObjectQueryBoundary({ query: { isLoading, error, data } });
+
+    return (
+      <>
+        <QueryBoundary.Error />
+        <TableContainer>
+          <Table>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>
+                <QueryBoundary.Value propertyName="name" />
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Composer</TableCell>
+              <TableCell>
+                <QueryBoundary.Value propertyName="composer" />
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Duration</TableCell>
+              <TableCell>
+                <QueryBoundary.Value propertyName="duration">
+                  {(duration) => {
+                    return `${duration.minutes}:${duration.seconds.toString().padStart(2, "0")}`;
+                  }}
+                </QueryBoundary.Value>
+              </TableCell>
+            </TableRow>
+          </Table>
+        </TableContainer>
         <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
       </>
     );
