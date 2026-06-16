@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
@@ -44,18 +45,20 @@ export const Main: Story = {
             return (
               <TableContainer>
                 <Table>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>{item.name}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Composer</TableCell>
-                    <TableCell>{item.composer}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Duration</TableCell>
-                    <TableCell>{`${item.duration.minutes}:${item.duration.seconds.toString().padStart(2, "0")}`}</TableCell>
-                  </TableRow>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Name</TableCell>
+                      <TableCell>{item.name}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Composer</TableCell>
+                      <TableCell>{item.composer}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Duration</TableCell>
+                      <TableCell>{`${item.duration.minutes}:${item.duration.seconds.toString().padStart(2, "0")}`}</TableCell>
+                    </TableRow>
+                  </TableBody>
                 </Table>
               </TableContainer>
             );
@@ -89,28 +92,30 @@ export const Object: Story = {
         <QueryBoundary.Error />
         <TableContainer>
           <Table>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>
-                <QueryBoundary.Value propertyName="name" />
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Composer</TableCell>
-              <TableCell>
-                <QueryBoundary.Value propertyName="composer" />
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Duration</TableCell>
-              <TableCell>
-                <QueryBoundary.Value propertyName="duration">
-                  {(duration) => {
-                    return `${duration.minutes}:${duration.seconds.toString().padStart(2, "0")}`;
-                  }}
-                </QueryBoundary.Value>
-              </TableCell>
-            </TableRow>
+            <TableBody>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>
+                  <QueryBoundary.Value propertyName="name" />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Composer</TableCell>
+                <TableCell>
+                  <QueryBoundary.Value propertyName="composer" />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Duration</TableCell>
+                <TableCell>
+                  <QueryBoundary.Value propertyName="duration">
+                    {(duration) => {
+                      return `${duration.minutes}:${duration.seconds.toString().padStart(2, "0")}`;
+                    }}
+                  </QueryBoundary.Value>
+                </TableCell>
+              </TableRow>
+            </TableBody>
           </Table>
         </TableContainer>
         <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
