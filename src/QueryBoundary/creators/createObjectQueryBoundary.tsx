@@ -17,7 +17,7 @@ export interface QueryObject<DataType extends object = Record<PropertyKey, unkno
   data: DataType | null | undefined;
 }
 
-export interface CreateListQueryBoundaryParameters<
+export interface CreateObjectQueryBoundaryParameters<
   DataType extends object = Record<PropertyKey, unknown>,
 > {
   query: QueryObject<DataType>;
@@ -43,7 +43,7 @@ export interface DefaultQueryBoundaryObjectComponents<
 /** A creator function to create the system of QueryBoundary components with the data treated as an object of data items, fully typed throughout. */
 function createObjectQueryBoundary<DataType extends object = Record<PropertyKey, unknown>>({
   query,
-}: CreateListQueryBoundaryParameters<DataType>): DefaultQueryBoundaryObjectComponents<DataType> {
+}: CreateObjectQueryBoundaryParameters<DataType>): DefaultQueryBoundaryObjectComponents<DataType> {
   const baseComponents = createBaseQueryBoundary({ query });
 
   return {

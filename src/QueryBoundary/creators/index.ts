@@ -1,6 +1,7 @@
 export { default as createBaseQueryBoundary } from "src/QueryBoundary/creators/createBaseQueryBoundary";
 export { default as createItemQueryBoundary } from "src/QueryBoundary/creators/createItemQueryBoundary";
 export { default as createListQueryBoundary } from "src/QueryBoundary/creators/createListQueryBoundary";
+export { default as createObjectQueryBoundary } from "src/QueryBoundary/creators/createObjectQueryBoundary";
 
 export type {
   QueryBase,
@@ -17,3 +18,8 @@ export type {
   DefaultQueryBoundaryListComponents,
   CreateListQueryBoundaryParameters,
 } from "src/QueryBoundary/creators/createListQueryBoundary";
+export type {
+  QueryObject,
+  DefaultQueryBoundaryObjectComponents,
+  CreateObjectQueryBoundaryParameters,
+} from "src/QueryBoundary/creators/createObjectQueryBoundary";
