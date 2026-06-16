@@ -13,7 +13,7 @@ export type QueryBoundaryListWrapperProps<ItemType> = QueryBoundaryContextValue<
 /**
  * An in-line component that handles an array of data provided by `QueryBoundaryProvider`.
  *
- * This may be used over QueryBoundaryProvider/QueryBoundaryDataMap if you don't require as much control over the placement of the error message and data display.
+ * This may be used over `createListQueryBoundary` if you don't require as much control over the placement of the error message and data display.
  *
  * @template DataType - The type of data being loaded.
  */

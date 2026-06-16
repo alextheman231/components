@@ -29,7 +29,7 @@ export type QueryBoundaryNullableProps =
   | QueryBoundaryNullablePropsWithUndefinedOrNull
   | QueryBoundaryNullablePropsWithNullable;
 
-/** The component responsible for handling cases when the data provided by `QueryBoundaryProvider` may be missing. */
+/** The component responsible for handling cases when the data provided may be missing. */
 function QueryBoundaryNullable({
   undefinedFallback,
   nullFallback,

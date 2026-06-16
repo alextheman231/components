@@ -12,7 +12,7 @@ export type QueryBoundaryFallbackProps = Omit<QueryBoundaryErrorProps, "children
 } & QueryBoundaryNullableProps;
 
 /**
- * The component responsible for handling both errors and nullable data from `QueryBoundaryProvider`
+ * The component responsible for handling both errors and nullable data.
  */
 function QueryBoundaryFallback({
   errorFallback,

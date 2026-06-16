@@ -28,13 +28,13 @@ export interface DefaultQueryBoundaryComponentsBase {
    * @deprecated This no longer does anything and can now be removed. All other components in this group can be used without the context present.
    */
   Context: (props: { children: ReactNode }) => JSX.Element | null;
-  /** The component responsible for showing any errors provided by `QueryBoundary.Context`. */
+  /** The component responsible for showing any errors provided by the boundary creator. */
   Error: (props: Omit<QueryBoundaryErrorProps, "data" | "isLoading" | "error">) => JSX.Element;
-  /** The component responsible for handling both errors and nullable data from `QueryBoundary.Context`*/
+  /** The component responsible for handling both errors and nullable data from the boundary creator.*/
   Fallback: (
     props: Omit<QueryBoundaryFallbackProps, "data" | "isLoading" | "error">,
   ) => JSX.Element;
-  /** The component responsible for handling cases when the data provided by `QueryBoundary.Context` may be missing. */
+  /** The component responsible for handling cases when the data provided by the boundary creator may be missing. */
   Nullable: (
     props: Omit<QueryBoundaryNullableProps, "data" | "isLoading" | "error">,
   ) => JSX.Element;

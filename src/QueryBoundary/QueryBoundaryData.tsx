@@ -21,7 +21,7 @@ export interface QueryBoundaryDataProps<DataType> {
 }
 
 /**
- * The component responsible for showing the data provided by QueryBoundaryProvider.
+ * The component responsible for showing the data provided.
  *
  * @template DataType - The type of data being loaded.
  */
