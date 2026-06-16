@@ -7,6 +7,7 @@ export { default as QueryBoundaryListWrapper } from "src/QueryBoundary/QueryBoun
 export { default as QueryBoundaryNullable } from "src/QueryBoundary/QueryBoundaryNullable";
 export { useQueryBoundaryContext } from "src/QueryBoundary/QueryBoundaryProvider";
 export { default as QueryBoundaryProvider } from "src/QueryBoundary/QueryBoundaryProvider";
+export { default as QueryBoundaryValue } from "src/QueryBoundary/QueryBoundaryValue";
 
 export * from "src/QueryBoundary/creators";
 
@@ -31,3 +32,10 @@ export type {
   QueryBoundaryProviderProps,
   QueryBoundaryContextValue,
 } from "src/QueryBoundary/QueryBoundaryProvider";
+export type {
+  QueryBoundaryValueBaseProps,
+  QueryBoundaryValueProps,
+  QueryBoundaryValuePropsWithChildren,
+  QueryBoundaryValuePropsWithNoFormatter,
+  QueryBoundaryValuePropsWithValueFormatter,
+} from "src/QueryBoundary/QueryBoundaryValue";
