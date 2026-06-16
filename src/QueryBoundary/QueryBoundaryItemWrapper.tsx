@@ -14,7 +14,7 @@ export type QueryBoundaryItemWrapperProps<DataType> = QueryBoundaryContextValue<
 
 /**
  * An in-line component that deals with state management when fetching data from an API.
- * This may be used over QueryBoundaryProvider if you don't require as much control over the placement of the error message and data display.
+ * This may be used over `createItemQueryBoundary` if you don't require as much control over the placement of the error message and data display.
  *
  * @template DataType - The type of data being loaded.
  */

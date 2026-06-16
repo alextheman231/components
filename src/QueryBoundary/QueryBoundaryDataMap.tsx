@@ -61,13 +61,13 @@ export type QueryBoundaryDataMapProps<ItemType> =
   | QueryBoundaryDataMapPropsWithNoParser<ItemType>;
 
 /**
- * The component responsible for handling an array of data provided by `QueryBoundaryProvider`.
+ * The component responsible for handling an array of data provided.
  *
  * It will map through the data array, rendering the result of the children function in a fragment with a key of its index in the list, unless overridden by the `itemKey` prop.
  *
  * @template ItemType - The type of data being loaded.
  *
- * @throws {DataError} If the data provided by `QueryBoundaryProvider` is not an array, and the `strictlyRequireArray` prop is `true` (it is by default).
+ * @throws {DataError} If the data provided is not an array, and the `strictlyRequireArray` prop is `true` (it is by default).
  */
 function QueryBoundaryDataMap<ItemType>({
   children,

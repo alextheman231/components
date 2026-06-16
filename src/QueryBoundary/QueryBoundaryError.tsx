@@ -16,7 +16,7 @@ export interface QueryBoundaryErrorProps {
 }
 
 /**
- * The component responsible for showing any errors provided by QueryBoundaryProvider.
+ * The component responsible for showing any errors provided.
  */
 function QueryBoundaryError({ children, data, error, logError }: QueryBoundaryErrorProps) {
   const warnedOnceRef = useRef(false);

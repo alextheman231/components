@@ -22,7 +22,7 @@ export interface DefaultQueryBoundaryListComponents<
   ItemType,
 > extends DefaultQueryBoundaryComponentsBase {
   /**
-   * The component responsible for handling an array of data provided by `QueryBoundary.Context`.
+   * The component responsible for handling an array of data provided by `createListQueryBoundary`.
    *
    * It will map through the data array, rendering the result of the children function in a fragment with a key of its index in the list, unless overridden by the `itemKey` prop.
    *
