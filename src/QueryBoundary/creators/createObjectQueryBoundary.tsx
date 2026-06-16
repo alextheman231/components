@@ -1,12 +1,10 @@
 import type { JSX } from "react";
 
-import type {
-  DefaultQueryBoundaryComponentsBase,
-  QueryBase,
-} from "src/QueryBoundary/creators/createBaseQueryBoundary";
+import type { QueryBase } from "src/QueryBoundary/creators/createBaseQueryBoundary";
+import type { DefaultQueryBoundaryItemComponents } from "src/QueryBoundary/creators/createItemQueryBoundary";
 import type { QueryBoundaryValueProps } from "src/QueryBoundary/QueryBoundaryValue";
 
-import createBaseQueryBoundary from "src/QueryBoundary/creators/createBaseQueryBoundary";
+import createItemQueryBoundary from "src/QueryBoundary/creators/createItemQueryBoundary";
 import QueryBoundaryValue from "src/QueryBoundary/QueryBoundaryValue";
 
 export interface QueryObject<DataType extends object = Record<PropertyKey, unknown>> extends Omit<
@@ -25,7 +23,7 @@ export interface CreateObjectQueryBoundaryParameters<
 
 export interface DefaultQueryBoundaryObjectComponents<
   DataType extends object = Record<PropertyKey, unknown>,
-> extends DefaultQueryBoundaryComponentsBase {
+> extends DefaultQueryBoundaryItemComponents<DataType> {
   /**
    * The component responsible for handling values from the data object provided in `createObjectQueryBoundary`.
    *
@@ -44,7 +42,7 @@ export interface DefaultQueryBoundaryObjectComponents<
 function createObjectQueryBoundary<DataType extends object = Record<PropertyKey, unknown>>({
   query,
 }: CreateObjectQueryBoundaryParameters<DataType>): DefaultQueryBoundaryObjectComponents<DataType> {
-  const baseComponents = createBaseQueryBoundary({ query });
+  const baseComponents = createItemQueryBoundary({ query });
 
   return {
     ...baseComponents,
