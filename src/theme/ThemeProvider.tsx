@@ -52,6 +52,14 @@ function ThemeProvider({ children, mode: modeProp = "dark", themeOptions }: Them
         ...omitProperties(themeOptions?.palette ?? {}, ["mode"]),
       },
       components: {
+        MuiButtonBase: {
+          styleOverrides: {
+            root: {
+              textTransform: "none ! important",
+            },
+          },
+          ...omitProperties(themeOptions?.components?.MuiButtonBase ?? {}, "styleOverrides"),
+        },
         MuiPaper: {
           styleOverrides: {
             root: ({ theme }) => {
@@ -65,7 +73,7 @@ function ThemeProvider({ children, mode: modeProp = "dark", themeOptions }: Them
           },
           ...omitProperties(themeOptions?.components?.MuiPaper ?? {}, "styleOverrides"),
         },
-        ...omitProperties(themeOptions?.components ?? {}, "MuiPaper"),
+        ...omitProperties(themeOptions?.components ?? {}, ["MuiPaper", "MuiButtonBase"]),
       },
       ...omitProperties(themeOptions ?? {}, ["components", "palette"]),
     });
