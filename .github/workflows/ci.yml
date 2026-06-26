@@ -13,12 +13,12 @@ permissions:
 
 jobs:
   package-ci:
-    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@3a7c224f60dbd26c8e2f31738236b6cbc8dd96e7 # v12.0.0
+    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@5a51ff516a9036a0f71712e2028f28d7e6fe955b # v12.0.1
     with:
       use_playwright: true
 
   actions-ci:
-    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@3a7c224f60dbd26c8e2f31738236b6cbc8dd96e7 # v12.0.0
+    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@5a51ff516a9036a0f71712e2028f28d7e6fe955b # v12.0.1
 
   end-to-end-ci:
     if: ${{ github.head_ref != 'alex-up-bot/change-major-version' && github.head_ref != 'alex-up-bot/change-minor-version' && github.head_ref != 'alex-up-bot/change-patch-version' }}
@@ -42,7 +42,7 @@ jobs:
           cache: "pnpm"
 
       - name: Cache Playwright browsers
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml', 'playwright.config.ts') }}
