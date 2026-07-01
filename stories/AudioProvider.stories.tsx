@@ -29,3 +29,21 @@ export const Main: Story = {
     );
   },
 };
+
+export const Loop: Story = {
+  render: () => {
+    const tracks: Array<TrackData> = [
+      {
+        title: "Test",
+        artist: "Test Artist",
+        src: "stories/fixtures/woo.mp3",
+      },
+    ];
+
+    return (
+      <AudioProvider tracks={tracks}>
+        <AudioControls loop />
+      </AudioProvider>
+    );
+  },
+};
