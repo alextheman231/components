@@ -23,11 +23,11 @@ function Snackbars() {
 
   useEffect(() => {
     if (!open && snackbars.length !== 0) {
-      /* eslint-disable @eslint-react/set-state-in-effect -- This is a legitimate usage as we need to be able to control exactly when the  snackbar gets added/shown. */
+      /* eslint-disable @eslint-react/set-state-in-effect -- This is a legitimate usage as we need to be able to control exactly when the snackbar gets added/shown. */
       setCurrentSnackbar(snackbars[0]);
       removeSnackbar();
       setOpen(true);
-      /* eslint-enable */
+      /* eslint-enable -- Re-enable linting */
     }
   }, [open, removeSnackbar, snackbars]);
 

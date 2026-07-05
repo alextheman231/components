@@ -37,7 +37,7 @@ export function useDropdownMenuContext<Strict extends boolean = true>({
   return context as OptionalOnCondition<Strict, DropdownMenuContextValue>;
 }
 
-// eslint-disable-next-line jsdoc/require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc -- It is an internal function so no need to document it.
 export function useDropdownMenuContextInternal<Strict extends boolean = true>({
   strict = true as Strict,
 }: ContextHookOptions<Strict> = {}): OptionalOnCondition<Strict, DropdownMenuInternalContextValue> {
