@@ -135,7 +135,7 @@
     "styled-components": "6.4.3",
     "tempy": "3.2.0",
     "tsdown": "0.22.4",
-    "typescript": "7.0.2",
+    "typescript": "6.0.3",
     "typescript-eslint": "8.63.0",
     "unrun": "0.3.1",
     "vitest": "4.1.10",
