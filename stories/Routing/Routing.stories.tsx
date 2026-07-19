@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { UUID_PATTERN } from "@alextheman/utility";
+import { UUID_REGEX_PATTERN } from "@alextheman/utility";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import NESTED_ROUTE from "stories/Routing/helpers/constants/NESTED_ROUTE";
@@ -243,7 +243,7 @@ export const ParametricRoute: Story = {
               <InternalLink to="/users/hello">Fake link to user details</InternalLink>
             </Stack>
           </Route>
-          <Route<{ userId: string }> path={RegExp(`^/users/(?<userId>${UUID_PATTERN})`)}>
+          <Route<{ userId: string }> path={RegExp(`^/users/(?<userId>${UUID_REGEX_PATTERN})`)}>
             {({ userId }) => {
               return (
                 <Stack spacing={1}>
