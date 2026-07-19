@@ -1,5 +1,7 @@
 import type { Key, ReactNode } from "react";
 
+import type { QueryBoundaryNullabilityFallbackProps } from "src/QueryBoundary/types/QueryBoundaryNullabilityProps";
+
 import { DataError } from "@alextheman/utility/v6";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
@@ -55,10 +57,13 @@ export interface QueryBoundaryDataMapPropsWithNoParser<
   itemParser?: never;
 }
 
-export type QueryBoundaryDataMapProps<ItemType> =
+export type QueryBoundaryDataMapParserProps<ItemType> =
   | QueryBoundaryDataMapPropsWithItemParser<ItemType>
   | QueryBoundaryDataMapPropsWithDataParser<ItemType>
   | QueryBoundaryDataMapPropsWithNoParser<ItemType>;
+
+export type QueryBoundaryDataMapProps<ItemType> = QueryBoundaryDataMapParserProps<ItemType> &
+  QueryBoundaryNullabilityFallbackProps;
 
 /**
  * The component responsible for handling an array of data provided.
@@ -80,6 +85,9 @@ function QueryBoundaryDataMap<ItemType>({
   data,
   isLoading,
   error,
+  undefinedFallback,
+  nullFallback,
+  nullableFallback,
 }: QueryBoundaryDataMapProps<ItemType>) {
   if (isLoading) {
     return <>{loadingFallback}</>;
@@ -90,7 +98,23 @@ function QueryBoundaryDataMap<ItemType>({
   }
 
   if (data === null || data === undefined) {
-    return null;
+    if (nullableFallback !== undefined) {
+      return <>{nullableFallback}</>;
+    }
+
+    if (data === undefined) {
+      if (undefinedFallback !== undefined) {
+        return <>{undefinedFallback}</>;
+      }
+      return <Typography>No data available.</Typography>;
+    }
+
+    if (data === null) {
+      if (nullFallback !== undefined) {
+        return <>{nullFallback}</>;
+      }
+      return <Typography>No data found.</Typography>;
+    }
   }
 
   if (!Array.isArray(data)) {

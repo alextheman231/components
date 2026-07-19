@@ -1,16 +1,13 @@
 import type { ReactNode } from "react";
 
 import type { QueryBoundaryDataProps } from "src/QueryBoundary/QueryBoundaryData";
-import type { QueryBoundaryFallbackProps } from "src/QueryBoundary/QueryBoundaryFallback";
-import type { QueryBoundaryContextValue } from "src/QueryBoundary/QueryBoundaryProvider";
-
-import CircularProgress from "@mui/material/CircularProgress";
+import type { QueryBoundaryErrorProps } from "src/QueryBoundary/QueryBoundaryError";
 
 import createItemQueryBoundary from "src/QueryBoundary/creators/createItemQueryBoundary";
 
-export type QueryBoundaryItemWrapperProps<DataType> = QueryBoundaryContextValue<DataType> &
-  QueryBoundaryFallbackProps &
-  QueryBoundaryDataProps<DataType>;
+export type QueryBoundaryItemWrapperProps<DataType> = Omit<QueryBoundaryErrorProps, "children"> & {
+  errorFallback?: ReactNode;
+} & QueryBoundaryDataProps<DataType>;
 
 /**
  * An in-line component that deals with state management when fetching data from an API.
@@ -19,49 +16,19 @@ export type QueryBoundaryItemWrapperProps<DataType> = QueryBoundaryContextValue<
  * @template DataType - The type of data being loaded.
  */
 function QueryBoundaryItemWrapper<DataType>({
-  children,
   errorFallback,
-  undefinedFallback,
-  nullFallback,
-  nullableFallback,
   logError,
-  loadingFallback = <CircularProgress />,
   isLoading,
   error,
   data,
-  dataParser,
+  ...queryBoundaryDataProps
 }: QueryBoundaryItemWrapperProps<DataType>) {
   const QueryBoundary = createItemQueryBoundary({ query: { isLoading, error, data } });
 
-  let boundaryFallbackComponent: ReactNode = (
-    <QueryBoundary.Fallback logError={logError} errorFallback={errorFallback} />
-  );
-
-  if (nullableFallback !== undefined) {
-    boundaryFallbackComponent = (
-      <QueryBoundary.Fallback
-        nullableFallback={nullableFallback}
-        logError={logError}
-        errorFallback={errorFallback}
-      />
-    );
-  } else if (undefinedFallback !== undefined || nullFallback !== undefined) {
-    boundaryFallbackComponent = (
-      <QueryBoundary.Fallback
-        undefinedFallback={undefinedFallback}
-        nullFallback={nullFallback}
-        logError={logError}
-        errorFallback={errorFallback}
-      />
-    );
-  }
-
   return (
     <>
-      {boundaryFallbackComponent}
-      <QueryBoundary.Data loadingFallback={loadingFallback} dataParser={dataParser}>
-        {children}
-      </QueryBoundary.Data>
+      <QueryBoundary.Error logError={logError}>{errorFallback}</QueryBoundary.Error>
+      <QueryBoundary.Data {...queryBoundaryDataProps} />
     </>
   );
 }

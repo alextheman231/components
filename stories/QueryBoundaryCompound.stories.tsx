@@ -40,7 +40,7 @@ export const Main: Story = {
     return (
       <>
         <QueryBoundary.Error />
-        <QueryBoundary.Data>
+        <QueryBoundary.Data nullableFallback={<Typography>No data found</Typography>}>
           {(item) => {
             return (
               <TableContainer>
@@ -64,7 +64,6 @@ export const Main: Story = {
             );
           }}
         </QueryBoundary.Data>
-        <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
       </>
     );
   },
@@ -118,7 +117,6 @@ export const Object: Story = {
             </TableBody>
           </Table>
         </TableContainer>
-        <QueryBoundary.Nullable nullableFallback={<Typography>No data found</Typography>} />
       </>
     );
   },

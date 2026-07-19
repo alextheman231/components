@@ -1,12 +1,12 @@
 import type { JSX, ReactNode } from "react";
 
+import type { QueryBoundaryFallbackProps } from "src/QueryBoundary/deprecated/QueryBoundaryFallback";
+import type { QueryBoundaryNullableProps } from "src/QueryBoundary/deprecated/QueryBoundaryNullable";
 import type { QueryBoundaryErrorProps } from "src/QueryBoundary/QueryBoundaryError";
-import type { QueryBoundaryFallbackProps } from "src/QueryBoundary/QueryBoundaryFallback";
-import type { QueryBoundaryNullableProps } from "src/QueryBoundary/QueryBoundaryNullable";
 
+import QueryBoundaryFallback from "src/QueryBoundary/deprecated/QueryBoundaryFallback";
+import QueryBoundaryNullable from "src/QueryBoundary/deprecated/QueryBoundaryNullable";
 import QueryBoundaryError from "src/QueryBoundary/QueryBoundaryError";
-import QueryBoundaryFallback from "src/QueryBoundary/QueryBoundaryFallback";
-import QueryBoundaryNullable from "src/QueryBoundary/QueryBoundaryNullable";
 
 export interface QueryBase<DataType> {
   /** The current loading status (true if loading, false if not) */
@@ -30,11 +30,19 @@ export interface DefaultQueryBoundaryComponentsBase {
   Context: (props: { children: ReactNode }) => JSX.Element | null;
   /** The component responsible for showing any errors provided by the boundary creator. */
   Error: (props: Omit<QueryBoundaryErrorProps, "data" | "isLoading" | "error">) => JSX.Element;
-  /** The component responsible for handling both errors and nullable data from the boundary creator.*/
+  /**
+   * The component responsible for handling both errors and nullable data from the boundary creator.
+   *
+   * @deprecated Please use `QueryBoundaryError` and/or the `undefinedFallback`, `nullFallback`, and `nullableFallback` props on the `QueryBoundaryData`, `QueryBoundaryDataMap`, and `QueryBoundaryValue` components instead.
+   */
   Fallback: (
     props: Omit<QueryBoundaryFallbackProps, "data" | "isLoading" | "error">,
   ) => JSX.Element;
-  /** The component responsible for handling cases when the data provided by the boundary creator may be missing. */
+  /**
+   * The component responsible for handling cases when the data provided by the boundary creator may be missing.
+   *
+   * @deprecated Please use the `undefinedFallback`, `nullFallback`, and `nullableFallback` props on the `QueryBoundaryData`, `QueryBoundaryDataMap`, and `QueryBoundaryValue` components instead.
+   */
   Nullable: (
     props: Omit<QueryBoundaryNullableProps, "data" | "isLoading" | "error">,
   ) => JSX.Element;

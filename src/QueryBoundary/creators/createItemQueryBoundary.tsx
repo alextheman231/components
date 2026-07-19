@@ -39,7 +39,21 @@ function createItemQueryBoundary<DataType>({
 
   return {
     ...baseComponents,
-    Data: (props) => {
+    Data: ({ undefinedFallback, nullFallback, nullableFallback, ...props }) => {
+      if (nullableFallback !== undefined) {
+        return <QueryBoundaryData {...query} {...props} nullableFallback={nullableFallback} />;
+      }
+      if (undefinedFallback !== undefined || nullFallback !== undefined) {
+        return (
+          <QueryBoundaryData
+            {...query}
+            {...props}
+            undefinedFallback={undefinedFallback}
+            nullFallback={nullFallback}
+          />
+        );
+      }
+
       return <QueryBoundaryData {...query} {...props} />;
     },
   };
