@@ -6,7 +6,7 @@ import type { QueryBoundaryErrorProps } from "src/QueryBoundary/QueryBoundaryErr
 import createItemQueryBoundary from "src/QueryBoundary/creators/createItemQueryBoundary";
 
 export type QueryBoundaryItemWrapperProps<DataType> = Omit<QueryBoundaryErrorProps, "children"> & {
-  errorFallback?: ReactNode;
+  errorFallback?: ReactNode | ((error: unknown) => ReactNode);
 } & QueryBoundaryDataProps<DataType>;
 
 /**
