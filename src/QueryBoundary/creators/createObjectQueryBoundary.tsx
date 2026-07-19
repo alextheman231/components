@@ -46,19 +46,78 @@ function createObjectQueryBoundary<DataType extends object = Record<PropertyKey,
 
   return {
     ...baseComponents,
-    Value: ({ valueFormatter, children, ...props }) => {
+    Value: ({
+      valueFormatter,
+      children,
+      undefinedFallback,
+      nullFallback,
+      nullableFallback,
+      ...props
+    }) => {
       if (valueFormatter !== undefined) {
+        if (nullableFallback !== undefined) {
+          return (
+            <QueryBoundaryValue
+              {...query}
+              valueFormatter={valueFormatter}
+              nullableFallback={nullableFallback}
+              {...props}
+            />
+          );
+        }
+        if (undefinedFallback !== undefined || nullFallback !== undefined) {
+          return (
+            <QueryBoundaryValue
+              {...query}
+              valueFormatter={valueFormatter}
+              undefinedFallback={undefinedFallback}
+              nullFallback={nullFallback}
+              {...props}
+            />
+          );
+        }
         return <QueryBoundaryValue {...query} valueFormatter={valueFormatter} {...props} />;
       }
 
       if (children !== undefined) {
+        if (nullableFallback !== undefined) {
+          return (
+            <QueryBoundaryValue {...query} nullableFallback={nullableFallback} {...props}>
+              {children}
+            </QueryBoundaryValue>
+          );
+        }
+        if (undefinedFallback !== undefined || nullFallback !== undefined) {
+          return (
+            <QueryBoundaryValue
+              {...query}
+              undefinedFallback={undefinedFallback}
+              nullFallback={nullFallback}
+              {...props}
+            >
+              {children}
+            </QueryBoundaryValue>
+          );
+        }
         return (
           <QueryBoundaryValue {...query} {...props}>
             {children}
           </QueryBoundaryValue>
         );
       }
-
+      if (nullableFallback !== undefined) {
+        return <QueryBoundaryValue {...query} nullableFallback={nullableFallback} {...props} />;
+      }
+      if (undefinedFallback !== undefined || nullFallback !== undefined) {
+        return (
+          <QueryBoundaryValue
+            {...query}
+            undefinedFallback={undefinedFallback}
+            nullFallback={nullFallback}
+            {...props}
+          />
+        );
+      }
       return <QueryBoundaryValue {...query} {...props} />;
     },
   };

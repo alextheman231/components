@@ -1,8 +1,11 @@
 import type { ReactNode } from "react";
 
-import CircularProgress from "@mui/material/CircularProgress";
+import type { QueryBoundaryNullabilityFallbackProps } from "src/QueryBoundary/types/QueryBoundaryNullabilityProps";
 
-export interface QueryBoundaryDataProps<DataType> {
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
+
+export interface QueryBoundaryDataPropsBase<DataType> {
   /**
    * The elements to show after data has been loaded.
    * This is best provided as a function with a data argument that guarantees the data will not be undefined by the time you receive it here.
@@ -20,6 +23,9 @@ export interface QueryBoundaryDataProps<DataType> {
   error?: unknown;
 }
 
+export type QueryBoundaryDataProps<DataType> = QueryBoundaryDataPropsBase<DataType> &
+  QueryBoundaryNullabilityFallbackProps;
+
 /**
  * The component responsible for showing the data provided.
  *
@@ -32,6 +38,9 @@ function QueryBoundaryData<DataType>({
   data,
   isLoading,
   error,
+  undefinedFallback,
+  nullFallback,
+  nullableFallback,
 }: QueryBoundaryDataProps<DataType>) {
   if (error) {
     return null;
@@ -42,7 +51,23 @@ function QueryBoundaryData<DataType>({
   }
 
   if (data === null || data === undefined) {
-    return null;
+    if (nullableFallback !== undefined) {
+      return <>{nullableFallback}</>;
+    }
+
+    if (data === undefined) {
+      if (undefinedFallback !== undefined) {
+        return <>{undefinedFallback}</>;
+      }
+      return <Typography>No data available.</Typography>;
+    }
+
+    if (data === null) {
+      if (nullFallback !== undefined) {
+        return <>{nullFallback}</>;
+      }
+      return <Typography>No data found.</Typography>;
+    }
   }
 
   return (

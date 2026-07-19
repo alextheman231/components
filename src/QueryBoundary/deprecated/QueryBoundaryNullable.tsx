@@ -28,7 +28,11 @@ export interface QueryBoundaryNullablePropsWithNullable extends QueryBoundaryNul
 export type QueryBoundaryNullableProps =
   QueryBoundaryNullablePropsWithUndefinedOrNull | QueryBoundaryNullablePropsWithNullable;
 
-/** The component responsible for handling cases when the data provided may be missing. */
+/**
+ * The component responsible for handling cases when the data provided may be missing.
+ *
+ * @deprecated Please use the `undefinedFallback`, `nullFallback`, and `nullableFallback` props on the `QueryBoundaryData`, `QueryBoundaryDataMap`, and `QueryBoundaryValue` components instead.
+ */
 function QueryBoundaryNullable({
   undefinedFallback,
   nullFallback,

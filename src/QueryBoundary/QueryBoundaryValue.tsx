@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
 
+import type { QueryBoundaryNullabilityFallbackProps } from "src/QueryBoundary/types/QueryBoundaryNullabilityProps";
+
 import { DataError } from "@alextheman/utility/v6";
 import Skeleton from "@mui/material/Skeleton";
+import Typography from "@mui/material/Typography";
 
 export interface QueryBoundaryValueBaseProps<DataType extends object, Key extends keyof DataType> {
   /** The current loading status (true if loading, false if not) */
@@ -46,10 +49,15 @@ export interface QueryBoundaryValuePropsWithNoFormatter<
   valueFormatter?: never;
 }
 
-export type QueryBoundaryValueProps<DataType extends object, Key extends keyof DataType> =
+export type QueryBoundaryValueFormatterProps<DataType extends object, Key extends keyof DataType> =
   | QueryBoundaryValuePropsWithValueFormatter<DataType, Key>
   | QueryBoundaryValuePropsWithChildren<DataType, Key>
   | QueryBoundaryValuePropsWithNoFormatter<DataType, Key>;
+
+export type QueryBoundaryValueProps<
+  DataType extends object,
+  Key extends keyof DataType,
+> = QueryBoundaryValueFormatterProps<DataType, Key> & QueryBoundaryNullabilityFallbackProps;
 
 /**
  * The component responsible for handling values from the data object provided.
@@ -70,6 +78,9 @@ function QueryBoundaryValue<DataType extends object, Key extends keyof DataType>
   dataParser,
   children,
   strictlyRequireObject = true,
+  undefinedFallback,
+  nullFallback,
+  nullableFallback,
 }: QueryBoundaryValueProps<DataType, Key>) {
   if (isLoading) {
     return <>{loadingFallback}</>;
@@ -80,7 +91,23 @@ function QueryBoundaryValue<DataType extends object, Key extends keyof DataType>
   }
 
   if (data === null || data === undefined) {
-    return null;
+    if (nullableFallback !== undefined) {
+      return <>{nullableFallback}</>;
+    }
+
+    if (data === undefined) {
+      if (undefinedFallback !== undefined) {
+        return <>{undefinedFallback}</>;
+      }
+      return <Typography>No data available.</Typography>;
+    }
+
+    if (data === null) {
+      if (nullFallback !== undefined) {
+        return <>{nullFallback}</>;
+      }
+      return <Typography>No data found.</Typography>;
+    }
   }
 
   if (typeof data !== "object" && strictlyRequireObject) {
