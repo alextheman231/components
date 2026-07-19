@@ -243,7 +243,7 @@ export const ParametricRoute: Story = {
               <InternalLink to="/users/hello">Fake link to user details</InternalLink>
             </Stack>
           </Route>
-          <Route<{ userId: string }> path={RegExp(`^/users/(?<userId>${UUID_REGEX_PATTERN})`)}>
+          <Route<{ userId: string }> path={RegExp(`^/users/(?<userId>${UUID_REGEX_PATTERN})$`)}>
             {({ userId }) => {
               return (
                 <Stack spacing={1}>
