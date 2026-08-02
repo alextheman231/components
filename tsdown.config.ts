@@ -53,6 +53,10 @@ const config: Array<UserConfig> = [
     entry: ["src/theme/index.ts"],
     outDir: "dist/theme",
   },
+  {
+    entry: ["src/v8/theme/index.ts"],
+    outDir: "dist/v8/theme",
+  },
 ].map(({ entry, outDir }) => {
   return {
     entry,
