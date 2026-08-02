@@ -2,10 +2,10 @@ import type { StoryContext } from "@storybook/react-vite";
 import type { ReactNode } from "react";
 
 import { VersionNumber } from "@alextheman/utility";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { Page } from "src/root";
-import { ThemeProvider } from "src/theme";
-import ThemeToggle from "src/theme/ThemeToggle";
+import { defaultThemeOptions, ThemeToggle } from "src/v8/theme";
 
 import { name as packageName, version } from "package.json" with { type: "json" };
 
@@ -15,8 +15,10 @@ interface StoryWrapperProps {
 }
 
 function StoryWrapper({ Story, context }: StoryWrapperProps) {
+  const theme = createTheme(defaultThemeOptions);
+
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <Page
         title={`${context.title} / ${context.name}`}
         subtitle={`${packageName} • ${new VersionNumber(version)}`}

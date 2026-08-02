@@ -50,6 +50,10 @@
     "./theme": {
       "types": "./dist/theme/index.d.ts",
       "import": "./dist/theme/index.js"
+    },
+    "./v8/theme": {
+      "types": "./dist/v8/theme/index.d.ts",
+      "import": "./dist/v8/theme/index.js"
     }
   },
   "files": [
