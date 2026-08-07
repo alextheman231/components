@@ -13,12 +13,12 @@ permissions:
 
 jobs:
   package-ci:
-    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@2b88b428425b25d437ecf743fc320528a9a25f4a # v12.5.0
+    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@760f1347c1597e458ce3e966112d7278ed15c059 # v12.5.1
     with:
       use_playwright: true
 
   actions-ci:
-    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@2b88b428425b25d437ecf743fc320528a9a25f4a # v12.5.0
+    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@760f1347c1597e458ce3e966112d7278ed15c059 # v12.5.1
 
   end-to-end-ci:
     if: ${{ github.head_ref != 'alex-up-bot/change-major-version' && github.head_ref != 'alex-up-bot/change-minor-version' && github.head_ref != 'alex-up-bot/change-patch-version' }}
@@ -31,7 +31,7 @@ jobs:
           persist-credentials: false
 
       - name: Use PNPM
-        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
         with:
           run_install: false
 
