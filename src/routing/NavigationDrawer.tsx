@@ -145,7 +145,7 @@ export interface NavMenuItem {
 
 export interface NavigationDrawerProps {
   /** The title to display at the top of the wrapper. */
-  title: string;
+  title: ReactNode;
   /** An array of nav items to show. */
   navItems: Array<NavMenuItem>;
   /** Any extra elements to add to the header. */
@@ -187,9 +187,13 @@ function NavigationDrawer({ title, navItems, children, headerElements }: Navigat
           >
             <MdMenu />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            {title}
-          </Typography>
+          {typeof title === "string" ? (
+            <Typography variant="h6" noWrap component="div">
+              {title}
+            </Typography>
+          ) : (
+            title
+          )}
           <Box sx={{ marginLeft: "auto" }}>{headerElements}</Box>
         </Toolbar>
       </AppBar>
