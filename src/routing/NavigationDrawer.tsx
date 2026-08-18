@@ -164,8 +164,8 @@ function NavigationDrawer({
   navItems,
   children,
   headerElements,
-  openIcon = <MdMenu />,
-  closedIcon = <MdMenu />,
+  openIcon,
+  closedIcon,
 }: NavigationDrawerProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
@@ -196,7 +196,7 @@ function NavigationDrawer({
               open && { display: "none" },
             ]}
           >
-            {open ? openIcon : closedIcon}
+            {openIcon !== undefined ? openIcon : <MdMenu />}
           </IconButton>
           {typeof title === "string" ? (
             <Typography variant="h6" noWrap component="div">
@@ -211,7 +211,13 @@ function NavigationDrawer({
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? <MdChevronRight /> : <MdChevronLeft />}
+            {closedIcon !== undefined ? (
+              closedIcon
+            ) : theme.direction === "rtl" ? (
+              <MdChevronRight />
+            ) : (
+              <MdChevronLeft />
+            )}
           </IconButton>
         </DrawerHeader>
         <Divider />
