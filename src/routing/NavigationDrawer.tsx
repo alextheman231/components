@@ -152,10 +152,21 @@ export interface NavigationDrawerProps {
   headerElements?: ReactNode;
   /** Children to display within the wrapper. */
   children: ReactNode;
+  /** The icon to show when the drawer is open. */
+  openIcon?: ReactNode;
+  /** The icon to show when the drawer is closed. */
+  closedIcon?: ReactNode;
 }
 
 /** Renders a collapsable drawer to help with navigation. Best used as the main means of navigation on desktop apps. */
-function NavigationDrawer({ title, navItems, children, headerElements }: NavigationDrawerProps) {
+function NavigationDrawer({
+  title,
+  navItems,
+  children,
+  headerElements,
+  openIcon = <MdMenu />,
+  closedIcon = <MdMenu />,
+}: NavigationDrawerProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [location] = useAbsoluteLocation();
@@ -185,7 +196,7 @@ function NavigationDrawer({ title, navItems, children, headerElements }: Navigat
               open && { display: "none" },
             ]}
           >
-            <MdMenu />
+            {open ? openIcon : closedIcon}
           </IconButton>
           {typeof title === "string" ? (
             <Typography variant="h6" noWrap component="div">
