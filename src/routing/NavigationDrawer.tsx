@@ -196,7 +196,7 @@ function NavigationDrawer({
               open && { display: "none" },
             ]}
           >
-            {openIcon !== undefined ? openIcon : <MdMenu />}
+            {closedIcon !== undefined ? closedIcon : <MdMenu />}
           </IconButton>
           {typeof title === "string" ? (
             <Typography variant="h6" noWrap component="div">
@@ -211,8 +211,8 @@ function NavigationDrawer({
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {closedIcon !== undefined ? (
-              closedIcon
+            {openIcon !== undefined ? (
+              openIcon
             ) : theme.direction === "rtl" ? (
               <MdChevronRight />
             ) : (
