@@ -60,32 +60,20 @@
        rx="15.402174"
        ry="15.610311"
        inkscape:label="circle" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.7531px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#1a97f9;fill-opacity:1;fill-rule:evenodd;stroke-width:0.371693"
-       x="22.010052"
-       y="39.036236"
+    <path
+       style="font-size:27.7532px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#1a97f9;fill-rule:evenodd;stroke-width:0.371693"
+       d="m 40.629631,39.036236 h -2.859339 l -1.9785,-5.623818 h -8.72708 l -1.9785,5.623818 H 22.362387 L 29.707228,18.85825 h 3.577561 z m -5.664472,-7.92755 -3.536907,-9.90605 -3.550458,9.90605 z"
        id="text1"
+       inkscape:label="A"
        transform="scale(1.0536532,0.94907888)"
-       inkscape:label="A"><tspan
-         sodipodi:role="line"
-         id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.7532px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#1a97f9;fill-opacity:1;stroke-width:0.371693"
-         x="22.010052"
-         y="39.036236">A</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.7427px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#1a97f9;fill-opacity:1;fill-rule:evenodd;stroke-width:0.304588"
-       x="50.240547"
-       y="36.70092"
+       aria-label="A" />
+    <path
+       d="M 54.40486,36.70092 H 52.317151 V 19.421798 H 54.40486 Z M 68.918878,30.715414 H 59.7796 q 0,1.143798 0.34425,1.998871 0.344249,0.843967 0.94391,1.388104 0.577452,0.533032 1.365895,0.799548 0.799548,0.266516 1.754564,0.266516 1.265951,0 2.543007,-0.499718 1.288161,-0.510822 1.832298,-0.999435 h 0.111048 v 2.276491 q -1.054959,0.444194 -2.154338,0.744024 -1.099379,0.299831 -2.309805,0.299831 -3.087144,0 -4.819499,-1.665725 -1.732354,-1.67683 -1.732354,-4.752869 0,-3.042725 1.654621,-4.830603 1.665725,-1.787879 4.375304,-1.787879 2.509693,0 3.864483,1.465838 1.365894,1.465839 1.365894,4.164313 z m -2.032184,-1.599096 q -0.01111,-1.643515 -0.832863,-2.543007 -0.810653,-0.899491 -2.476378,-0.899491 -1.67683,0 -2.676265,0.98833 -0.98833,0.98833 -1.121588,2.454168 z M 82.822131,36.70092 H 80.190285 L 76.670053,31.936946 73.12761,36.70092 H 70.695652 L 75.53736,30.515527 70.740071,24.29682 h 2.631846 l 3.498023,4.68624 3.509127,-4.68624 h 2.443064 l -4.875022,6.107659 z"
        id="text2"
+       style="font-size:22.7427px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#1a97f9;fill-rule:evenodd;stroke-width:0.304588"
        inkscape:label="lex"
-       transform="scale(0.97782632,1.0226765)"><tspan
-         sodipodi:role="line"
-         id="tspan2"
-         style="stroke-width:0.304588"
-         x="50.240547"
-         y="36.70092">lex</tspan></text>
+       transform="scale(0.97782632,1.0226765)"
+       aria-label="lex" />
     <g
        id="g12"
        transform="translate(3.1220622,1.2488249)"
@@ -126,39 +114,21 @@
          d="M 6.2832611,83.617209 C 11.637957,86.736744 16.976421,88.465841 24.816997,83.40823"
          id="path16-9-2"
          sodipodi:nodetypes="cc" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17222px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#1a97f9;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         x="13.361585"
-         y="67.482094"
-         id="text16"><tspan
-           sodipodi:role="line"
-           id="tspan16"
-           style="font-size:9.17222px;fill:#1a97f9;fill-opacity:1;stroke-width:0.264583"
-           x="13.361585"
-           y="67.482094">t</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#1a97f9;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         x="12.772885"
-         y="76.25309"
-         id="text17"><tspan
-           sodipodi:role="line"
-           id="tspan17"
-           style="stroke-width:0.264583"
-           x="12.772885"
-           y="76.25309">h</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#1a97f9;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         x="12.920055"
-         y="84.463478"
-         id="text18"><tspan
-           sodipodi:role="line"
-           id="tspan18"
-           style="stroke-width:0.264583"
-           x="12.920055"
-           y="84.463478">e</tspan></text>
+      <path
+         d="m 16.787731,67.437308 q -0.237367,0.0627 -0.51952,0.103008 -0.277675,0.04031 -0.497127,0.04031 -0.765845,0 -1.164442,-0.412034 -0.398598,-0.412033 -0.398598,-1.321194 v -2.660302 h -0.568785 v -0.707622 h 0.568785 v -1.437638 h 0.841982 v 1.437638 h 1.737705 v 0.707622 h -1.737705 v 2.279619 q 0,0.394119 0.01791,0.61805 0.01792,0.219453 0.125402,0.412034 0.09853,0.179145 0.268717,0.264238 0.174666,0.08062 0.528477,0.08062 0.206017,0 0.429948,-0.05822 0.223931,-0.0627 0.322461,-0.103009 h 0.04479 z"
+         id="text16"
+         style="font-size:9.17222px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#1a97f9;fill-rule:evenodd;stroke-width:0.264583"
+         aria-label="t" />
+      <path
+         d="m 17.78447,76.25309 h -0.841982 v -2.848407 q 0,-0.344855 -0.04031,-0.644923 -0.04031,-0.304546 -0.147795,-0.474734 -0.111965,-0.188103 -0.322461,-0.277675 -0.210495,-0.09405 -0.546392,-0.09405 -0.344855,0 -0.721059,0.170187 -0.376205,0.170188 -0.72106,0.434427 v 3.735176 h -0.841982 v -6.968745 h 0.841982 v 2.521467 q 0.39412,-0.326939 0.815111,-0.510563 0.420991,-0.183624 0.864375,-0.183624 0.810632,0 1.236101,0.488171 0.42547,0.48817 0.42547,1.406289 z"
+         id="text17"
+         style="font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#1a97f9;fill-rule:evenodd;stroke-width:0.264583"
+         aria-label="h" />
+      <path
+         d="m 17.936119,82.049498 h -3.685911 q 0,0.461298 0.138837,0.806153 0.138838,0.340375 0.380684,0.559828 0.232888,0.214974 0.550871,0.322461 0.322461,0.107487 0.707623,0.107487 0.510564,0 1.025606,-0.201538 0.519521,-0.206017 0.738973,-0.403076 h 0.04479 v 0.918118 q -0.42547,0.179146 -0.868854,0.300068 -0.443384,0.120923 -0.931555,0.120923 -1.245058,0 -1.943724,-0.671794 -0.698666,-0.676273 -0.698666,-1.916852 0,-1.227144 0.667315,-1.948204 0.671795,-0.721059 1.76458,-0.721059 1.01217,0 1.558562,0.591179 0.550872,0.591179 0.550872,1.679486 z M 17.11653,81.404575 q -0.0045,-0.662837 -0.335897,-1.025605 -0.32694,-0.362769 -0.998734,-0.362769 -0.676273,0 -1.07935,0.398598 -0.398598,0.398597 -0.452341,0.989776 z"
+         id="text18"
+         style="font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#1a97f9;fill-rule:evenodd;stroke-width:0.264583"
+         aria-label="e" />
     </g>
     <g
        id="g12-5"
@@ -200,44 +170,21 @@
          d="M 6.2832611,83.617209 C 11.637957,86.736744 16.976421,88.465841 24.816997,83.40823"
          id="path16-9-2-0"
          sodipodi:nodetypes="cc" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17222px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#eb0000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         x="11.889831"
-         y="67.629272"
-         id="text16-7"><tspan
-           sodipodi:role="line"
-           style="font-size:9.17222px;fill:#eb0000;fill-opacity:1;stroke-width:0.264583"
-           x="11.889831"
-           y="67.629272"
-           id="tspan19">M</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#eb0000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         x="12.772885"
-         y="76.25309"
-         id="text17-7"><tspan
-           sodipodi:role="line"
-           id="tspan17-5"
-           style="fill:#eb0000;fill-opacity:1;stroke-width:0.264583"
-           x="12.772885"
-           y="76.25309">A</tspan><tspan
-           sodipodi:role="line"
-           style="fill:#eb0000;fill-opacity:1;stroke-width:0.264583"
-           x="12.772885"
-           y="76.25309"
-           id="tspan20" /></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#eb0000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         x="12.390889"
-         y="85.521812"
-         id="text18-0"><tspan
-           sodipodi:role="line"
-           id="tspan18-6"
-           style="fill:#eb0000;fill-opacity:1;stroke-width:0.264583"
-           x="12.390889"
-           y="85.521812">N</tspan></text>
+      <path
+         d="m 18.72421,67.629272 h -0.886768 v -5.746073 l -1.85415,3.909838 h -0.528477 l -1.840714,-3.909838 v 5.746073 h -0.828546 v -6.668669 h 1.209228 l 1.778014,3.712778 1.719791,-3.712778 h 1.231622 z"
+         id="text16-7"
+         style="font-size:9.17222px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#eb0000;fill-rule:evenodd;stroke-width:0.264583"
+         aria-label="M" />
+      <path
+         d="M 18.92652,76.25309 H 17.981529 L 17.32765,74.394459 H 14.443413 L 13.789534,76.25309 H 12.88933 l 2.427416,-6.668677 h 1.182358 z m -1.872066,-2.619997 -1.168922,-3.273877 -1.173401,3.273877 z"
+         id="text17-7"
+         style="font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#eb0000;fill-rule:evenodd;stroke-width:0.264583"
+         aria-label="A&#10;" />
+      <path
+         d="M 18.374336,85.521812 H 17.277072 L 14.115161,79.55628 v 5.965532 h -0.828546 v -6.668676 h 1.374938 l 2.884237,5.446011 v -5.446011 h 0.828546 z"
+         id="text18-0"
+         style="font-size:9.17223px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#eb0000;fill-rule:evenodd;stroke-width:0.264583"
+         aria-label="N" />
     </g>
     <path
        style="fill:#666666;fill-rule:evenodd;stroke:#666666;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -278,18 +225,12 @@
          style="fill:#00d5e2;fill-opacity:1;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.264583;stroke-opacity:1"
          d="m 40.031714,73.440535 3.090683,-1.61893 -2.060456,3.679386 z"
          id="path25" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78252px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#ffd42a;fill-opacity:1;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-         x="18.185783"
-         y="86.957817"
+      <path
+         d="M 20.344849,86.957817 H 18.48314 v -0.386009 q 0.193928,-0.166224 0.387856,-0.332448 0.195775,-0.166224 0.363846,-0.330601 0.354611,-0.34353 0.485743,-0.544846 0.131133,-0.203162 0.131133,-0.437723 0,-0.214244 -0.142214,-0.334295 -0.140367,-0.121898 -0.393397,-0.121898 -0.168071,0 -0.363846,0.0591 -0.195775,0.0591 -0.382315,0.181 h -0.01847 v -0.387856 q 0.131133,-0.06464 0.349071,-0.118204 0.219785,-0.05356 0.424794,-0.05356 0.422948,0 0.66305,0.20501 0.240101,0.203162 0.240101,0.552233 0,0.156989 -0.04063,0.293662 -0.03879,0.134826 -0.116356,0.256724 -0.07203,0.11451 -0.169918,0.225326 -0.09604,0.110816 -0.234561,0.245642 -0.197622,0.193928 -0.408172,0.376775 -0.210551,0.180999 -0.393397,0.336141 h 1.479394 z"
          id="text25"
-         transform="matrix(0.95539449,-0.20051832,0.21041051,1.0025271,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan25"
-           style="font-size:3.78252px;fill:#ffd42a;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-           x="18.185783"
-           y="86.957817">2</tspan></text>
+         style="font-size:3.78252px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#ffd42a;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
+         transform="matrix(0.95539449,-0.20051832,0.21041051,1.0025271,0,0)"
+         aria-label="2" />
     </g>
     <g
        id="g23-4"
@@ -322,23 +263,12 @@
          style="fill:#00d5e2;fill-opacity:1;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.264583;stroke-opacity:1"
          d="m 42.599493,93.927332 3.090683,-1.61893 -2.060456,3.679386 z"
          id="path25-1" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78252px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#ffd42a;fill-opacity:1;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-         x="16.449415"
-         y="107.04568"
+      <path
+         d="m 18.366532,105.72143 q 0.08865,0.0794 0.145908,0.19946 0.05725,0.12006 0.05725,0.31029 0,0.18839 -0.06834,0.34538 -0.06834,0.15699 -0.192081,0.27334 -0.13852,0.12929 -0.326907,0.19208 -0.18654,0.061 -0.410019,0.061 -0.22902,0 -0.450652,-0.0554 -0.221632,-0.0536 -0.363846,-0.1182 v -0.38601 h 0.0277 q 0.156989,0.10343 0.369387,0.17177 0.212397,0.0683 0.410019,0.0683 0.116357,0 0.247489,-0.0388 0.131133,-0.0388 0.212398,-0.11451 0.08496,-0.0813 0.125591,-0.17916 0.04248,-0.0979 0.04248,-0.24748 0,-0.14776 -0.04802,-0.2438 -0.04617,-0.0979 -0.129285,-0.1533 -0.08311,-0.0573 -0.201316,-0.0776 -0.118204,-0.0222 -0.254877,-0.0222 h -0.166224 v -0.30659 h 0.129286 q 0.280734,0 0.446958,-0.11636 0.168071,-0.1182 0.168071,-0.34353 0,-0.0997 -0.04248,-0.17361 -0.04248,-0.0757 -0.118204,-0.12374 -0.07942,-0.048 -0.169918,-0.0665 -0.0905,-0.0185 -0.205009,-0.0185 -0.175459,0 -0.373081,0.0628 -0.197622,0.0628 -0.37308,0.17731 h -0.01847 v -0.38601 q 0.131133,-0.0646 0.349071,-0.1182 0.219785,-0.0554 0.424794,-0.0554 0.201316,0 0.354612,0.0369 0.153295,0.0369 0.27704,0.1182 0.132979,0.0887 0.201316,0.21424 0.06834,0.1256 0.06834,0.29367 0,0.22902 -0.16253,0.40078 -0.160683,0.16992 -0.380468,0.21425 v 0.0259 q 0.08865,0.0148 0.203162,0.0628 0.11451,0.0462 0.193928,0.11636 z"
          id="text25-4"
-         transform="matrix(0.95539448,-0.20051832,0.21041051,1.0025271,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan25-0"
-           style="font-size:3.78252px;fill:#ffd42a;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-           x="16.449415"
-           y="107.04568">3</tspan><tspan
-           sodipodi:role="line"
-           style="font-size:3.78252px;fill:#ffd42a;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-           x="16.449415"
-           y="107.04568"
-           id="tspan26" /></text>
+         style="font-size:3.78252px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#ffd42a;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
+         transform="matrix(0.95539448,-0.20051832,0.21041051,1.0025271,0,0)"
+         aria-label="3&#10;" />
     </g>
     <g
        id="g23-4-1"
@@ -371,23 +301,12 @@
          style="fill:#00d5e2;fill-opacity:1;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.264583;stroke-opacity:1"
          d="m 58.294396,111.75485 3.090683,-1.61893 -2.060456,3.67939 z"
          id="path25-1-3" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78252px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';writing-mode:lr-tb;direction:ltr;fill:#ffd42a;fill-opacity:1;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-         x="28.432882"
-         y="127.22512"
+      <path
+         d="M 30.434958,127.22512 H 28.94633 v -0.28073 h 0.572549 v -1.84324 H 28.94633 v -0.25119 q 0.116357,0 0.249336,-0.0185 0.132979,-0.0203 0.201316,-0.0572 0.08496,-0.0462 0.132979,-0.11636 0.04987,-0.072 0.05726,-0.19208 h 0.286275 v 2.47859 h 0.561467 z"
          id="text25-4-3"
-         transform="matrix(0.95539447,-0.20051832,0.21041051,1.0025271,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan25-0-5"
-           style="font-size:3.78252px;fill:#ffd42a;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-           x="28.432882"
-           y="127.22512">1</tspan><tspan
-           sodipodi:role="line"
-           style="font-size:3.78252px;fill:#ffd42a;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
-           x="28.432882"
-           y="127.22512"
-           id="tspan26-0" /></text>
+         style="font-size:3.78252px;line-height:0;font-family:'.Geeza Pro Interface';-inkscape-font-specification:'.Geeza Pro Interface';fill:#ffd42a;fill-rule:evenodd;stroke:#00d5e2;stroke-width:0.236407;stroke-opacity:0"
+         transform="matrix(0.95539447,-0.20051832,0.21041051,1.0025271,0,0)"
+         aria-label="1&#10;" />
     </g>
   </g>
 </svg>
