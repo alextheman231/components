@@ -30,6 +30,10 @@ const config: Array<UserConfig> = [
     outDir: "dist/form",
   },
   {
+    entry: ["src/icons/index.ts"],
+    outDir: "dist/icons",
+  },
+  {
     entry: ["src/QueryBoundary/index.ts"],
     outDir: "dist/QueryBoundary",
   },

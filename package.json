@@ -39,6 +39,10 @@
       "types": "./dist/form/index.d.ts",
       "import": "./dist/form/index.js"
     },
+    "./icons": {
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.js"
+    },
     "./routing": {
       "types": "./dist/routing/index.d.ts",
       "import": "./dist/routing/index.js"
