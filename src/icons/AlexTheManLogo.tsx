@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
 /** Renders the official logo of alextheman231. */
-function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
+function SvgIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
           style={{ lineHeight: "0" }}
           transform="scale(.97783 1.02268)"
         ></path>
-        <g id="g12" transform="translate(3.122 1.249)">
+        <g id="g12" transform="matrix(.80333 0 0 .79027 12.966 13.056)">
           <ellipse
             id="path12-7"
             cx="15.473"
@@ -134,7 +134,7 @@ function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
             style={{ lineHeight: "0" }}
           ></path>
         </g>
-        <g id="g12-5" transform="translate(70.345 1.09)">
+        <g id="g12-5" transform="matrix(.80333 0 0 .79027 66.968 12.93)">
           <ellipse
             id="path12-7-9"
             cx="15.473"
@@ -230,11 +230,10 @@ function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
           strokeLinecap="butt"
           strokeLinejoin="miter"
           strokeOpacity="1"
-          strokeWidth="0.265"
-          d="m-42.381 73.38 48.568-.147"
-          transform="translate(70.345 1.09)"
+          strokeWidth="0.211"
+          d="m32.922 70.921 39.016-.116"
         ></path>
-        <g id="g23" transform="rotate(10.822 53.939 67.879)">
+        <g id="g23" transform="matrix(.78905 .14838 -.15084 .77621 21.467 5.02)">
           <path
             id="path21"
             fill="#00d5e2"
@@ -286,7 +285,7 @@ function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
             transform="matrix(.9554 -.20052 .21041 1.00253 0 0)"
           ></path>
         </g>
-        <g id="g23-4" transform="rotate(10.822 171.72 142.838)">
+        <g id="g23-4" transform="matrix(.78905 .14838 -.15084 .77621 34.457 -11.404)">
           <path
             id="path21-4"
             fill="#00d5e2"
@@ -338,7 +337,7 @@ function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
             transform="matrix(.9554 -.20052 .21041 1.00253 0 0)"
           ></path>
         </g>
-        <g id="g23-4-1" transform="rotate(10.822 281.936 147.907)">
+        <g id="g23-4-1" transform="matrix(.78905 .14838 -.15084 .77621 36.796 -27.687)">
           <path
             id="path21-4-0"
             fill="#00d5e2"
@@ -395,4 +394,4 @@ function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export default AlexTheManLogo;
+export default SvgIcon;
