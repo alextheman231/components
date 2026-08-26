@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
 /** Renders the official logo of alextheman231. */
-function SvgIcon(props: SVGProps<SVGSVGElement>) {
+function AlexTheManLogo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -394,4 +394,4 @@ function SvgIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgIcon;
+export default AlexTheManLogo;
