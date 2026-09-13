@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import { az } from "@alextheman/utility";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -18,10 +19,13 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-interface DemoType {
-  firstName: string;
-  surname: string;
-}
+const formSchema = z.object({
+  firstName: z.string(),
+  surname: z.string(),
+  dateOfBirth: az.field(az.fieldDate()),
+});
+
+type DemoType = z.output<typeof formSchema>;
 
 export const Form: Story = {
   render: () => {
@@ -35,16 +39,13 @@ export const Form: Story = {
     });
 
     const form = useAppForm({
-      defaultValues: { firstName: "", surname: "" },
+      defaultValues: { firstName: "", surname: "", dateOfBirth: "" },
       onSubmit: async ({ value }) => {
         setSubmitted(true);
-        setData(value);
+        setData(az.with(formSchema).parse(value));
       },
       validators: {
-        onChange: z.object({
-          firstName: z.string(),
-          surname: z.string(),
-        }),
+        onChange: formSchema,
       },
     });
 
@@ -66,6 +67,11 @@ export const Form: Story = {
               <form.AppField name="surname">
                 {(field) => {
                   return <field.CustomField label="Surname" />;
+                }}
+              </form.AppField>
+              <form.AppField name="dateOfBirth">
+                {(field) => {
+                  return <field.DateField fullWidth label="Date of birth" />;
                 }}
               </form.AppField>
             </Stack>

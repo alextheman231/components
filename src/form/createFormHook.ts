@@ -3,11 +3,14 @@ import type { ComponentType } from "react";
 import { omitProperties } from "@alextheman/utility";
 import { createFormHook as createTanstackFormHook } from "@tanstack/react-form";
 
-import { SubmitButton, TextField } from "src/form";
+import DateField from "src/form/DateField";
 import { fieldContext, formContext } from "src/form/formHooks";
+import SubmitButton from "src/form/SubmitButton";
+import TextField from "src/form/TextField";
 
 export interface AlexFieldComponents {
   TextField: typeof TextField;
+  DateField: typeof DateField;
 }
 
 export interface AlexFormComponents {
@@ -36,6 +39,7 @@ function createFormHook<
     formContext,
     fieldComponents: {
       TextField,
+      DateField,
       ...options?.fieldComponents,
     } as AlexFieldComponents & FieldComponents,
     formComponents: {
