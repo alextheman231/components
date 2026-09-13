@@ -8,6 +8,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { formatISO, parseISO } from "date-fns";
 
 import { useFieldContext } from "src/form/formHooks";
+import combineHelperText from "src/form/helpers/combineHelperText";
 
 export interface DateFieldPropsBase {
   locale?: Locale;
@@ -42,7 +43,7 @@ export type DateFieldProps = DateFieldPropsBase & TextFieldProps;
  * </form.AppForm>
  * ```
  */
-function DateField({ locale, label, fullWidth, required, ...props }: DateFieldProps) {
+function DateField({ locale, label, fullWidth, required, helperText, ...props }: DateFieldProps) {
   const field = useFieldContext();
 
   let value = null;
@@ -79,8 +80,8 @@ function DateField({ locale, label, fullWidth, required, ...props }: DateFieldPr
         slotProps={{
           textField: {
             fullWidth,
-            error: field.state.meta.errors[0] !== undefined,
-            helperText: field.state.meta.errors[0] ?? "",
+            error: field.state.meta.errors.length !== 0,
+            helperText: combineHelperText(helperText, field.state.meta.errors),
             required,
           },
         }}

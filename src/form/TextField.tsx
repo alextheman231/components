@@ -3,6 +3,7 @@ import type { TextFieldProps as MUITextFieldProps } from "@mui/material/TextFiel
 import MUITextField from "@mui/material/TextField";
 
 import { useFieldContext } from "src/form/formHooks";
+import combineHelperText from "src/form/helpers/combineHelperText";
 
 /**
  * A text field component for use with TanStack Form's app form pattern. Must be used in a `<form.AppField />` context.
@@ -31,7 +32,7 @@ import { useFieldContext } from "src/form/formHooks";
  * </form.AppForm>
  * ```
  */
-function TextField({ label, type, ...props }: MUITextFieldProps) {
+function TextField({ label, type, helperText, ...props }: MUITextFieldProps) {
   const field = useFieldContext();
 
   return (
@@ -46,7 +47,7 @@ function TextField({ label, type, ...props }: MUITextFieldProps) {
       }}
       onBlur={field.handleBlur}
       placeholder={typeof label === "string" ? label : field.name}
-      helperText={field.state.meta.errors[0] ?? ""}
+      helperText={combineHelperText(helperText, field.state.meta.errors)}
     />
   );
 }
