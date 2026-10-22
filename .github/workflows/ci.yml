@@ -77,3 +77,14 @@ jobs:
           path: test-results/
           if-no-files-found: ignore
           retention-days: 30
+
+  secret-scan-ci:
+    permissions:
+      contents: read
+    uses: alextheman231/github-actions/.github/workflows/secret-scan-ci.yml@418c332315197ab9833fa7e2abf2bfb6475335d1 # v14.3.0
+    with:
+      github-push-before-sha: ${{ github.event.before }}
+      github-push-base-sha: ${{ github.event.base_ref }}
+      github-pull-base-sha: ${{ github.event.pull_request.base.sha }}
+    secrets:
+      GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
