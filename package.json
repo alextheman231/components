@@ -128,7 +128,7 @@
     "@typescript-eslint/types": "8.72.0",
     "@vitest/browser-playwright": "5.0.5",
     "@vitest/coverage-v8": "5.0.5",
-    "alex-c-line": "2.16.4",
+    "alex-c-line": "2.16.5",
     "dotenv-cli": "11.0.0",
     "esbuild": "0.28.2",
     "eslint": "10.13.0",
