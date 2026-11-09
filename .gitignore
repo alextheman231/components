@@ -18,3 +18,5 @@ alextheman-components-*
 /playwright/.auth/
 
 .alex-c-line.private.config.js
+
+.pdm-python
