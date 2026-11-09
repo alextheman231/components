@@ -13,14 +13,14 @@ permissions:
 
 jobs:
   package-ci:
-    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@6303ccc55913d70a641b50c97dc36475c5053c99 # v14.4.0
+    uses: alextheman231/github-actions/.github/workflows/package-ci.yml@7898ab5454a48b6f36571d438a73bbd65673f244 # v14.8.1
     with:
       use_playwright: true
 
   actions-ci:
     permissions:
       contents: read
-    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@bc8e87ed726b1680a46574b7de40ff2f3c364894 # v14.8.0
+    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@7898ab5454a48b6f36571d438a73bbd65673f244 # v14.8.1
     with:
       CLIENT_ID: ${{ vars.ALEX_UP_BOT_CLIENT_ID }}
     secrets:
@@ -29,7 +29,7 @@ jobs:
   pyproject-ci:
     permissions:
       contents: read
-    uses: alextheman231/github-actions/.github/workflows/pyproject-ci.yml@bc8e87ed726b1680a46574b7de40ff2f3c364894 # v14.8.0
+    uses: alextheman231/github-actions/.github/workflows/pyproject-ci.yml@7898ab5454a48b6f36571d438a73bbd65673f244 # v14.8.1
 
   end-to-end-ci:
     timeout-minutes: 60
@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: Use PNPM
-        uses: pnpm/action-setup@v6.1.0
+        uses: pnpm/action-setup@v6.1.1
         with:
           run_install: false
 
@@ -91,7 +91,7 @@ jobs:
   secret-scan-ci:
     permissions:
       contents: read
-    uses: alextheman231/github-actions/.github/workflows/secret-scan-ci.yml@6303ccc55913d70a641b50c97dc36475c5053c99 # v14.4.0
+    uses: alextheman231/github-actions/.github/workflows/secret-scan-ci.yml@7898ab5454a48b6f36571d438a73bbd65673f244 # v14.8.1
     with:
       github-push-before-sha: ${{ github.event.before }}
       github-push-base-sha: ${{ github.event.base_ref }}
