@@ -26,7 +26,8 @@ export interface QueryBoundaryNullablePropsWithNullable extends QueryBoundaryNul
 }
 
 export type QueryBoundaryNullableProps =
-  QueryBoundaryNullablePropsWithUndefinedOrNull | QueryBoundaryNullablePropsWithNullable;
+  | QueryBoundaryNullablePropsWithUndefinedOrNull
+  | QueryBoundaryNullablePropsWithNullable;
 
 /**
  * The component responsible for handling cases when the data provided may be missing.
