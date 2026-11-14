@@ -13,4 +13,5 @@ export interface QueryBoundaryNullableFallbackProps {
 }
 
 export type QueryBoundaryNullabilityFallbackProps =
-  QueryBoundaryUndefinedOrNullFallbackProps | QueryBoundaryNullableFallbackProps;
+  | QueryBoundaryUndefinedOrNullFallbackProps
+  | QueryBoundaryNullableFallbackProps;
