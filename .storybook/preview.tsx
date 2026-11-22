@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react-vite";
+
 import StoryWrapper from "../stories/helpers/StoryWrapper";
 
 const preview: Preview = {

@@ -1,6 +1,7 @@
+import { VersionNumber } from "@alextheman/utility";
 import { addons } from "storybook/manager-api";
 import { create } from "storybook/theming";
-import { VersionNumber } from "@alextheman/utility";
+
 import packageInfo from "../package.json" with { type: "json" };
 
 addons.setConfig({
