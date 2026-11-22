@@ -5,5 +5,3 @@ savePrefix: ""
 minimumReleaseAgeExclude:
   - "@alextheman/*"
   - alex-c-line
-overrides:
-  typescript: 6.0.3

@@ -97,7 +97,6 @@
   },
   "devDependencies": {
     "@alextheman/configs": "1.2.1",
-    "@alextheman/eslint-plugin": "5.18.9",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@mui/material": "9.5.0",
@@ -119,7 +118,6 @@
     "dotenv-cli": "11.1.0",
     "esbuild": "0.28.2",
     "eslint": "10.15.0",
-    "eslint-plugin-storybook": "10.6.7",
     "execa": "10.2.1",
     "globals": "17.14.0",
     "husky": "9.1.7",
@@ -136,7 +134,6 @@
     "tempy": "3.2.0",
     "tsdown": "0.23.7",
     "typescript": "7.0.2",
-    "typescript-eslint": "8.72.2",
     "unrun": "0.3.1",
     "vitest": "5.1.0",
     "wouter": "3.13.0"
