@@ -192,8 +192,8 @@ importers:
         version: 4.6.7
     devDependencies:
       '@alextheman/configs':
-        specifier: 1.2.1
-        version: 1.2.1(oxfmt@0.79.0)(oxlint-tsgolint@7.0.2008)(oxlint@1.94.0(oxlint-tsgolint@7.0.2008))(zod@4.6.7)
+        specifier: 1.3.0
+        version: 1.3.0(oxfmt@0.79.0)(oxlint-tsgolint@7.0.2008)(oxlint@1.94.0(oxlint-tsgolint@7.0.2008))(zod@4.6.7)
       '@emotion/react':
         specifier: 11.14.0
         version: 11.14.0(@types/react@19.3.0)(react@19.3.1)(supports-color@11.0.0)
@@ -320,8 +320,8 @@ packages:
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
 
-  '@alextheman/configs@1.2.1':
-    resolution: {integrity: sha512-HhDIrsG3lnKpmMF3SqxWtFcJa/VsWW3xSBnN+NR660/2jCyQaj0x2KFgmSVFgBk8+Fp1/dgkuIh9W/wvgk6Xsg==}
+  '@alextheman/configs@1.3.0':
+    resolution: {integrity: sha512-DuVZMkxJO2pNFFSid+bQgAkg1RkfwKobGiTikcsb6SezMqx57dzCaDMvsSWzYaa71piO5hoTtY9WSOg8wP75Ew==}
     peerDependencies:
       oxfmt: '>=0.79.0'
       oxlint: '>=1.94.0'
@@ -4095,7 +4095,7 @@ snapshots:
 
   '@adobe/css-tools@4.5.0': {}
 
-  '@alextheman/configs@1.2.1(oxfmt@0.79.0)(oxlint-tsgolint@7.0.2008)(oxlint@1.94.0(oxlint-tsgolint@7.0.2008))(zod@4.6.7)':
+  '@alextheman/configs@1.3.0(oxfmt@0.79.0)(oxlint-tsgolint@7.0.2008)(oxlint@1.94.0(oxlint-tsgolint@7.0.2008))(zod@4.6.7)':
     dependencies:
       '@alextheman/utility': 5.32.2(zod@4.6.7)
     optionalDependencies:
