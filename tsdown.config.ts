@@ -14,59 +14,26 @@ const baseConfig: UserConfig = {
 
 const config: Array<UserConfig> = [
   {
-    entry: ["src/audio/index.ts"],
-    outDir: "dist/audio",
-  },
-  {
-    entry: ["src/DropdownMenu/index.ts"],
-    outDir: "dist/DropdownMenu",
-  },
-  {
-    entry: ["src/file/index.ts"],
-    outDir: "dist/file",
-  },
-  {
-    entry: ["src/form/index.ts"],
-    outDir: "dist/form",
-  },
-  {
-    entry: ["src/icons/index.ts"],
-    outDir: "dist/icons",
-  },
-  {
-    entry: ["src/QueryBoundary/index.ts"],
-    outDir: "dist/QueryBoundary",
-  },
-  {
-    entry: ["src/root/index.ts"],
+    entry: "src/root/index.ts",
     outDir: "dist",
-  },
-  {
-    entry: ["src/routing/index.ts"],
-    outDir: "dist/routing",
-  },
-  {
-    entry: ["src/snackbar/index.ts"],
-    outDir: "dist/snackbar",
-  },
-  {
-    entry: ["src/Tab/index.ts"],
-    outDir: "dist/Tab",
-  },
-  {
-    entry: ["src/theme/index.ts"],
-    outDir: "dist/theme",
-  },
-  {
-    entry: ["src/v8/theme/index.ts"],
-    outDir: "dist/v8/theme",
-  },
-].map(({ entry, outDir }) => {
-  return {
-    entry,
-    outDir,
     ...baseConfig,
-  };
-});
+  },
+  {
+    entry: [
+      "src/audio/index.ts",
+      "src/DropdownMenu/index.ts",
+      "src/file/index.ts",
+      "src/form/index.ts",
+      "src/icons/index.ts",
+      "src/QueryBoundary/index.ts",
+      "src/routing/index.ts",
+      "src/snackbar/index.ts",
+      "src/Tab/index.ts",
+      "src/theme/index.ts",
+      "src/v8/theme/index.ts",
+    ],
+    ...baseConfig,
+  },
+];
 
 export default config;
