@@ -82,16 +82,16 @@ export const RefForwarding: Story = {
   },
 };
 
+function CustomLink({ ref, to, children, ...props }: InternalLinkProps) {
+  return (
+    <a ref={ref} href={to} {...props}>
+      {children}
+    </a>
+  );
+}
+
 export const RefForwardingWithComponentProp: Story = {
   render: () => {
-    function CustomLink({ ref, to, children, ...props }: InternalLinkProps) {
-      return (
-        <a ref={ref} href={to} {...props}>
-          {children}
-        </a>
-      );
-    }
-
     const ref = useRef<HTMLAnchorElement>(null);
 
     return (
@@ -149,6 +149,6 @@ export const MaterialUIComponentPropIntegration: Story = {
     await userEvent.tab();
 
     await expect(link).toHaveFocus();
-    expect(link).toHaveAttribute("tabindex", "0");
+    await expect(link).toHaveAttribute("tabindex", "0");
   },
 };

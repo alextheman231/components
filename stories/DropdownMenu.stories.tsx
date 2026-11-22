@@ -128,7 +128,7 @@ export const ItemDefaultPrevention: Story = {
     );
   },
   play: async ({ userEvent, canvas }) => {
-    expect(
+    await expect(
       canvas.getByText("The persistent DropdownMenu item has been clicked 0 times"),
     ).toBeInTheDocument();
 

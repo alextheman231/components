@@ -32,20 +32,24 @@ function Search({
       label="Search"
       {...textFieldProps}
       slotProps={{
-        input: {
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                onClick={() => {
-                  handleSearch(rawSearch);
-                }}
-                aria-label="Submit search"
-              >
-                <MdSearch />
-              </IconButton>
-            </InputAdornment>
-          ),
-          ...slotProps?.input,
+        input: (...args) => {
+          return {
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() => {
+                    void handleSearch(rawSearch);
+                  }}
+                  aria-label="Submit search"
+                >
+                  <MdSearch />
+                </IconButton>
+              </InputAdornment>
+            ),
+            ...(typeof slotProps?.input === "function"
+              ? slotProps.input(...args)
+              : slotProps?.input),
+          };
         },
         ...omitProperties(slotProps ?? {}, "input"),
       }}

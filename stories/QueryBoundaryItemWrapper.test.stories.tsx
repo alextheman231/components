@@ -4,7 +4,7 @@ import type { QueryBoundaryItemWrapperProps } from "src/QueryBoundary";
 
 import { DataError } from "@alextheman/utility/v6";
 import { expect } from "storybook/test";
-import { vi } from "vitest";
+import { vitest } from "vitest";
 
 import { QueryBoundaryItemWrapper } from "src/QueryBoundary";
 
@@ -26,12 +26,12 @@ function render<DataType>(props: QueryBoundaryItemWrapperProps<DataType>) {
   );
 }
 
-let consoleSpy: ReturnType<typeof vi.spyOn>;
+let consoleSpy: ReturnType<typeof vitest.spyOn>;
 
 export const ErrorWithLog: Story = {
   decorators: [
     (Story) => {
-      consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      consoleSpy = vitest.spyOn(console, "error").mockImplementation(() => {});
       return <Story />;
     },
   ],

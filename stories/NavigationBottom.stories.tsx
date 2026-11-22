@@ -13,19 +13,17 @@ const meta: Meta<typeof NavigationBottom> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+function NestedRouter() {
+  return (
+    <Switch>
+      <Route path="/second">
+        This is the nested second page <InternalLink to="/third">with a secret link</InternalLink>
+      </Route>
+    </Switch>
+  );
+}
 export const Main: Story = {
   render: () => {
-    function NestedRouter() {
-      return (
-        <Switch>
-          <Route path="/second">
-            This is the nested second page{" "}
-            <InternalLink to="/third">with a secret link</InternalLink>
-          </Route>
-        </Switch>
-      );
-    }
-
     return (
       <MemoryRouter>
         <NavigationBottom
@@ -53,21 +51,21 @@ export const Main: Story = {
   },
   play: async ({ userEvent, canvas }) => {
     const firstPageLink = canvas.getByText("First");
-    expect(firstPageLink.className).not.toContain("Mui-selected");
+    await expect(firstPageLink.className).not.toContain("Mui-selected");
     await userEvent.click(firstPageLink);
     await canvas.findByText("This is the first page");
-    expect(canvas.getByText("First").className).toContain("Mui-selected");
+    await expect(canvas.getByText("First").className).toContain("Mui-selected");
 
     const secondPageLink = canvas.getByText("Second");
-    expect(secondPageLink.className).not.toContain("Mui-selected");
+    await expect(secondPageLink.className).not.toContain("Mui-selected");
     await userEvent.click(secondPageLink);
     await canvas.findByText("This is the nested second page");
-    expect(canvas.getByText("Second").className).toContain("Mui-selected");
+    await expect(canvas.getByText("Second").className).toContain("Mui-selected");
 
     const thirdPageLink = canvas.getByRole("link", { name: "with a secret link" });
     await userEvent.click(thirdPageLink);
     await canvas.findByText("This is the third page");
-    expect(canvas.getByText("First").className).not.toContain("Mui-selected");
-    expect(canvas.getByText("Second").className).not.toContain("Mui-selected");
+    await expect(canvas.getByText("First").className).not.toContain("Mui-selected");
+    await expect(canvas.getByText("Second").className).not.toContain("Mui-selected");
   },
 };

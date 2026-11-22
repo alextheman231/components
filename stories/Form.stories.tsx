@@ -52,9 +52,9 @@ export const Form: Story = {
     if (!submitted) {
       return (
         <form
-          onSubmit={(event) => {
+          onSubmit={async (event) => {
             event.preventDefault();
-            form.handleSubmit();
+            await form.handleSubmit();
           }}
         >
           <CardContent>

@@ -1,15 +1,15 @@
 import type { UserConfig } from "tsdown";
 
 const baseConfig: UserConfig = {
-  format: ["esm"],
-  dts: true,
+  clean: true,
   deps: {
     neverBundle: ["react"],
   },
-  clean: true,
+  dts: true,
+  fixedExtension: false,
+  format: ["esm"],
   minify: true,
   sourcemap: true,
-  fixedExtension: false,
 };
 
 const config: Array<UserConfig> = [

@@ -5,7 +5,7 @@ import MUILink from "@mui/material/Link";
 
 export interface ExternalLinkProps extends Omit<LinkProps, "to" | "target" | "rel"> {
   /** The URL of the place you want to navigate to. */
-  href: `https://${string}` | `http://${string}` | (string & {});
+  href: string;
   to?: never;
   /** The readable content to display on the link. */
   children: ReactNode;

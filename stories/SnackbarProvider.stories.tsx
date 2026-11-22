@@ -13,22 +13,22 @@ const meta: Meta<typeof SnackbarProvider> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+function SnackbarConsumer() {
+  const { addSnackbar } = useSnackbarContext();
+
+  return (
+    <Button
+      onClick={() => {
+        addSnackbar("Snackbar is active", { severity: "success" });
+      }}
+    >
+      Add Snackbar
+    </Button>
+  );
+}
+
 export const Main: Story = {
   render: () => {
-    function SnackbarConsumer() {
-      const { addSnackbar } = useSnackbarContext();
-
-      return (
-        <Button
-          onClick={() => {
-            addSnackbar("Snackbar is active", { severity: "success" });
-          }}
-        >
-          Add Snackbar
-        </Button>
-      );
-    }
-
     return (
       <SnackbarProvider>
         <Snackbars />
