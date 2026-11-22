@@ -1,4 +1,4 @@
-import type { CreateEnumType } from "@alextheman/utility";
+import type { ObjectValue } from "@alextheman/utility";
 import type { ButtonOwnProps } from "@mui/material/Button";
 
 import Button from "@mui/material/Button";
@@ -17,7 +17,7 @@ export const FileType = {
   MP4: "video/mp4",
   WAV: "audio/wav",
 } as const;
-export type FileType = CreateEnumType<typeof FileType>;
+export type FileType = ObjectValue<typeof FileType>;
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
