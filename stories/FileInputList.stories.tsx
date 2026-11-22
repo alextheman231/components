@@ -35,7 +35,7 @@ export const Main: Story = {
 
     await userEvent.click(deleteButton);
     await waitFor(() => {
-      expect(canvas.queryByText("hello.pdf")).not.toBeInTheDocument();
+      void expect(canvas.queryByText("hello.pdf")).not.toBeInTheDocument();
     });
   },
 };
@@ -70,8 +70,8 @@ export const Multiple: Story = {
     await userEvent.click(secondDeleteButton);
 
     await waitFor(() => {
-      expect(canvas.queryByText("world.pdf")).not.toBeInTheDocument();
+      void expect(canvas.queryByText("world.pdf")).not.toBeInTheDocument();
     });
-    expect(canvas.getByText("hello.pdf")).toBeInTheDocument();
+    await expect(canvas.getByText("hello.pdf")).toBeInTheDocument();
   },
 };

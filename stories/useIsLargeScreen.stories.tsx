@@ -13,18 +13,17 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+function Consumer() {
+  const isLargeScreen = useIsLargeScreen();
+
+  return (
+    <>
+      <Typography id="large-screen-text">Size: {isLargeScreen ? "Large" : "Small"}</Typography>
+    </>
+  );
+}
 export const Main: Story = {
   render: () => {
-    function Consumer() {
-      const isLargeScreen = useIsLargeScreen();
-
-      return (
-        <>
-          <Typography id="large-screen-text">Size: {isLargeScreen ? "Large" : "Small"}</Typography>
-        </>
-      );
-    }
-
     return (
       <ThemeProvider>
         <Consumer />

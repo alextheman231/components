@@ -141,19 +141,18 @@ export const InvalidNested: Story = {
     await canvas.findByText("Please choose a link");
   },
 };
+function SignInPage() {
+  const [location] = useAbsoluteLocation();
+  return (
+    <>
+      <Typography>This is the sign-in page</Typography>
+      <Typography>Current location: {location}</Typography>
+    </>
+  );
+}
 
 export const NestedLink: Story = {
   render: () => {
-    function SignInPage() {
-      const [location] = useAbsoluteLocation();
-      return (
-        <>
-          <Typography>This is the sign-in page</Typography>
-          <Typography>Current location: {location}</Typography>
-        </>
-      );
-    }
-
     return (
       <MemoryRouter>
         <Switch>
@@ -270,7 +269,7 @@ export const ParametricRoute: Story = {
     const invalidLink = canvas.getByRole("link", { name: "Fake link to user details" });
     await userEvent.click(invalidLink);
     await canvas.findByText("Page Not Found");
-    expect(canvas.queryByText(`This is the page for user with ID`)).not.toBeInTheDocument();
+    await expect(canvas.queryByText(`This is the page for user with ID`)).not.toBeInTheDocument();
     await userEvent.click(canvas.getByRole("link", { name: "here" }));
     await canvas.findByText("Please choose a link");
   },

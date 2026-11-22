@@ -58,7 +58,7 @@ test.describe("Artwork", () => {
       }
 
       tempPackageInfo.scripts = {
-        ...(tempPackageInfo.scripts ?? {}),
+        ...tempPackageInfo.scripts,
         build: "esbuild Artwork.tsx --bundle --format=esm --jsx=automatic --outfile=index.js",
       };
 

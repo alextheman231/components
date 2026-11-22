@@ -38,7 +38,7 @@ function SelectInput<ValueType extends string = string>({
         {...props}
         labelId={inputId}
         onChange={(event) => {
-          onChange(event.target.value as ValueType);
+          void onChange(event.target.value as ValueType);
         }}
         label={label}
       >

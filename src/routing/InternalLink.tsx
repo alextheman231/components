@@ -6,7 +6,7 @@ import { Link as WouterLink } from "wouter";
 
 export interface InternalLinkProps extends Omit<LinkProps, "href" | "component"> {
   /** The path to navigate to */
-  to: `/${string}` | `~/${string}` | (string & {});
+  to: string;
   /**
    * An optional component to provide to override the current component.
    *

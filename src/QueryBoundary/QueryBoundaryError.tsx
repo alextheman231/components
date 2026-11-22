@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import { containsKeys } from "@alextheman/utility";
 import Alert from "@mui/material/Alert";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export interface QueryBoundaryErrorProps {
   /** The component to show if an error has been thrown. */
@@ -21,18 +21,17 @@ export interface QueryBoundaryErrorProps {
 function QueryBoundaryError({ children, data, error, logError }: QueryBoundaryErrorProps) {
   const warnedOnceRef = useRef(false);
 
-  if (error) {
-    if (logError && !warnedOnceRef.current) {
-      if (data !== null && data !== undefined) {
-        console.error(
-          "An error has occurred but data is still present. This may indicate an invalid query state.",
-          { data, error },
-        );
-      } else {
-        console.error(error);
-      }
-      warnedOnceRef.current = true;
+  useEffect(() => {
+    if (!error || !logError || warnedOnceRef.current) {
+      return;
+    } else {
+      console.error(error);
     }
+    warnedOnceRef.current = true;
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies -- The data dependency should maybe be there as it may change dependening on the error state.
+  }, [data, error, logError]);
+
+  if (error) {
     if (typeof children === "function") {
       return children(error);
     }

@@ -48,7 +48,7 @@ function DateField({ locale, label, fullWidth, required, helperText, ...props }:
 
   let value = null;
   if (field.state.value instanceof Date) {
-    // eslint-disable-next-line prefer-destructuring -- It won't work here as value is a mutable variable assigned above.
+    // oxlint-disable-next-line prefer-destructuring -- It won't work here as value is a mutable variable assigned above.
     value = field.state.value;
   } else if (field.state.value === "") {
     value = null;

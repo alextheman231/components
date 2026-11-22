@@ -84,6 +84,7 @@ function CollapsibleItem({
                 textAlign: "center",
                 "&:hover":
                   ButtonComponent === ButtonBase ? { backgroundColor: "action.hover" } : null,
+                // oxlint-disable-next-line typescript/no-misused-spread -- This is probably an issue but I have to deal with functions and arrays... This is a very old component anyway so I won't fix it until I really need to.
                 ...buttonStyles,
               }
             : buttonStyles
